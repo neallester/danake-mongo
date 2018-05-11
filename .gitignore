@@ -2,6 +2,8 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+sourcery.sh
+
 ## Build generated
 build/
 DerivedData/
@@ -21,6 +23,9 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+
+# emacs temp file
+*~
 
 ## OSX
 
@@ -42,6 +47,7 @@ playground.xcworkspace
 # Packages/
 # Package.pins
 .build/
+Package.resolved
 
 # CocoaPods
 #

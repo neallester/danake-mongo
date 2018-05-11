@@ -1397,6 +1397,7 @@
 			buildPhases = (
 				OBJ_432 /* Sources */,
 				OBJ_435 /* Frameworks */,
+				089543DA20A525E000B3D6CE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1459,6 +1460,22 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		089543DA20A525E000B3D6CE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = $SRCROOT/sourcery.sh;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		OBJ_168 /* Sources */ = {
