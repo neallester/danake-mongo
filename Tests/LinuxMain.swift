@@ -2,7 +2,7 @@
 // DO NOT EDIT
 
 import XCTest
-@testable import danakeTests
+@testable import danakeMongoTests
 
 extension DanakeMongoTests {
   static var allTests = [
