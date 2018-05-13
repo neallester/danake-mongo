@@ -1,7 +1,6 @@
 
 import MongoKitten
 import danake
-import danake
 import Foundation
 import BSON
 
