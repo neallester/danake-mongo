@@ -1,9 +1,9 @@
 import XCTest
 
 #if !os(macOS)
-public func allTests() -> [XCTestCaseEntry] {
-    return [
-        testCase(danakeMongoTests.allTests),
-    ]
-}
+//public func allTests() -> [XCTestCaseEntry] {
+//    return [
+//        testCase(danakeMongoTests.allTests),
+//    ]
+//}
 #endif
