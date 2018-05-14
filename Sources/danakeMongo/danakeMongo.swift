@@ -56,8 +56,27 @@ class MongoAccessor : DatabaseAccessor {
         return .error ("not implemented")
     }
     
-    func isValidCollectionName(name: CollectionName) -> ValidationResult {
-        return .error ("not implemented")
+    func isValidCollectionName(_ name: CollectionName) -> ValidationResult {
+        if name.count == 0 {
+            return .error ("name may not be empty")
+        }
+        if name.hasPrefix("system") {
+            return .error ("name cannot start with \"system\"")
+        }
+        let legalFirstCharacters = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        let firstCharacter = name[name.startIndex]
+        if !legalFirstCharacters.contains(firstCharacter) {
+            return .error ("name must start with one of the following characters: \(legalFirstCharacters)")
+        }
+        let illegalCharacters = " $\0"
+        var containsIllegalCharacters = false
+        for character in illegalCharacters {
+            containsIllegalCharacters = containsIllegalCharacters || name.contains(character)
+        }
+        if containsIllegalCharacters {
+            return .error ("name cannot contain '$', ' ' or the null character (\\0)")
+        }
+        return .ok
     }
     
     func hashValue() -> String {

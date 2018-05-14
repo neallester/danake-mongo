@@ -131,6 +131,40 @@ final class DanakeMongoTests: XCTestCase {
         clearTestDatabase()
     }
     
+    public func testIsValidCollectionName() {
+        if let connectionString = connectionString() {
+            do {
+                let accessor = try MongoAccessor (dbConnectionString: connectionString, logger: nil)
+                XCTAssertEqual ("error(\"name may not be empty\")", "\(accessor.isValidCollectionName(""))")
+                XCTAssertEqual ("error(\"name cannot start with \\\"system\\\"\")", "\(accessor.isValidCollectionName("system"))")
+                XCTAssertEqual ("error(\"name cannot start with \\\"system\\\"\")", "\(accessor.isValidCollectionName("systemCollection"))")
+                XCTAssertEqual ("error(\"name must start with one of the following characters: _abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\")", "\(accessor.isValidCollectionName(".name"))")
+                XCTAssertEqual ("error(\"name must start with one of the following characters: _abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\")", "\(accessor.isValidCollectionName("3name"))")
+                XCTAssertEqual ("error(\"name must start with one of the following characters: _abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\")", "\(accessor.isValidCollectionName("-name"))")
+                XCTAssertEqual ("error(\"name must start with one of the following characters: _abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\")", "\(accessor.isValidCollectionName("*name"))")
+                XCTAssertEqual ("error(\"name must start with one of the following characters: _abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\")", "\(accessor.isValidCollectionName("^name"))")
+                XCTAssertEqual ("error(\"name must start with one of the following characters: _abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\")", "\(accessor.isValidCollectionName("$name"))")
+                XCTAssertEqual ("error(\"name cannot contain \\'$\\', \\' \\' or the null character (\\\\0)\")", "\(accessor.isValidCollectionName("name$"))")
+                XCTAssertEqual ("error(\"name cannot contain \\'$\\', \\' \\' or the null character (\\\\0)\")", "\(accessor.isValidCollectionName("name "))")
+                XCTAssertEqual ("error(\"name cannot contain \\'$\\', \\' \\' or the null character (\\\\0)\")", "\(accessor.isValidCollectionName("name\0"))")
+                XCTAssertEqual ("error(\"name cannot contain \\'$\\', \\' \\' or the null character (\\\\0)\")", "\(accessor.isValidCollectionName("name$ after"))")
+                XCTAssertEqual ("error(\"name cannot contain \\'$\\', \\' \\' or the null character (\\\\0)\")", "\(accessor.isValidCollectionName("name after"))")
+                XCTAssertEqual ("error(\"name cannot contain \\'$\\', \\' \\' or the null character (\\\\0)\")", "\(accessor.isValidCollectionName("name\0after"))")
+                XCTAssertEqual ("error(\"name cannot contain \\'$\\', \\' \\' or the null character (\\\\0)\")", "\(accessor.isValidCollectionName("name$\0 after"))")
+                XCTAssertEqual ("ok", "\(accessor.isValidCollectionName("_"))")
+                XCTAssertEqual ("ok", "\(accessor.isValidCollectionName("a"))")
+                XCTAssertEqual ("ok", "\(accessor.isValidCollectionName("collection_name"))")
+                XCTAssertEqual ("ok", "\(accessor.isValidCollectionName("_collection_name"))")
+
+            } catch {
+                XCTFail("No Error expected but got \(error)")
+            }
+        } else {
+            XCTFail("No Connection String")
+        }
+        clearTestDatabase()
+    }
+    
     public func clearTestDatabase () {
         if let connectionString = connectionString() {
             do {
