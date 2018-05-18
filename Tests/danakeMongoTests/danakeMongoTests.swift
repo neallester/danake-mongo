@@ -126,6 +126,7 @@ final class DanakeMongoTests: XCTestCase {
                     usleep (100000)
                     count = try metadataCollection.count()
                 }
+                XCTAssertEqual (2, count)
             } catch {
                 XCTFail("No Error expected but got \(error)")
             }
