@@ -145,6 +145,7 @@ final class DanakeMongoTests: XCTestCase {
     }
     
     public func testIsValidCollectionName() {
+        clearTestDatabase()
         if let connectionString = connectionString() {
             do {
                 let accessor = try MongoAccessor (dbConnectionString: connectionString, logger: nil)
