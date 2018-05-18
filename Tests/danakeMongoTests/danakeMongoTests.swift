@@ -118,6 +118,18 @@ final class DanakeMongoTests: XCTestCase {
                 XCTFail("No Error expected but got \(error)")
             }
             do {
+                let database = try MongoKitten.Database(connectionString)
+                let metadataCollection = database[MongoAccessor.metadataCollectionName]
+                var count = try metadataCollection.count()
+                let endTime = Date().timeIntervalSince1970 + 30.0
+                while count != 2 && (Date().timeIntervalSince1970 < endTime) {
+                    usleep (100000)
+                    count = try metadataCollection.count()
+                }
+            } catch {
+                XCTFail("No Error expected but got \(error)")
+            }
+            do {
                 let _ = try MongoAccessor (dbConnectionString: connectionString, logger: logger)
                 XCTFail ("Expected Error")
             } catch {
