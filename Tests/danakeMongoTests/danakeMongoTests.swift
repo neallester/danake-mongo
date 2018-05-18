@@ -123,7 +123,7 @@ final class DanakeMongoTests: XCTestCase {
                 var count = try metadataCollection.count()
                 let endTime = Date().timeIntervalSince1970 + 30.0
                 while count != 2 && (Date().timeIntervalSince1970 < endTime) {
-                    usleep (100000)
+                    usleep (3000000)
                     count = try metadataCollection.count()
                 }
                 XCTAssertEqual (2, count)
@@ -181,11 +181,28 @@ final class DanakeMongoTests: XCTestCase {
     
     public func clearTestDatabase () {
         if let connectionString = connectionString() {
-            do {
-                let database = try MongoKitten.Database(connectionString)
-                let collection = database[MongoAccessor.metadataCollectionName]
-                try collection.remove()
-            } catch {}
+            clearCollection(connectionString: connectionString, name: MongoAccessor.metadataCollectionName)
+        } else {
+            XCTFail ("Expected connectionString")
+        }
+    }
+    
+    public func clearCollection (connectionString: String, name: String) {
+        do {
+            var database = try MongoKitten.Database(connectionString)
+            var collection = database[MongoAccessor.metadataCollectionName]
+            try collection.remove()
+            database = try MongoKitten.Database(connectionString)
+            collection = database[MongoAccessor.metadataCollectionName]
+            var count = try collection.count()
+            let endTime = Date().timeIntervalSince1970 + 30.0
+            while count > 0 && (Date().timeIntervalSince1970 < endTime) {
+                usleep (3000000)
+                count = try collection.count()
+            }
+            XCTAssertEqual (0, count)
+        } catch {
+            XCTFail ("Expected success but got \(error)")
         }
     }
     
