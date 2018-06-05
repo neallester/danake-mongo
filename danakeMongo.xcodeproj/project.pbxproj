@@ -144,9 +144,9 @@
 		OBJ_363 /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "BSON::BSON::Product" /* BSON.framework */; };
 		OBJ_372 /* Schrodinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* Schrodinger.swift */; };
 		OBJ_379 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_94 /* Package.swift */; };
-		OBJ_385 /* EntityReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_145 /* EntityReference.swift */; };
+		OBJ_385 /* EntityCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_145 /* EntityCache.swift */; };
 		OBJ_386 /* InMemoryAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_146 /* InMemoryAccessor.swift */; };
-		OBJ_387 /* PersistentCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_147 /* PersistentCollection.swift */; };
+		OBJ_387 /* ReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_147 /* ReferenceManager.swift */; };
 		OBJ_388 /* batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_148 /* batch.swift */; };
 		OBJ_389 /* database.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_149 /* database.swift */; };
 		OBJ_390 /* entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_150 /* entity.swift */; };
@@ -178,273 +178,273 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0829C05620AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Schrodinger::Schrodinger";
-			remoteInfo = Schrodinger;
-		};
-		0829C05720AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "CryptoKitten::CryptoKitten";
-			remoteInfo = CryptoKitten;
-		};
-		0829C05820AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Cheetah::Cheetah";
-			remoteInfo = Cheetah;
-		};
-		0829C05920AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "BSON::BSON";
-			remoteInfo = BSON;
-		};
-		0829C05A20AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Schrodinger::Schrodinger";
-			remoteInfo = Schrodinger;
-		};
-		0829C05B20AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "CryptoKitten::CryptoKitten";
-			remoteInfo = CryptoKitten;
-		};
-		0829C05C20AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Cheetah::Cheetah";
-			remoteInfo = Cheetah;
-		};
-		0829C05D20AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "BSON::BSON";
-			remoteInfo = BSON;
-		};
-		0829C05E20AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C56F20C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoKitten::ExtendedJSON";
 			remoteInfo = ExtendedJSON;
 		};
-		0829C05F20AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C57020C7433100D98D3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Schrodinger::Schrodinger";
+			remoteInfo = Schrodinger;
+		};
+		08A5C57120C7433100D98D3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "CryptoKitten::CryptoKitten";
+			remoteInfo = CryptoKitten;
+		};
+		08A5C57220C7433100D98D3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Cheetah::Cheetah";
+			remoteInfo = Cheetah;
+		};
+		08A5C57320C7433100D98D3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "BSON::BSON";
+			remoteInfo = BSON;
+		};
+		08A5C57420C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoKitten::MongoSocket";
 			remoteInfo = MongoSocket;
 		};
-		0829C06020AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C57520C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Schrodinger::Schrodinger";
 			remoteInfo = Schrodinger;
 		};
-		0829C06120AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C57620C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "CryptoKitten::CryptoKitten";
 			remoteInfo = CryptoKitten;
 		};
-		0829C06220AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C57720C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Cheetah::Cheetah";
 			remoteInfo = Cheetah;
 		};
-		0829C06320AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C57820C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "BSON::BSON";
 			remoteInfo = BSON;
 		};
-		0829C06420AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C57920C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoKitten::GeoJSON";
 			remoteInfo = GeoJSON;
 		};
-		0829C06520AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C57A20C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Schrodinger::Schrodinger";
 			remoteInfo = Schrodinger;
 		};
-		0829C06620AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C57B20C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "CryptoKitten::CryptoKitten";
 			remoteInfo = CryptoKitten;
 		};
-		0829C06720AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C57C20C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Cheetah::Cheetah";
 			remoteInfo = Cheetah;
 		};
-		0829C06820AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C57D20C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "BSON::BSON";
 			remoteInfo = BSON;
 		};
-		0829C06920AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C57E20C7433100D98D3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Schrodinger::Schrodinger";
+			remoteInfo = Schrodinger;
+		};
+		08A5C57F20C7433100D98D3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "CryptoKitten::CryptoKitten";
+			remoteInfo = CryptoKitten;
+		};
+		08A5C58020C7433100D98D3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Cheetah::Cheetah";
+			remoteInfo = Cheetah;
+		};
+		08A5C58120C7433100D98D3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "BSON::BSON";
+			remoteInfo = BSON;
+		};
+		08A5C58220C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoKitten::MongoKitten";
 			remoteInfo = MongoKitten;
 		};
-		0829C06A20AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C58320C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoKitten::MongoSocket";
 			remoteInfo = MongoSocket;
 		};
-		0829C06B20AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C58420C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoKitten::GeoJSON";
 			remoteInfo = GeoJSON;
 		};
-		0829C06C20AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C58520C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoKitten::ExtendedJSON";
 			remoteInfo = ExtendedJSON;
 		};
-		0829C06D20AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C58620C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Schrodinger::Schrodinger";
 			remoteInfo = Schrodinger;
 		};
-		0829C06E20AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C58720C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "CryptoKitten::CryptoKitten";
 			remoteInfo = CryptoKitten;
 		};
-		0829C06F20AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C58820C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Cheetah::Cheetah";
 			remoteInfo = Cheetah;
 		};
-		0829C07020AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C58920C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "BSON::BSON";
 			remoteInfo = BSON;
 		};
-		0829C07120AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C58A20C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "danake::danake";
 			remoteInfo = danake;
 		};
-		0829C07220AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C58B20C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "danakeMongo::danakeMongo";
 			remoteInfo = danakeMongo;
 		};
-		0829C07320AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C58C20C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoKitten::MongoKitten";
 			remoteInfo = MongoKitten;
 		};
-		0829C07420AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C58D20C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoKitten::MongoSocket";
 			remoteInfo = MongoSocket;
 		};
-		0829C07520AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C58E20C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoKitten::GeoJSON";
 			remoteInfo = GeoJSON;
 		};
-		0829C07620AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C58F20C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoKitten::ExtendedJSON";
 			remoteInfo = ExtendedJSON;
 		};
-		0829C07720AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C59020C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Schrodinger::Schrodinger";
 			remoteInfo = Schrodinger;
 		};
-		0829C07820AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C59120C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "CryptoKitten::CryptoKitten";
 			remoteInfo = CryptoKitten;
 		};
-		0829C07920AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C59220C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Cheetah::Cheetah";
 			remoteInfo = Cheetah;
 		};
-		0829C07A20AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C59320C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "BSON::BSON";
 			remoteInfo = BSON;
 		};
-		0829C07B20AF30CD00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C59420C7433100D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "danake::danake";
 			remoteInfo = danake;
 		};
-		0829C07C20AF30CE00FF5BEC /* PBXContainerItemProxy */ = {
+		08A5C59520C7433200D98D3B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -503,9 +503,9 @@
 		OBJ_140 /* Optional+BSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+BSON.swift"; sourceTree = "<group>"; };
 		OBJ_141 /* RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpression.swift; sourceTree = "<group>"; };
 		OBJ_142 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/BSON.git--1864673809949788219/Package.swift"; sourceTree = "<group>"; };
-		OBJ_145 /* EntityReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityReference.swift; sourceTree = "<group>"; };
+		OBJ_145 /* EntityCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityCache.swift; sourceTree = "<group>"; };
 		OBJ_146 /* InMemoryAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryAccessor.swift; sourceTree = "<group>"; };
-		OBJ_147 /* PersistentCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentCollection.swift; sourceTree = "<group>"; };
+		OBJ_147 /* ReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceManager.swift; sourceTree = "<group>"; };
 		OBJ_148 /* batch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = batch.swift; sourceTree = "<group>"; };
 		OBJ_149 /* database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = database.swift; sourceTree = "<group>"; };
 		OBJ_150 /* entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = entity.swift; sourceTree = "<group>"; };
@@ -795,9 +795,9 @@
 		OBJ_144 /* danake */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_145 /* EntityReference.swift */,
+				OBJ_145 /* EntityCache.swift */,
 				OBJ_146 /* InMemoryAccessor.swift */,
-				OBJ_147 /* PersistentCollection.swift */,
+				OBJ_147 /* ReferenceManager.swift */,
 				OBJ_148 /* batch.swift */,
 				OBJ_149 /* database.swift */,
 				OBJ_150 /* entity.swift */,
@@ -823,17 +823,17 @@
 		OBJ_153 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				"BSON::BSON::Product" /* BSON.framework */,
-				"CryptoKitten::CryptoKitten::Product" /* CryptoKitten.framework */,
-				"Cheetah::Cheetah::Product" /* Cheetah.framework */,
 				"Schrodinger::Schrodinger::Product" /* Schrodinger.framework */,
+				"MongoKitten::MongoKitten::Product" /* MongoKitten.framework */,
+				"danakeMongo::danakeMongoTests::Product" /* danakeMongoTests.xctest */,
+				"MongoKitten::MongoSocket::Product" /* MongoSocket.framework */,
+				"Cheetah::Cheetah::Product" /* Cheetah.framework */,
+				"BSON::BSON::Product" /* BSON.framework */,
+				"danakeMongo::danakeMongo::Product" /* danakeMongo.framework */,
 				"MongoKitten::GeoJSON::Product" /* GeoJSON.framework */,
 				"MongoKitten::ExtendedJSON::Product" /* ExtendedJSON.framework */,
-				"MongoKitten::MongoKitten::Product" /* MongoKitten.framework */,
-				"danakeMongo::danakeMongo::Product" /* danakeMongo.framework */,
-				"MongoKitten::MongoSocket::Product" /* MongoSocket.framework */,
+				"CryptoKitten::CryptoKitten::Product" /* CryptoKitten.framework */,
 				"danake::danake::Product" /* danake.framework */,
-				"danakeMongo::danakeMongoTests::Product" /* danakeMongoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -1392,7 +1392,7 @@
 			buildPhases = (
 				OBJ_433 /* Sources */,
 				OBJ_436 /* Frameworks */,
-				0829C07D20AF30F200FF5BEC /* ShellScript */,
+				08A5C59620C7433D00D98D3B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1457,7 +1457,7 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0829C07D20AF30F200FF5BEC /* ShellScript */ = {
+		08A5C59620C7433D00D98D3B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1468,7 +1468,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/sourcery.sh\n";
+			shellScript = $SRCROOT/sourcery.sh;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1672,9 +1672,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_385 /* EntityReference.swift in Sources */,
+				OBJ_385 /* EntityCache.swift in Sources */,
 				OBJ_386 /* InMemoryAccessor.swift in Sources */,
-				OBJ_387 /* PersistentCollection.swift in Sources */,
+				OBJ_387 /* ReferenceManager.swift in Sources */,
 				OBJ_388 /* batch.swift in Sources */,
 				OBJ_389 /* database.swift in Sources */,
 				OBJ_390 /* entity.swift in Sources */,
@@ -1721,197 +1721,197 @@
 		OBJ_251 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Schrodinger::Schrodinger" /* Schrodinger */;
-			targetProxy = 0829C05A20AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C57020C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_253 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CryptoKitten::CryptoKitten" /* CryptoKitten */;
-			targetProxy = 0829C05B20AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C57120C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_254 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Cheetah::Cheetah" /* Cheetah */;
-			targetProxy = 0829C05C20AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C57220C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_255 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "BSON::BSON" /* BSON */;
-			targetProxy = 0829C05D20AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C57320C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_277 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Schrodinger::Schrodinger" /* Schrodinger */;
-			targetProxy = 0829C05620AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C57A20C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_278 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CryptoKitten::CryptoKitten" /* CryptoKitten */;
-			targetProxy = 0829C05720AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C57B20C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_279 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Cheetah::Cheetah" /* Cheetah */;
-			targetProxy = 0829C05820AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C57C20C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_280 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "BSON::BSON" /* BSON */;
-			targetProxy = 0829C05920AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C57D20C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_339 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::ExtendedJSON" /* ExtendedJSON */;
-			targetProxy = 0829C05E20AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C56F20C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_340 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::MongoSocket" /* MongoSocket */;
-			targetProxy = 0829C05F20AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C57420C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_342 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::GeoJSON" /* GeoJSON */;
-			targetProxy = 0829C06420AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C57920C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_343 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Schrodinger::Schrodinger" /* Schrodinger */;
-			targetProxy = 0829C06520AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C57E20C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_344 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CryptoKitten::CryptoKitten" /* CryptoKitten */;
-			targetProxy = 0829C06620AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C57F20C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_345 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Cheetah::Cheetah" /* Cheetah */;
-			targetProxy = 0829C06720AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C58020C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_346 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "BSON::BSON" /* BSON */;
-			targetProxy = 0829C06820AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C58120C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_364 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Schrodinger::Schrodinger" /* Schrodinger */;
-			targetProxy = 0829C06020AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C57520C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_365 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CryptoKitten::CryptoKitten" /* CryptoKitten */;
-			targetProxy = 0829C06120AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C57620C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_366 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Cheetah::Cheetah" /* Cheetah */;
-			targetProxy = 0829C06220AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C57720C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_367 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "BSON::BSON" /* BSON */;
-			targetProxy = 0829C06320AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C57820C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_409 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::MongoKitten" /* MongoKitten */;
-			targetProxy = 0829C06920AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C58220C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_410 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::MongoSocket" /* MongoSocket */;
-			targetProxy = 0829C06A20AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C58320C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_411 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::GeoJSON" /* GeoJSON */;
-			targetProxy = 0829C06B20AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C58420C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_412 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::ExtendedJSON" /* ExtendedJSON */;
-			targetProxy = 0829C06C20AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C58520C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_413 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Schrodinger::Schrodinger" /* Schrodinger */;
-			targetProxy = 0829C06D20AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C58620C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_414 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CryptoKitten::CryptoKitten" /* CryptoKitten */;
-			targetProxy = 0829C06E20AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C58720C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_415 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Cheetah::Cheetah" /* Cheetah */;
-			targetProxy = 0829C06F20AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C58820C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_416 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "BSON::BSON" /* BSON */;
-			targetProxy = 0829C07020AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C58920C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_417 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "danake::danake" /* danake */;
-			targetProxy = 0829C07120AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C58A20C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_428 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "danakeMongo::danakeMongoTests" /* danakeMongoTests */;
-			targetProxy = 0829C07C20AF30CE00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C59520C7433200D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_447 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "danakeMongo::danakeMongo" /* danakeMongo */;
-			targetProxy = 0829C07220AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C58B20C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_448 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::MongoKitten" /* MongoKitten */;
-			targetProxy = 0829C07320AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C58C20C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_449 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::MongoSocket" /* MongoSocket */;
-			targetProxy = 0829C07420AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C58D20C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_450 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::GeoJSON" /* GeoJSON */;
-			targetProxy = 0829C07520AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C58E20C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_451 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::ExtendedJSON" /* ExtendedJSON */;
-			targetProxy = 0829C07620AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C58F20C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_452 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Schrodinger::Schrodinger" /* Schrodinger */;
-			targetProxy = 0829C07720AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C59020C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_453 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CryptoKitten::CryptoKitten" /* CryptoKitten */;
-			targetProxy = 0829C07820AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C59120C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_454 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Cheetah::Cheetah" /* Cheetah */;
-			targetProxy = 0829C07920AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C59220C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_455 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "BSON::BSON" /* BSON */;
-			targetProxy = 0829C07A20AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C59320C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 		OBJ_456 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "danake::danake" /* danake */;
-			targetProxy = 0829C07B20AF30CD00FF5BEC /* PBXContainerItemProxy */;
+			targetProxy = 08A5C59420C7433100D98D3B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

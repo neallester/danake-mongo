@@ -48,11 +48,11 @@ class MongoAccessor : DatabaseAccessor {
         }
     }
     
-    func get<T>(type: Entity<T>.Type, collection: PersistentCollection<T>, id: UUID) -> RetrievalResult<Entity<T>> where T : Decodable, T : Encodable {
+    func get<T>(type: Entity<T>.Type, collection: EntityCache<T>, id: UUID) -> RetrievalResult<Entity<T>> where T : Decodable, T : Encodable {
         return .error ("not implemented")
     }
     
-    func scan<T>(type: Entity<T>.Type, collection: PersistentCollection<T>) -> DatabaseAccessListResult<Entity<T>> where T : Decodable, T : Encodable {
+    func scan<T>(type: Entity<T>.Type, collection: EntityCache<T>) -> DatabaseAccessListResult<Entity<T>> where T : Decodable, T : Encodable {
         return .error ("not implemented")
     }
     
