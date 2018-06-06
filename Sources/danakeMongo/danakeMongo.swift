@@ -29,7 +29,7 @@ class MongoAccessor : DatabaseAccessor {
         switch metadataCount {
         case 0:
             let newMetadata = DanakeMetadata()
-            hashValueCache = newMetadata.id.uuidString
+            hashValue = newMetadata.id.uuidString
             let encoder = BSONEncoder()
             var document = try encoder.encode(newMetadata)
             document[MongoAccessor.kittenIdFieldName] = newMetadata.id.uuidString
@@ -39,7 +39,7 @@ class MongoAccessor : DatabaseAccessor {
             if let metadataDocument = metadataDocument {
                 let decoder = BSONDecoder()
                 let metadata = try decoder.decode(DanakeMetadata.self, from: metadataDocument)
-                hashValueCache = metadata.id.uuidString
+                hashValue = metadata.id.uuidString
             } else {
                 throw DanakeMongoError.metadataRetrievalError
             }
@@ -79,10 +79,6 @@ class MongoAccessor : DatabaseAccessor {
         return .ok
     }
     
-    func hashValue() -> String {
-        return hashValueCache
-    }
-    
     func addAction(wrapper: EntityPersistenceWrapper) -> DatabaseActionResult {
         return .error ("not implemented")
     }
@@ -97,7 +93,7 @@ class MongoAccessor : DatabaseAccessor {
     
     public let logger: danake.Logger?
     internal let database: MongoKitten.Database
-    let hashValueCache: String
+    let hashValue: String
     
     static let metadataCollectionName = "danakeMetadata"
     static let kittenIdFieldName = "_id"

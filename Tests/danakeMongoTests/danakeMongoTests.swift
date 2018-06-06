@@ -104,10 +104,10 @@ final class DanakeMongoTests: XCTestCase {
                 XCTAssertTrue (logger === accessor.logger as! InMemoryLogger)
                 let metadataCollection = accessor.database[MongoAccessor.metadataCollectionName]
                 try XCTAssertEqual (1, metadataCollection.count())
-                let hashCode = accessor.hashValue()
+                let hashCode = accessor.hashValue
                 accessor = try MongoAccessor (dbConnectionString: connectionString, logger: logger)
                 try XCTAssertEqual (1, metadataCollection.count())
-                XCTAssertEqual (hashCode, accessor.hashValue())
+                XCTAssertEqual (hashCode, accessor.hashValue)
                 // Add a second metadata document which should cause subsequent accessor creation to fail
                 let anotherMetadata = DanakeMetadata()
                 let encoder = BSONEncoder()
