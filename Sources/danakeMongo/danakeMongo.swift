@@ -48,15 +48,15 @@ class MongoAccessor : DatabaseAccessor {
         }
     }
     
-    func get<T>(type: Entity<T>.Type, collection: EntityCache<T>, id: UUID) -> RetrievalResult<Entity<T>> where T : Decodable, T : Encodable {
+    func get<T>(type: Entity<T>.Type, cache: EntityCache<T>, id: UUID) -> RetrievalResult<Entity<T>> where T : Decodable, T : Encodable {
         return .error ("not implemented")
     }
     
-    func scan<T>(type: Entity<T>.Type, collection: EntityCache<T>) -> DatabaseAccessListResult<Entity<T>> where T : Decodable, T : Encodable {
+    func scan<T>(type: Entity<T>.Type, cache: EntityCache<T>) -> DatabaseAccessListResult<Entity<T>> where T : Decodable, T : Encodable {
         return .error ("not implemented")
     }
     
-    func isValidCollectionName(_ name: CollectionName) -> ValidationResult {
+    func isValidCacheName(_ name: CacheName) -> ValidationResult {
         if name.count == 0 {
             return .error ("name may not be empty")
         }

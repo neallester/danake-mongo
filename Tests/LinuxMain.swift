@@ -11,7 +11,7 @@ extension DanakeMongoTests {
     ("testCount", testCount),
     ("testDanakeMetadata", testDanakeMetadata),
     ("testDanakeMongoCreation", testDanakeMongoCreation),
-    ("testIsValidCollectionName", testIsValidCollectionName),
+    ("testIsValidCacheName", testIsValidCacheName),
   ]
 }
 
