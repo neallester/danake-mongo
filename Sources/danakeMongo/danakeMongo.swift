@@ -49,11 +49,34 @@ class MongoAccessor : DatabaseAccessor {
     }
     
     func get<T>(type: Entity<T>.Type, cache: EntityCache<T>, id: UUID) -> RetrievalResult<Entity<T>> where T : Decodable, T : Encodable {
-        return .error ("not implemented")
+        let query = selectId(id)
+        let collection = self.database[cache.name]
+        do {
+            let document = try collection.findOne(query);
+            if let document = document {
+                let bsonDecoder = decoder(cache: cache)
+                let entity = try bsonDecoder.decode(type, from: document)
+                return .ok (entity)
+            }
+            return .ok (nil)
+        } catch {
+            return .error ("\(error)")
+        }
     }
     
     func scan<T>(type: Entity<T>.Type, cache: EntityCache<T>) -> DatabaseAccessListResult<Entity<T>> where T : Decodable, T : Encodable {
-        return .error ("not implemented")
+        let collection = self.database[cache.name]
+        do {
+            let documents = try collection.find();
+            var result: [Entity<T>] = []
+            for document in documents {
+                let bsonDecoder = decoder(cache: cache)
+                try result.append (bsonDecoder.decode(type, from: document))
+            }
+            return .ok (result)
+        } catch {
+            return .error ("\(error)")
+        }
     }
     
     func isValidCacheName(_ name: CacheName) -> ValidationResult {
@@ -80,15 +103,76 @@ class MongoAccessor : DatabaseAccessor {
     }
     
     func addAction(wrapper: EntityPersistenceWrapper) -> DatabaseActionResult {
-        return .error ("not implemented")
+        do {
+            var document = try encoder().encode(wrapper)
+            document[MongoAccessor.kittenIdFieldName] = wrapper.id.uuidString
+            let result: () -> DatabaseUpdateResult = {
+                do {
+                    let collection = self.database[wrapper.cacheName]
+                    try collection.insert(document)
+                    return .ok
+                } catch {
+                    return .error ("\(error)")
+                }
+            }
+            return .ok (result)
+        } catch {
+            return .error ("\(error)")
+        }
     }
     
     func updateAction(wrapper: EntityPersistenceWrapper) -> DatabaseActionResult {
-        return .error ("not implemented")
+        do {
+            var document = try encoder().encode(wrapper)
+            document[MongoAccessor.kittenIdFieldName] = wrapper.id.uuidString
+            let query = selectId(wrapper.id)
+            let result: () -> DatabaseUpdateResult = {
+                do {
+                    let collection = self.database[wrapper.cacheName]
+                    try collection.update(query, to: document)
+                    return .ok
+                } catch {
+                    return .error ("\(error)")
+                }
+            }
+            return .ok (result)
+        } catch {
+            return .error ("\(error)")
+        }
     }
     
     func removeAction(wrapper: EntityPersistenceWrapper) -> DatabaseActionResult {
-        return .error ("not implemented")
+        do {
+            let query = selectId(wrapper.id)
+            let result: () -> DatabaseUpdateResult = {
+                do {
+                    let collection = self.database[wrapper.cacheName]
+                    try collection.remove(query)
+                    return .ok
+                } catch {
+                    return .error ("\(error)")
+                }
+            }
+            return .ok (result)
+        }
+    }
+    
+    public func encoder() -> BSONEncoder {
+        return BSONEncoder()
+    }
+    
+    private func decoder<T> (cache: EntityCache<T>) -> BSONDecoder {
+        var userInfo: [CodingUserInfoKey : Any] = [:]
+        userInfo[Database.cacheKey] = cache
+        userInfo[Database.parentDataKey] = DataContainer()
+        if let closure = cache.userInfoClosure {
+            closure (&userInfo)
+        }
+        return BSONDecoder(userInfo: userInfo)
+    }
+    
+    private func selectId (_ id: UUID) -> Query {
+        return MongoAccessor.kittenIdFieldName == id.uuidString
     }
     
     public let logger: danake.Logger?

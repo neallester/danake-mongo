@@ -9,11 +9,11 @@
 /* Begin PBXAggregateTarget section */
 		"danakeMongo::danakeMongoPackageTests::ProductTarget" /* danakeMongoPackageTests */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_425 /* Build configuration list for PBXAggregateTarget "danakeMongoPackageTests" */;
+			buildConfigurationList = OBJ_409 /* Build configuration list for PBXAggregateTarget "danakeMongoPackageTests" */;
 			buildPhases = (
 			);
 			dependencies = (
-				OBJ_428 /* PBXTargetDependency */,
+				OBJ_412 /* PBXTargetDependency */,
 			);
 			name = danakeMongoPackageTests;
 			productName = danakeMongoPackageTests;
@@ -62,389 +62,325 @@
 		OBJ_230 /* SHA2_64Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_106 /* SHA2_64Base.swift */; };
 		OBJ_231 /* SHA2_64Implementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_107 /* SHA2_64Implementations.swift */; };
 		OBJ_238 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_108 /* Package.swift */; };
-		OBJ_244 /* ExtendedJSON+EfficientSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* ExtendedJSON+EfficientSerialization.swift */; };
-		OBJ_245 /* ExtendedJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* ExtendedJSON.swift */; };
-		OBJ_247 /* Schrodinger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Schrodinger::Schrodinger::Product" /* Schrodinger.framework */; };
-		OBJ_248 /* CryptoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CryptoKitten::CryptoKitten::Product" /* CryptoKitten.framework */; };
-		OBJ_249 /* Cheetah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Cheetah::Cheetah::Product" /* Cheetah.framework */; };
-		OBJ_250 /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "BSON::BSON::Product" /* BSON.framework */; };
-		OBJ_261 /* CoordinateReferenceSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* CoordinateReferenceSystem.swift */; };
-		OBJ_262 /* GeoJSONError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* GeoJSONError.swift */; };
-		OBJ_263 /* GeoJsonObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* GeoJsonObjectType.swift */; };
-		OBJ_264 /* LineString.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* LineString.swift */; };
-		OBJ_265 /* MultiLineString.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* MultiLineString.swift */; };
-		OBJ_266 /* MultiPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* MultiPoint.swift */; };
-		OBJ_267 /* MultiPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* MultiPolygon.swift */; };
-		OBJ_268 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* Point.swift */; };
-		OBJ_269 /* Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* Polygon.swift */; };
-		OBJ_270 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* Position.swift */; };
-		OBJ_271 /* ValueConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* ValueConvertible.swift */; };
-		OBJ_273 /* Schrodinger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Schrodinger::Schrodinger::Product" /* Schrodinger.framework */; };
-		OBJ_274 /* CryptoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CryptoKitten::CryptoKitten::Product" /* CryptoKitten.framework */; };
-		OBJ_275 /* Cheetah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Cheetah::Cheetah::Product" /* Cheetah.framework */; };
-		OBJ_276 /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "BSON::BSON::Product" /* BSON.framework */; };
-		OBJ_286 /* Base64_temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* Base64_temp.swift */; };
-		OBJ_287 /* Database+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* Database+Authentication.swift */; };
-		OBJ_288 /* SCRAM.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* SCRAM.swift */; };
-		OBJ_289 /* CRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* CRUD.swift */; };
-		OBJ_290 /* Collection+Administration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* Collection+Administration.swift */; };
-		OBJ_291 /* Collection+Geospatial.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* Collection+Geospatial.swift */; };
-		OBJ_292 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* Collection.swift */; };
-		OBJ_293 /* CollectionSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* CollectionSlice.swift */; };
-		OBJ_294 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* Options.swift */; };
-		OBJ_295 /* Database+Administration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* Database+Administration.swift */; };
-		OBJ_296 /* Database+RoleManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* Database+RoleManagement.swift */; };
-		OBJ_297 /* Database+UserManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* Database+UserManagement.swift */; };
-		OBJ_298 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* Database.swift */; };
-		OBJ_299 /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* Deprecated.swift */; };
-		OBJ_300 /* HelpfulErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* HelpfulErrors.swift */; };
-		OBJ_301 /* MongoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* MongoError.swift */; };
-		OBJ_302 /* Bool+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* Bool+String.swift */; };
-		OBJ_303 /* BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* BuildInfo.swift */; };
-		OBJ_304 /* Concern.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Concern.swift */; };
-		OBJ_305 /* DeserializationHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* DeserializationHelpers.swift */; };
-		OBJ_306 /* DocumentHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* DocumentHelpers.swift */; };
-		OBJ_307 /* GeoNearOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* GeoNearOption.swift */; };
-		OBJ_308 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_62 /* Helpers.swift */; };
-		OBJ_309 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_63 /* Logging.swift */; };
-		OBJ_310 /* SerializationHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_64 /* SerializationHelpers.swift */; };
-		OBJ_311 /* String+MongoKitten.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_65 /* String+MongoKitten.swift */; };
-		OBJ_312 /* ValueConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* ValueConvertible.swift */; };
-		OBJ_313 /* Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Flags.swift */; };
-		OBJ_314 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* Message.swift */; };
-		OBJ_315 /* MongoDriverInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* MongoDriverInformation.swift */; };
-		OBJ_316 /* OperationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* OperationCode.swift */; };
-		OBJ_317 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* Cursor.swift */; };
-		OBJ_318 /* DBRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_74 /* DBRef.swift */; };
-		OBJ_319 /* Explain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* Explain.swift */; };
-		OBJ_320 /* GridFS.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_76 /* GridFS.swift */; };
-		OBJ_321 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* Index.swift */; };
-		OBJ_322 /* PipelineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_78 /* PipelineBuilder.swift */; };
-		OBJ_323 /* Projection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* Projection.swift */; };
-		OBJ_324 /* QueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* QueryBuilder.swift */; };
-		OBJ_325 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* Sort.swift */; };
-		OBJ_326 /* ClientSettings+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* ClientSettings+URL.swift */; };
-		OBJ_327 /* ClientSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* ClientSettings.swift */; };
-		OBJ_328 /* SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* SSLSettings.swift */; };
-		OBJ_329 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* Server.swift */; };
-		OBJ_330 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_88 /* Connection.swift */; };
-		OBJ_332 /* ExtendedJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::ExtendedJSON::Product" /* ExtendedJSON.framework */; };
-		OBJ_333 /* MongoSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::MongoSocket::Product" /* MongoSocket.framework */; };
-		OBJ_334 /* GeoJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::GeoJSON::Product" /* GeoJSON.framework */; };
-		OBJ_335 /* Schrodinger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Schrodinger::Schrodinger::Product" /* Schrodinger.framework */; };
-		OBJ_336 /* CryptoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CryptoKitten::CryptoKitten::Product" /* CryptoKitten.framework */; };
-		OBJ_337 /* Cheetah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Cheetah::Cheetah::Product" /* Cheetah.framework */; };
-		OBJ_338 /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "BSON::BSON::Product" /* BSON.framework */; };
-		OBJ_352 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* Package.swift */; };
-		OBJ_357 /* MongoTCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* MongoTCP.swift */; };
-		OBJ_358 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* Socket.swift */; };
-		OBJ_360 /* Schrodinger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Schrodinger::Schrodinger::Product" /* Schrodinger.framework */; };
-		OBJ_361 /* CryptoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CryptoKitten::CryptoKitten::Product" /* CryptoKitten.framework */; };
-		OBJ_362 /* Cheetah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Cheetah::Cheetah::Product" /* Cheetah.framework */; };
-		OBJ_363 /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "BSON::BSON::Product" /* BSON.framework */; };
-		OBJ_372 /* Schrodinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* Schrodinger.swift */; };
-		OBJ_379 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_94 /* Package.swift */; };
-		OBJ_385 /* EntityCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_145 /* EntityCache.swift */; };
-		OBJ_386 /* InMemoryAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_146 /* InMemoryAccessor.swift */; };
-		OBJ_387 /* ReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_147 /* ReferenceManager.swift */; };
-		OBJ_388 /* batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_148 /* batch.swift */; };
-		OBJ_389 /* database.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_149 /* database.swift */; };
-		OBJ_390 /* entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_150 /* entity.swift */; };
-		OBJ_391 /* logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_151 /* logging.swift */; };
-		OBJ_398 /* danakeMongo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* danakeMongo.swift */; };
-		OBJ_400 /* MongoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::MongoKitten::Product" /* MongoKitten.framework */; };
-		OBJ_401 /* MongoSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::MongoSocket::Product" /* MongoSocket.framework */; };
-		OBJ_402 /* GeoJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::GeoJSON::Product" /* GeoJSON.framework */; };
-		OBJ_403 /* ExtendedJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::ExtendedJSON::Product" /* ExtendedJSON.framework */; };
-		OBJ_404 /* Schrodinger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Schrodinger::Schrodinger::Product" /* Schrodinger.framework */; };
-		OBJ_405 /* CryptoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CryptoKitten::CryptoKitten::Product" /* CryptoKitten.framework */; };
-		OBJ_406 /* Cheetah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Cheetah::Cheetah::Product" /* Cheetah.framework */; };
-		OBJ_407 /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "BSON::BSON::Product" /* BSON.framework */; };
-		OBJ_408 /* danake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "danake::danake::Product" /* danake.framework */; };
-		OBJ_423 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_434 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* XCTestManifests.swift */; };
-		OBJ_435 /* danakeMongoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* danakeMongoTests.swift */; };
-		OBJ_437 /* danakeMongo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "danakeMongo::danakeMongo::Product" /* danakeMongo.framework */; };
-		OBJ_438 /* MongoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::MongoKitten::Product" /* MongoKitten.framework */; };
-		OBJ_439 /* MongoSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::MongoSocket::Product" /* MongoSocket.framework */; };
-		OBJ_440 /* GeoJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::GeoJSON::Product" /* GeoJSON.framework */; };
-		OBJ_441 /* ExtendedJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::ExtendedJSON::Product" /* ExtendedJSON.framework */; };
-		OBJ_442 /* Schrodinger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Schrodinger::Schrodinger::Product" /* Schrodinger.framework */; };
-		OBJ_443 /* CryptoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CryptoKitten::CryptoKitten::Product" /* CryptoKitten.framework */; };
-		OBJ_444 /* Cheetah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Cheetah::Cheetah::Product" /* Cheetah.framework */; };
-		OBJ_445 /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "BSON::BSON::Product" /* BSON.framework */; };
-		OBJ_446 /* danake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "danake::danake::Product" /* danake.framework */; };
-		OBJ_462 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_152 /* Package.swift */; };
+		OBJ_244 /* ExtendedJSON+EfficientSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* ExtendedJSON+EfficientSerialization.swift */; };
+		OBJ_245 /* ExtendedJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* ExtendedJSON.swift */; };
+		OBJ_247 /* CryptoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CryptoKitten::CryptoKitten::Product" /* CryptoKitten.framework */; };
+		OBJ_248 /* Cheetah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Cheetah::Cheetah::Product" /* Cheetah.framework */; };
+		OBJ_249 /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "BSON::BSON::Product" /* BSON.framework */; };
+		OBJ_258 /* CoordinateReferenceSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* CoordinateReferenceSystem.swift */; };
+		OBJ_259 /* GeoJSONError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* GeoJSONError.swift */; };
+		OBJ_260 /* GeoJsonObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* GeoJsonObjectType.swift */; };
+		OBJ_261 /* LineString.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* LineString.swift */; };
+		OBJ_262 /* MultiLineString.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* MultiLineString.swift */; };
+		OBJ_263 /* MultiPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* MultiPoint.swift */; };
+		OBJ_264 /* MultiPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* MultiPolygon.swift */; };
+		OBJ_265 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* Point.swift */; };
+		OBJ_266 /* Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* Polygon.swift */; };
+		OBJ_267 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* Position.swift */; };
+		OBJ_268 /* ValueConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* ValueConvertible.swift */; };
+		OBJ_270 /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "BSON::BSON::Product" /* BSON.framework */; };
+		OBJ_277 /* Base64_temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* Base64_temp.swift */; };
+		OBJ_278 /* Database+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* Database+Authentication.swift */; };
+		OBJ_279 /* SCRAM.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* SCRAM.swift */; };
+		OBJ_280 /* CRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* CRUD.swift */; };
+		OBJ_281 /* Collection+Administration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* Collection+Administration.swift */; };
+		OBJ_282 /* Collection+Geospatial.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* Collection+Geospatial.swift */; };
+		OBJ_283 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* Collection.swift */; };
+		OBJ_284 /* CollectionSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* CollectionSlice.swift */; };
+		OBJ_285 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* Options.swift */; };
+		OBJ_286 /* Database+Administration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* Database+Administration.swift */; };
+		OBJ_287 /* Database+RoleManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* Database+RoleManagement.swift */; };
+		OBJ_288 /* Database+UserManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* Database+UserManagement.swift */; };
+		OBJ_289 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* Database.swift */; };
+		OBJ_290 /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* Deprecated.swift */; };
+		OBJ_291 /* HelpfulErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* HelpfulErrors.swift */; };
+		OBJ_292 /* MongoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* MongoError.swift */; };
+		OBJ_293 /* Bool+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* Bool+String.swift */; };
+		OBJ_294 /* BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* BuildInfo.swift */; };
+		OBJ_295 /* Concern.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Concern.swift */; };
+		OBJ_296 /* DeserializationHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* DeserializationHelpers.swift */; };
+		OBJ_297 /* DocumentHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* DocumentHelpers.swift */; };
+		OBJ_298 /* GeoNearOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* GeoNearOption.swift */; };
+		OBJ_299 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_62 /* Helpers.swift */; };
+		OBJ_300 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_63 /* Logging.swift */; };
+		OBJ_301 /* SerializationHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_64 /* SerializationHelpers.swift */; };
+		OBJ_302 /* String+MongoKitten.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_65 /* String+MongoKitten.swift */; };
+		OBJ_303 /* ValueConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* ValueConvertible.swift */; };
+		OBJ_304 /* Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Flags.swift */; };
+		OBJ_305 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* Message.swift */; };
+		OBJ_306 /* MongoDriverInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* MongoDriverInformation.swift */; };
+		OBJ_307 /* OperationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* OperationCode.swift */; };
+		OBJ_308 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* Cursor.swift */; };
+		OBJ_309 /* DBRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_74 /* DBRef.swift */; };
+		OBJ_310 /* Explain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* Explain.swift */; };
+		OBJ_311 /* GridFS.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_76 /* GridFS.swift */; };
+		OBJ_312 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* Index.swift */; };
+		OBJ_313 /* PipelineBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_78 /* PipelineBuilder.swift */; };
+		OBJ_314 /* Projection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* Projection.swift */; };
+		OBJ_315 /* QueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* QueryBuilder.swift */; };
+		OBJ_316 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* Sort.swift */; };
+		OBJ_317 /* ClientSettings+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* ClientSettings+URL.swift */; };
+		OBJ_318 /* ClientSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* ClientSettings.swift */; };
+		OBJ_319 /* SSLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* SSLSettings.swift */; };
+		OBJ_320 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* Server.swift */; };
+		OBJ_321 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_88 /* Connection.swift */; };
+		OBJ_323 /* Schrodinger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Schrodinger::Schrodinger::Product" /* Schrodinger.framework */; };
+		OBJ_324 /* ExtendedJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::ExtendedJSON::Product" /* ExtendedJSON.framework */; };
+		OBJ_325 /* CryptoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CryptoKitten::CryptoKitten::Product" /* CryptoKitten.framework */; };
+		OBJ_326 /* Cheetah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Cheetah::Cheetah::Product" /* Cheetah.framework */; };
+		OBJ_327 /* MongoSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::MongoSocket::Product" /* MongoSocket.framework */; };
+		OBJ_328 /* GeoJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::GeoJSON::Product" /* GeoJSON.framework */; };
+		OBJ_329 /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "BSON::BSON::Product" /* BSON.framework */; };
+		OBJ_344 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* Package.swift */; };
+		OBJ_349 /* MongoTCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* MongoTCP.swift */; };
+		OBJ_350 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Socket.swift */; };
+		OBJ_356 /* Schrodinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* Schrodinger.swift */; };
+		OBJ_363 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_94 /* Package.swift */; };
+		OBJ_369 /* EntityCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_145 /* EntityCache.swift */; };
+		OBJ_370 /* InMemoryAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_146 /* InMemoryAccessor.swift */; };
+		OBJ_371 /* ReferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_147 /* ReferenceManager.swift */; };
+		OBJ_372 /* batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_148 /* batch.swift */; };
+		OBJ_373 /* database.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_149 /* database.swift */; };
+		OBJ_374 /* entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_150 /* entity.swift */; };
+		OBJ_375 /* logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_151 /* logging.swift */; };
+		OBJ_382 /* danakeMongo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* danakeMongo.swift */; };
+		OBJ_384 /* MongoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::MongoKitten::Product" /* MongoKitten.framework */; };
+		OBJ_385 /* Schrodinger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Schrodinger::Schrodinger::Product" /* Schrodinger.framework */; };
+		OBJ_386 /* ExtendedJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::ExtendedJSON::Product" /* ExtendedJSON.framework */; };
+		OBJ_387 /* CryptoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CryptoKitten::CryptoKitten::Product" /* CryptoKitten.framework */; };
+		OBJ_388 /* Cheetah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Cheetah::Cheetah::Product" /* Cheetah.framework */; };
+		OBJ_389 /* MongoSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::MongoSocket::Product" /* MongoSocket.framework */; };
+		OBJ_390 /* GeoJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::GeoJSON::Product" /* GeoJSON.framework */; };
+		OBJ_391 /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "BSON::BSON::Product" /* BSON.framework */; };
+		OBJ_392 /* danake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "danake::danake::Product" /* danake.framework */; };
+		OBJ_407 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_418 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* XCTestManifests.swift */; };
+		OBJ_419 /* danakeMongoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* danakeMongoTests.swift */; };
+		OBJ_421 /* danakeMongo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "danakeMongo::danakeMongo::Product" /* danakeMongo.framework */; };
+		OBJ_422 /* MongoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::MongoKitten::Product" /* MongoKitten.framework */; };
+		OBJ_423 /* Schrodinger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Schrodinger::Schrodinger::Product" /* Schrodinger.framework */; };
+		OBJ_424 /* ExtendedJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::ExtendedJSON::Product" /* ExtendedJSON.framework */; };
+		OBJ_425 /* CryptoKitten.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "CryptoKitten::CryptoKitten::Product" /* CryptoKitten.framework */; };
+		OBJ_426 /* Cheetah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Cheetah::Cheetah::Product" /* Cheetah.framework */; };
+		OBJ_427 /* MongoSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::MongoSocket::Product" /* MongoSocket.framework */; };
+		OBJ_428 /* GeoJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MongoKitten::GeoJSON::Product" /* GeoJSON.framework */; };
+		OBJ_429 /* BSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "BSON::BSON::Product" /* BSON.framework */; };
+		OBJ_430 /* danake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "danake::danake::Product" /* danake.framework */; };
+		OBJ_446 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_152 /* Package.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0812520420C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Schrodinger::Schrodinger";
-			remoteInfo = Schrodinger;
-		};
-		0812520520C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8887C20CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "CryptoKitten::CryptoKitten";
 			remoteInfo = CryptoKitten;
 		};
-		0812520620C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8887D20CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Cheetah::Cheetah";
 			remoteInfo = Cheetah;
 		};
-		0812520720C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8887E20CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "BSON::BSON";
 			remoteInfo = BSON;
 		};
-		0812520820C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8887F20CACAD700F0BC02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "BSON::BSON";
+			remoteInfo = BSON;
+		};
+		08B8888020CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Schrodinger::Schrodinger";
 			remoteInfo = Schrodinger;
 		};
-		0812520920C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8888120CACAD700F0BC02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "MongoKitten::ExtendedJSON";
+			remoteInfo = ExtendedJSON;
+		};
+		08B8888220CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "CryptoKitten::CryptoKitten";
 			remoteInfo = CryptoKitten;
 		};
-		0812520A20C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8888320CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Cheetah::Cheetah";
 			remoteInfo = Cheetah;
 		};
-		0812520B20C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8888420CACAD700F0BC02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "MongoKitten::MongoSocket";
+			remoteInfo = MongoSocket;
+		};
+		08B8888520CACAD700F0BC02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "MongoKitten::GeoJSON";
+			remoteInfo = GeoJSON;
+		};
+		08B8888620CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "BSON::BSON";
 			remoteInfo = BSON;
 		};
-		0812520C20C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8888720CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoKitten::MongoKitten";
 			remoteInfo = MongoKitten;
 		};
-		0812520D20C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8888820CACAD700F0BC02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Schrodinger::Schrodinger";
+			remoteInfo = Schrodinger;
+		};
+		08B8888920CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoKitten::ExtendedJSON";
 			remoteInfo = ExtendedJSON;
 		};
-		0812520E20C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8888A20CACAD700F0BC02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "CryptoKitten::CryptoKitten";
+			remoteInfo = CryptoKitten;
+		};
+		08B8888B20CACAD700F0BC02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Cheetah::Cheetah";
+			remoteInfo = Cheetah;
+		};
+		08B8888C20CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoKitten::MongoSocket";
 			remoteInfo = MongoSocket;
 		};
-		0812520F20C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8888D20CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoKitten::GeoJSON";
 			remoteInfo = GeoJSON;
 		};
-		0812521020C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Schrodinger::Schrodinger";
-			remoteInfo = Schrodinger;
-		};
-		0812521120C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "CryptoKitten::CryptoKitten";
-			remoteInfo = CryptoKitten;
-		};
-		0812521220C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Cheetah::Cheetah";
-			remoteInfo = Cheetah;
-		};
-		0812521320C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8888E20CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "BSON::BSON";
 			remoteInfo = BSON;
 		};
-		0812521420C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Schrodinger::Schrodinger";
-			remoteInfo = Schrodinger;
-		};
-		0812521520C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "CryptoKitten::CryptoKitten";
-			remoteInfo = CryptoKitten;
-		};
-		0812521620C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Cheetah::Cheetah";
-			remoteInfo = Cheetah;
-		};
-		0812521720C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "BSON::BSON";
-			remoteInfo = BSON;
-		};
-		0812521820C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "MongoKitten::MongoSocket";
-			remoteInfo = MongoSocket;
-		};
-		0812521920C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "MongoKitten::GeoJSON";
-			remoteInfo = GeoJSON;
-		};
-		0812521A20C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "MongoKitten::ExtendedJSON";
-			remoteInfo = ExtendedJSON;
-		};
-		0812521B20C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Schrodinger::Schrodinger";
-			remoteInfo = Schrodinger;
-		};
-		0812521C20C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "CryptoKitten::CryptoKitten";
-			remoteInfo = CryptoKitten;
-		};
-		0812521D20C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Cheetah::Cheetah";
-			remoteInfo = Cheetah;
-		};
-		0812521E20C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "BSON::BSON";
-			remoteInfo = BSON;
-		};
-		0812521F20C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8888F20CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "danake::danake";
 			remoteInfo = danake;
 		};
-		0812522020C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8889020CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "danakeMongo::danakeMongo";
 			remoteInfo = danakeMongo;
 		};
-		0812522120C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8889120CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoKitten::MongoKitten";
 			remoteInfo = MongoKitten;
 		};
-		0812522220C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "MongoKitten::MongoSocket";
-			remoteInfo = MongoSocket;
-		};
-		0812522320C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "MongoKitten::GeoJSON";
-			remoteInfo = GeoJSON;
-		};
-		0812522420C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "MongoKitten::ExtendedJSON";
-			remoteInfo = ExtendedJSON;
-		};
-		0812522520C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8889220CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Schrodinger::Schrodinger";
 			remoteInfo = Schrodinger;
 		};
-		0812522620C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8889320CACAD700F0BC02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "MongoKitten::ExtendedJSON";
+			remoteInfo = ExtendedJSON;
+		};
+		08B8889420CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "CryptoKitten::CryptoKitten";
 			remoteInfo = CryptoKitten;
 		};
-		0812522720C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8889520CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Cheetah::Cheetah";
 			remoteInfo = Cheetah;
 		};
-		0812522820C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8889620CACAD700F0BC02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "MongoKitten::MongoSocket";
+			remoteInfo = MongoSocket;
+		};
+		08B8889720CACAD700F0BC02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "MongoKitten::GeoJSON";
+			remoteInfo = GeoJSON;
+		};
+		08B8889820CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "BSON::BSON";
 			remoteInfo = BSON;
 		};
-		0812522920C8EDB9001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8889920CACAD700F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "danake::danake";
 			remoteInfo = danake;
 		};
-		0812522A20C8EDBA001E0FC9 /* PBXContainerItemProxy */ = {
+		08B8889A20CACAD800F0BC02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -502,7 +438,7 @@
 		OBJ_14 /* sourcery */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sourcery; sourceTree = SOURCE_ROOT; };
 		OBJ_140 /* Optional+BSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+BSON.swift"; sourceTree = "<group>"; };
 		OBJ_141 /* RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpression.swift; sourceTree = "<group>"; };
-		OBJ_142 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/BSON.git--1864673809949788219/Package.swift"; sourceTree = "<group>"; };
+		OBJ_142 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/BSON.git--1466931405741030733/Package.swift"; sourceTree = "<group>"; };
 		OBJ_145 /* EntityCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityCache.swift; sourceTree = "<group>"; };
 		OBJ_146 /* InMemoryAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryAccessor.swift; sourceTree = "<group>"; };
 		OBJ_147 /* ReferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceManager.swift; sourceTree = "<group>"; };
@@ -511,8 +447,8 @@
 		OBJ_150 /* entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = entity.swift; sourceTree = "<group>"; };
 		OBJ_151 /* logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logging.swift; sourceTree = "<group>"; };
 		OBJ_152 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/danake-sw.git-5146620458204812865/Package.swift"; sourceTree = "<group>"; };
-		OBJ_18 /* ExtendedJSON+EfficientSerialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtendedJSON+EfficientSerialization.swift"; sourceTree = "<group>"; };
-		OBJ_19 /* ExtendedJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedJSON.swift; sourceTree = "<group>"; };
+		OBJ_18 /* MongoTCP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MongoTCP.swift; sourceTree = "<group>"; };
+		OBJ_19 /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		OBJ_21 /* CoordinateReferenceSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateReferenceSystem.swift; sourceTree = "<group>"; };
 		OBJ_22 /* GeoJSONError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoJSONError.swift; sourceTree = "<group>"; };
 		OBJ_23 /* GeoJsonObjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoJsonObjectType.swift; sourceTree = "<group>"; };
@@ -571,9 +507,9 @@
 		OBJ_86 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		OBJ_88 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		OBJ_9 /* danakeMongo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danakeMongo.swift; sourceTree = "<group>"; };
-		OBJ_90 /* MongoTCP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MongoTCP.swift; sourceTree = "<group>"; };
-		OBJ_91 /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
-		OBJ_92 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/MongoKitten.git--6244548337864045047/Package.swift"; sourceTree = "<group>"; };
+		OBJ_90 /* ExtendedJSON+EfficientSerialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtendedJSON+EfficientSerialization.swift"; sourceTree = "<group>"; };
+		OBJ_91 /* ExtendedJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedJSON.swift; sourceTree = "<group>"; };
+		OBJ_92 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/MongoKitten.git--5914580355399497865/Package.swift"; sourceTree = "<group>"; };
 		OBJ_94 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/Schrodinger.git-3746374058425452560/Package.swift"; sourceTree = "<group>"; };
 		OBJ_95 /* Schrodinger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schrodinger.swift; sourceTree = "<group>"; };
 		OBJ_98 /* HMAC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMAC.swift; sourceTree = "<group>"; };
@@ -610,93 +546,85 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_247 /* Schrodinger.framework in Frameworks */,
-				OBJ_248 /* CryptoKitten.framework in Frameworks */,
-				OBJ_249 /* Cheetah.framework in Frameworks */,
-				OBJ_250 /* BSON.framework in Frameworks */,
+				OBJ_247 /* CryptoKitten.framework in Frameworks */,
+				OBJ_248 /* Cheetah.framework in Frameworks */,
+				OBJ_249 /* BSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_272 /* Frameworks */ = {
+		OBJ_269 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_273 /* Schrodinger.framework in Frameworks */,
-				OBJ_274 /* CryptoKitten.framework in Frameworks */,
-				OBJ_275 /* Cheetah.framework in Frameworks */,
-				OBJ_276 /* BSON.framework in Frameworks */,
+				OBJ_270 /* BSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_331 /* Frameworks */ = {
+		OBJ_322 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_332 /* ExtendedJSON.framework in Frameworks */,
-				OBJ_333 /* MongoSocket.framework in Frameworks */,
-				OBJ_334 /* GeoJSON.framework in Frameworks */,
-				OBJ_335 /* Schrodinger.framework in Frameworks */,
-				OBJ_336 /* CryptoKitten.framework in Frameworks */,
-				OBJ_337 /* Cheetah.framework in Frameworks */,
-				OBJ_338 /* BSON.framework in Frameworks */,
+				OBJ_323 /* Schrodinger.framework in Frameworks */,
+				OBJ_324 /* ExtendedJSON.framework in Frameworks */,
+				OBJ_325 /* CryptoKitten.framework in Frameworks */,
+				OBJ_326 /* Cheetah.framework in Frameworks */,
+				OBJ_327 /* MongoSocket.framework in Frameworks */,
+				OBJ_328 /* GeoJSON.framework in Frameworks */,
+				OBJ_329 /* BSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_359 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 0;
-			files = (
-				OBJ_360 /* Schrodinger.framework in Frameworks */,
-				OBJ_361 /* CryptoKitten.framework in Frameworks */,
-				OBJ_362 /* Cheetah.framework in Frameworks */,
-				OBJ_363 /* BSON.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		OBJ_373 /* Frameworks */ = {
+		OBJ_351 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_392 /* Frameworks */ = {
+		OBJ_357 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_399 /* Frameworks */ = {
+		OBJ_376 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_400 /* MongoKitten.framework in Frameworks */,
-				OBJ_401 /* MongoSocket.framework in Frameworks */,
-				OBJ_402 /* GeoJSON.framework in Frameworks */,
-				OBJ_403 /* ExtendedJSON.framework in Frameworks */,
-				OBJ_404 /* Schrodinger.framework in Frameworks */,
-				OBJ_405 /* CryptoKitten.framework in Frameworks */,
-				OBJ_406 /* Cheetah.framework in Frameworks */,
-				OBJ_407 /* BSON.framework in Frameworks */,
-				OBJ_408 /* danake.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_436 /* Frameworks */ = {
+		OBJ_383 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_437 /* danakeMongo.framework in Frameworks */,
-				OBJ_438 /* MongoKitten.framework in Frameworks */,
-				OBJ_439 /* MongoSocket.framework in Frameworks */,
-				OBJ_440 /* GeoJSON.framework in Frameworks */,
-				OBJ_441 /* ExtendedJSON.framework in Frameworks */,
-				OBJ_442 /* Schrodinger.framework in Frameworks */,
-				OBJ_443 /* CryptoKitten.framework in Frameworks */,
-				OBJ_444 /* Cheetah.framework in Frameworks */,
-				OBJ_445 /* BSON.framework in Frameworks */,
-				OBJ_446 /* danake.framework in Frameworks */,
+				OBJ_384 /* MongoKitten.framework in Frameworks */,
+				OBJ_385 /* Schrodinger.framework in Frameworks */,
+				OBJ_386 /* ExtendedJSON.framework in Frameworks */,
+				OBJ_387 /* CryptoKitten.framework in Frameworks */,
+				OBJ_388 /* Cheetah.framework in Frameworks */,
+				OBJ_389 /* MongoSocket.framework in Frameworks */,
+				OBJ_390 /* GeoJSON.framework in Frameworks */,
+				OBJ_391 /* BSON.framework in Frameworks */,
+				OBJ_392 /* danake.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_420 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_421 /* danakeMongo.framework in Frameworks */,
+				OBJ_422 /* MongoKitten.framework in Frameworks */,
+				OBJ_423 /* Schrodinger.framework in Frameworks */,
+				OBJ_424 /* ExtendedJSON.framework in Frameworks */,
+				OBJ_425 /* CryptoKitten.framework in Frameworks */,
+				OBJ_426 /* Cheetah.framework in Frameworks */,
+				OBJ_427 /* MongoSocket.framework in Frameworks */,
+				OBJ_428 /* GeoJSON.framework in Frameworks */,
+				OBJ_429 /* BSON.framework in Frameworks */,
+				OBJ_430 /* danake.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,13 +673,13 @@
 			path = ".build/checkouts/Cheetah.git-9055844829175592006/Sources/Cheetah";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_119 /* BSON 5.2.3 */ = {
+		OBJ_119 /* BSON */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_120 /* BSON */,
 				OBJ_142 /* Package.swift */,
 			);
-			name = "BSON 5.2.3";
+			name = BSON;
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_120 /* BSON */ = {
@@ -780,7 +708,7 @@
 				OBJ_141 /* RegularExpression.swift */,
 			);
 			name = BSON;
-			path = ".build/checkouts/BSON.git--1864673809949788219/Sources/BSON";
+			path = ".build/checkouts/BSON.git--1466931405741030733/Sources/BSON";
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_143 /* danake */ = {
@@ -810,11 +738,11 @@
 		OBJ_15 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_16 /* MongoKitten 4.1.3 */,
+				OBJ_16 /* MongoKitten */,
 				OBJ_93 /* Schrodinger 1.0.1 */,
 				OBJ_96 /* CryptoKitten 0.2.3 */,
 				OBJ_109 /* Cheetah 2.0.2 */,
-				OBJ_119 /* BSON 5.2.3 */,
+				OBJ_119 /* BSON */,
 				OBJ_143 /* danake */,
 			);
 			name = Dependencies;
@@ -823,41 +751,41 @@
 		OBJ_153 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				"MongoKitten::ExtendedJSON::Product" /* ExtendedJSON.framework */,
-				"BSON::BSON::Product" /* BSON.framework */,
-				"danake::danake::Product" /* danake.framework */,
-				"Cheetah::Cheetah::Product" /* Cheetah.framework */,
-				"Schrodinger::Schrodinger::Product" /* Schrodinger.framework */,
 				"MongoKitten::MongoSocket::Product" /* MongoSocket.framework */,
 				"danakeMongo::danakeMongoTests::Product" /* danakeMongoTests.xctest */,
-				"danakeMongo::danakeMongo::Product" /* danakeMongo.framework */,
+				"MongoKitten::ExtendedJSON::Product" /* ExtendedJSON.framework */,
+				"MongoKitten::GeoJSON::Product" /* GeoJSON.framework */,
+				"Schrodinger::Schrodinger::Product" /* Schrodinger.framework */,
+				"BSON::BSON::Product" /* BSON.framework */,
+				"danake::danake::Product" /* danake.framework */,
 				"MongoKitten::MongoKitten::Product" /* MongoKitten.framework */,
 				"CryptoKitten::CryptoKitten::Product" /* CryptoKitten.framework */,
-				"MongoKitten::GeoJSON::Product" /* GeoJSON.framework */,
+				"danakeMongo::danakeMongo::Product" /* danakeMongo.framework */,
+				"Cheetah::Cheetah::Product" /* Cheetah.framework */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_16 /* MongoKitten 4.1.3 */ = {
+		OBJ_16 /* MongoKitten */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_17 /* ExtendedJSON */,
+				OBJ_17 /* MongoSocket */,
 				OBJ_20 /* GeoJSON */,
 				OBJ_32 /* MongoKitten */,
-				OBJ_89 /* MongoSocket */,
+				OBJ_89 /* ExtendedJSON */,
 				OBJ_92 /* Package.swift */,
 			);
-			name = "MongoKitten 4.1.3";
+			name = MongoKitten;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_17 /* ExtendedJSON */ = {
+		OBJ_17 /* MongoSocket */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_18 /* ExtendedJSON+EfficientSerialization.swift */,
-				OBJ_19 /* ExtendedJSON.swift */,
+				OBJ_18 /* MongoTCP.swift */,
+				OBJ_19 /* Socket.swift */,
 			);
-			name = ExtendedJSON;
-			path = ".build/checkouts/MongoKitten.git--6244548337864045047/Sources/ExtendedJSON";
+			name = MongoSocket;
+			path = ".build/checkouts/MongoKitten.git--5914580355399497865/Sources/MongoSocket";
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_20 /* GeoJSON */ = {
@@ -876,7 +804,7 @@
 				OBJ_31 /* ValueConvertible.swift */,
 			);
 			name = GeoJSON;
-			path = ".build/checkouts/MongoKitten.git--6244548337864045047/Sources/GeoJSON";
+			path = ".build/checkouts/MongoKitten.git--5914580355399497865/Sources/GeoJSON";
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_32 /* MongoKitten */ = {
@@ -895,7 +823,7 @@
 				OBJ_87 /* Socket */,
 			);
 			name = MongoKitten;
-			path = ".build/checkouts/MongoKitten.git--6244548337864045047/Sources/MongoKitten";
+			path = ".build/checkouts/MongoKitten.git--5914580355399497865/Sources/MongoKitten";
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_33 /* Auth */ = {
@@ -1050,14 +978,14 @@
 			path = Socket;
 			sourceTree = "<group>";
 		};
-		OBJ_89 /* MongoSocket */ = {
+		OBJ_89 /* ExtendedJSON */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_90 /* MongoTCP.swift */,
-				OBJ_91 /* Socket.swift */,
+				OBJ_90 /* ExtendedJSON+EfficientSerialization.swift */,
+				OBJ_91 /* ExtendedJSON.swift */,
 			);
-			name = MongoSocket;
-			path = ".build/checkouts/MongoKitten.git--6244548337864045047/Sources/MongoSocket";
+			name = ExtendedJSON;
+			path = ".build/checkouts/MongoKitten.git--5914580355399497865/Sources/ExtendedJSON";
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_93 /* Schrodinger 1.0.1 */ = {
@@ -1200,10 +1128,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				OBJ_250 /* PBXTargetDependency */,
 				OBJ_251 /* PBXTargetDependency */,
-				OBJ_253 /* PBXTargetDependency */,
-				OBJ_254 /* PBXTargetDependency */,
-				OBJ_255 /* PBXTargetDependency */,
+				OBJ_252 /* PBXTargetDependency */,
 			);
 			name = ExtendedJSON;
 			productName = ExtendedJSON;
@@ -1212,18 +1139,15 @@
 		};
 		"MongoKitten::GeoJSON" /* GeoJSON */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_257 /* Build configuration list for PBXNativeTarget "GeoJSON" */;
+			buildConfigurationList = OBJ_254 /* Build configuration list for PBXNativeTarget "GeoJSON" */;
 			buildPhases = (
-				OBJ_260 /* Sources */,
-				OBJ_272 /* Frameworks */,
+				OBJ_257 /* Sources */,
+				OBJ_269 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_277 /* PBXTargetDependency */,
-				OBJ_278 /* PBXTargetDependency */,
-				OBJ_279 /* PBXTargetDependency */,
-				OBJ_280 /* PBXTargetDependency */,
+				OBJ_271 /* PBXTargetDependency */,
 			);
 			name = GeoJSON;
 			productName = GeoJSON;
@@ -1232,21 +1156,21 @@
 		};
 		"MongoKitten::MongoKitten" /* MongoKitten */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_282 /* Build configuration list for PBXNativeTarget "MongoKitten" */;
+			buildConfigurationList = OBJ_273 /* Build configuration list for PBXNativeTarget "MongoKitten" */;
 			buildPhases = (
-				OBJ_285 /* Sources */,
-				OBJ_331 /* Frameworks */,
+				OBJ_276 /* Sources */,
+				OBJ_322 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_339 /* PBXTargetDependency */,
-				OBJ_340 /* PBXTargetDependency */,
-				OBJ_342 /* PBXTargetDependency */,
-				OBJ_343 /* PBXTargetDependency */,
-				OBJ_344 /* PBXTargetDependency */,
-				OBJ_345 /* PBXTargetDependency */,
-				OBJ_346 /* PBXTargetDependency */,
+				OBJ_330 /* PBXTargetDependency */,
+				OBJ_332 /* PBXTargetDependency */,
+				OBJ_333 /* PBXTargetDependency */,
+				OBJ_334 /* PBXTargetDependency */,
+				OBJ_335 /* PBXTargetDependency */,
+				OBJ_337 /* PBXTargetDependency */,
+				OBJ_338 /* PBXTargetDependency */,
 			);
 			name = MongoKitten;
 			productName = MongoKitten;
@@ -1255,18 +1179,14 @@
 		};
 		"MongoKitten::MongoSocket" /* MongoSocket */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_353 /* Build configuration list for PBXNativeTarget "MongoSocket" */;
+			buildConfigurationList = OBJ_345 /* Build configuration list for PBXNativeTarget "MongoSocket" */;
 			buildPhases = (
-				OBJ_356 /* Sources */,
-				OBJ_359 /* Frameworks */,
+				OBJ_348 /* Sources */,
+				OBJ_351 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_364 /* PBXTargetDependency */,
-				OBJ_365 /* PBXTargetDependency */,
-				OBJ_366 /* PBXTargetDependency */,
-				OBJ_367 /* PBXTargetDependency */,
 			);
 			name = MongoSocket;
 			productName = MongoSocket;
@@ -1275,9 +1195,9 @@
 		};
 		"MongoKitten::SwiftPMPackageDescription" /* MongoKittenPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_348 /* Build configuration list for PBXNativeTarget "MongoKittenPackageDescription" */;
+			buildConfigurationList = OBJ_340 /* Build configuration list for PBXNativeTarget "MongoKittenPackageDescription" */;
 			buildPhases = (
-				OBJ_351 /* Sources */,
+				OBJ_343 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -1289,10 +1209,10 @@
 		};
 		"Schrodinger::Schrodinger" /* Schrodinger */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_368 /* Build configuration list for PBXNativeTarget "Schrodinger" */;
+			buildConfigurationList = OBJ_352 /* Build configuration list for PBXNativeTarget "Schrodinger" */;
 			buildPhases = (
-				OBJ_371 /* Sources */,
-				OBJ_373 /* Frameworks */,
+				OBJ_355 /* Sources */,
+				OBJ_357 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1305,9 +1225,9 @@
 		};
 		"Schrodinger::SwiftPMPackageDescription" /* SchrodingerPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_375 /* Build configuration list for PBXNativeTarget "SchrodingerPackageDescription" */;
+			buildConfigurationList = OBJ_359 /* Build configuration list for PBXNativeTarget "SchrodingerPackageDescription" */;
 			buildPhases = (
-				OBJ_378 /* Sources */,
+				OBJ_362 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -1319,9 +1239,9 @@
 		};
 		"danake::SwiftPMPackageDescription" /* danakePackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_458 /* Build configuration list for PBXNativeTarget "danakePackageDescription" */;
+			buildConfigurationList = OBJ_442 /* Build configuration list for PBXNativeTarget "danakePackageDescription" */;
 			buildPhases = (
-				OBJ_461 /* Sources */,
+				OBJ_445 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -1333,10 +1253,10 @@
 		};
 		"danake::danake" /* danake */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_381 /* Build configuration list for PBXNativeTarget "danake" */;
+			buildConfigurationList = OBJ_365 /* Build configuration list for PBXNativeTarget "danake" */;
 			buildPhases = (
-				OBJ_384 /* Sources */,
-				OBJ_392 /* Frameworks */,
+				OBJ_368 /* Sources */,
+				OBJ_376 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1349,9 +1269,9 @@
 		};
 		"danakeMongo::SwiftPMPackageDescription" /* danakeMongoPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_419 /* Build configuration list for PBXNativeTarget "danakeMongoPackageDescription" */;
+			buildConfigurationList = OBJ_403 /* Build configuration list for PBXNativeTarget "danakeMongoPackageDescription" */;
 			buildPhases = (
-				OBJ_422 /* Sources */,
+				OBJ_406 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -1363,23 +1283,23 @@
 		};
 		"danakeMongo::danakeMongo" /* danakeMongo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_394 /* Build configuration list for PBXNativeTarget "danakeMongo" */;
+			buildConfigurationList = OBJ_378 /* Build configuration list for PBXNativeTarget "danakeMongo" */;
 			buildPhases = (
-				OBJ_397 /* Sources */,
-				OBJ_399 /* Frameworks */,
+				OBJ_381 /* Sources */,
+				OBJ_383 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_409 /* PBXTargetDependency */,
-				OBJ_410 /* PBXTargetDependency */,
-				OBJ_411 /* PBXTargetDependency */,
-				OBJ_412 /* PBXTargetDependency */,
-				OBJ_413 /* PBXTargetDependency */,
-				OBJ_414 /* PBXTargetDependency */,
-				OBJ_415 /* PBXTargetDependency */,
-				OBJ_416 /* PBXTargetDependency */,
-				OBJ_417 /* PBXTargetDependency */,
+				OBJ_393 /* PBXTargetDependency */,
+				OBJ_394 /* PBXTargetDependency */,
+				OBJ_395 /* PBXTargetDependency */,
+				OBJ_396 /* PBXTargetDependency */,
+				OBJ_397 /* PBXTargetDependency */,
+				OBJ_398 /* PBXTargetDependency */,
+				OBJ_399 /* PBXTargetDependency */,
+				OBJ_400 /* PBXTargetDependency */,
+				OBJ_401 /* PBXTargetDependency */,
 			);
 			name = danakeMongo;
 			productName = danakeMongo;
@@ -1388,25 +1308,25 @@
 		};
 		"danakeMongo::danakeMongoTests" /* danakeMongoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_430 /* Build configuration list for PBXNativeTarget "danakeMongoTests" */;
+			buildConfigurationList = OBJ_414 /* Build configuration list for PBXNativeTarget "danakeMongoTests" */;
 			buildPhases = (
-				OBJ_433 /* Sources */,
-				OBJ_436 /* Frameworks */,
-				0812522B20C8EDC5001E0FC9 /* ShellScript */,
+				OBJ_417 /* Sources */,
+				OBJ_420 /* Frameworks */,
+				08B8889B20CACADD00F0BC02 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_447 /* PBXTargetDependency */,
-				OBJ_448 /* PBXTargetDependency */,
-				OBJ_449 /* PBXTargetDependency */,
-				OBJ_450 /* PBXTargetDependency */,
-				OBJ_451 /* PBXTargetDependency */,
-				OBJ_452 /* PBXTargetDependency */,
-				OBJ_453 /* PBXTargetDependency */,
-				OBJ_454 /* PBXTargetDependency */,
-				OBJ_455 /* PBXTargetDependency */,
-				OBJ_456 /* PBXTargetDependency */,
+				OBJ_431 /* PBXTargetDependency */,
+				OBJ_432 /* PBXTargetDependency */,
+				OBJ_433 /* PBXTargetDependency */,
+				OBJ_434 /* PBXTargetDependency */,
+				OBJ_435 /* PBXTargetDependency */,
+				OBJ_436 /* PBXTargetDependency */,
+				OBJ_437 /* PBXTargetDependency */,
+				OBJ_438 /* PBXTargetDependency */,
+				OBJ_439 /* PBXTargetDependency */,
+				OBJ_440 /* PBXTargetDependency */,
 			);
 			name = danakeMongoTests;
 			productName = danakeMongoTests;
@@ -1457,7 +1377,7 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0812522B20C8EDC5001E0FC9 /* ShellScript */ = {
+		08B8889B20CACADD00F0BC02 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1565,353 +1485,313 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_260 /* Sources */ = {
+		OBJ_257 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_261 /* CoordinateReferenceSystem.swift in Sources */,
-				OBJ_262 /* GeoJSONError.swift in Sources */,
-				OBJ_263 /* GeoJsonObjectType.swift in Sources */,
-				OBJ_264 /* LineString.swift in Sources */,
-				OBJ_265 /* MultiLineString.swift in Sources */,
-				OBJ_266 /* MultiPoint.swift in Sources */,
-				OBJ_267 /* MultiPolygon.swift in Sources */,
-				OBJ_268 /* Point.swift in Sources */,
-				OBJ_269 /* Polygon.swift in Sources */,
-				OBJ_270 /* Position.swift in Sources */,
-				OBJ_271 /* ValueConvertible.swift in Sources */,
+				OBJ_258 /* CoordinateReferenceSystem.swift in Sources */,
+				OBJ_259 /* GeoJSONError.swift in Sources */,
+				OBJ_260 /* GeoJsonObjectType.swift in Sources */,
+				OBJ_261 /* LineString.swift in Sources */,
+				OBJ_262 /* MultiLineString.swift in Sources */,
+				OBJ_263 /* MultiPoint.swift in Sources */,
+				OBJ_264 /* MultiPolygon.swift in Sources */,
+				OBJ_265 /* Point.swift in Sources */,
+				OBJ_266 /* Polygon.swift in Sources */,
+				OBJ_267 /* Position.swift in Sources */,
+				OBJ_268 /* ValueConvertible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_285 /* Sources */ = {
+		OBJ_276 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_286 /* Base64_temp.swift in Sources */,
-				OBJ_287 /* Database+Authentication.swift in Sources */,
-				OBJ_288 /* SCRAM.swift in Sources */,
-				OBJ_289 /* CRUD.swift in Sources */,
-				OBJ_290 /* Collection+Administration.swift in Sources */,
-				OBJ_291 /* Collection+Geospatial.swift in Sources */,
-				OBJ_292 /* Collection.swift in Sources */,
-				OBJ_293 /* CollectionSlice.swift in Sources */,
-				OBJ_294 /* Options.swift in Sources */,
-				OBJ_295 /* Database+Administration.swift in Sources */,
-				OBJ_296 /* Database+RoleManagement.swift in Sources */,
-				OBJ_297 /* Database+UserManagement.swift in Sources */,
-				OBJ_298 /* Database.swift in Sources */,
-				OBJ_299 /* Deprecated.swift in Sources */,
-				OBJ_300 /* HelpfulErrors.swift in Sources */,
-				OBJ_301 /* MongoError.swift in Sources */,
-				OBJ_302 /* Bool+String.swift in Sources */,
-				OBJ_303 /* BuildInfo.swift in Sources */,
-				OBJ_304 /* Concern.swift in Sources */,
-				OBJ_305 /* DeserializationHelpers.swift in Sources */,
-				OBJ_306 /* DocumentHelpers.swift in Sources */,
-				OBJ_307 /* GeoNearOption.swift in Sources */,
-				OBJ_308 /* Helpers.swift in Sources */,
-				OBJ_309 /* Logging.swift in Sources */,
-				OBJ_310 /* SerializationHelpers.swift in Sources */,
-				OBJ_311 /* String+MongoKitten.swift in Sources */,
-				OBJ_312 /* ValueConvertible.swift in Sources */,
-				OBJ_313 /* Flags.swift in Sources */,
-				OBJ_314 /* Message.swift in Sources */,
-				OBJ_315 /* MongoDriverInformation.swift in Sources */,
-				OBJ_316 /* OperationCode.swift in Sources */,
-				OBJ_317 /* Cursor.swift in Sources */,
-				OBJ_318 /* DBRef.swift in Sources */,
-				OBJ_319 /* Explain.swift in Sources */,
-				OBJ_320 /* GridFS.swift in Sources */,
-				OBJ_321 /* Index.swift in Sources */,
-				OBJ_322 /* PipelineBuilder.swift in Sources */,
-				OBJ_323 /* Projection.swift in Sources */,
-				OBJ_324 /* QueryBuilder.swift in Sources */,
-				OBJ_325 /* Sort.swift in Sources */,
-				OBJ_326 /* ClientSettings+URL.swift in Sources */,
-				OBJ_327 /* ClientSettings.swift in Sources */,
-				OBJ_328 /* SSLSettings.swift in Sources */,
-				OBJ_329 /* Server.swift in Sources */,
-				OBJ_330 /* Connection.swift in Sources */,
+				OBJ_277 /* Base64_temp.swift in Sources */,
+				OBJ_278 /* Database+Authentication.swift in Sources */,
+				OBJ_279 /* SCRAM.swift in Sources */,
+				OBJ_280 /* CRUD.swift in Sources */,
+				OBJ_281 /* Collection+Administration.swift in Sources */,
+				OBJ_282 /* Collection+Geospatial.swift in Sources */,
+				OBJ_283 /* Collection.swift in Sources */,
+				OBJ_284 /* CollectionSlice.swift in Sources */,
+				OBJ_285 /* Options.swift in Sources */,
+				OBJ_286 /* Database+Administration.swift in Sources */,
+				OBJ_287 /* Database+RoleManagement.swift in Sources */,
+				OBJ_288 /* Database+UserManagement.swift in Sources */,
+				OBJ_289 /* Database.swift in Sources */,
+				OBJ_290 /* Deprecated.swift in Sources */,
+				OBJ_291 /* HelpfulErrors.swift in Sources */,
+				OBJ_292 /* MongoError.swift in Sources */,
+				OBJ_293 /* Bool+String.swift in Sources */,
+				OBJ_294 /* BuildInfo.swift in Sources */,
+				OBJ_295 /* Concern.swift in Sources */,
+				OBJ_296 /* DeserializationHelpers.swift in Sources */,
+				OBJ_297 /* DocumentHelpers.swift in Sources */,
+				OBJ_298 /* GeoNearOption.swift in Sources */,
+				OBJ_299 /* Helpers.swift in Sources */,
+				OBJ_300 /* Logging.swift in Sources */,
+				OBJ_301 /* SerializationHelpers.swift in Sources */,
+				OBJ_302 /* String+MongoKitten.swift in Sources */,
+				OBJ_303 /* ValueConvertible.swift in Sources */,
+				OBJ_304 /* Flags.swift in Sources */,
+				OBJ_305 /* Message.swift in Sources */,
+				OBJ_306 /* MongoDriverInformation.swift in Sources */,
+				OBJ_307 /* OperationCode.swift in Sources */,
+				OBJ_308 /* Cursor.swift in Sources */,
+				OBJ_309 /* DBRef.swift in Sources */,
+				OBJ_310 /* Explain.swift in Sources */,
+				OBJ_311 /* GridFS.swift in Sources */,
+				OBJ_312 /* Index.swift in Sources */,
+				OBJ_313 /* PipelineBuilder.swift in Sources */,
+				OBJ_314 /* Projection.swift in Sources */,
+				OBJ_315 /* QueryBuilder.swift in Sources */,
+				OBJ_316 /* Sort.swift in Sources */,
+				OBJ_317 /* ClientSettings+URL.swift in Sources */,
+				OBJ_318 /* ClientSettings.swift in Sources */,
+				OBJ_319 /* SSLSettings.swift in Sources */,
+				OBJ_320 /* Server.swift in Sources */,
+				OBJ_321 /* Connection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_351 /* Sources */ = {
+		OBJ_343 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_352 /* Package.swift in Sources */,
+				OBJ_344 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_356 /* Sources */ = {
+		OBJ_348 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_357 /* MongoTCP.swift in Sources */,
-				OBJ_358 /* Socket.swift in Sources */,
+				OBJ_349 /* MongoTCP.swift in Sources */,
+				OBJ_350 /* Socket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_371 /* Sources */ = {
+		OBJ_355 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_372 /* Schrodinger.swift in Sources */,
+				OBJ_356 /* Schrodinger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_378 /* Sources */ = {
+		OBJ_362 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_379 /* Package.swift in Sources */,
+				OBJ_363 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_384 /* Sources */ = {
+		OBJ_368 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_385 /* EntityCache.swift in Sources */,
-				OBJ_386 /* InMemoryAccessor.swift in Sources */,
-				OBJ_387 /* ReferenceManager.swift in Sources */,
-				OBJ_388 /* batch.swift in Sources */,
-				OBJ_389 /* database.swift in Sources */,
-				OBJ_390 /* entity.swift in Sources */,
-				OBJ_391 /* logging.swift in Sources */,
+				OBJ_369 /* EntityCache.swift in Sources */,
+				OBJ_370 /* InMemoryAccessor.swift in Sources */,
+				OBJ_371 /* ReferenceManager.swift in Sources */,
+				OBJ_372 /* batch.swift in Sources */,
+				OBJ_373 /* database.swift in Sources */,
+				OBJ_374 /* entity.swift in Sources */,
+				OBJ_375 /* logging.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_397 /* Sources */ = {
+		OBJ_381 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_398 /* danakeMongo.swift in Sources */,
+				OBJ_382 /* danakeMongo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_422 /* Sources */ = {
+		OBJ_406 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_423 /* Package.swift in Sources */,
+				OBJ_407 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_433 /* Sources */ = {
+		OBJ_417 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_434 /* XCTestManifests.swift in Sources */,
-				OBJ_435 /* danakeMongoTests.swift in Sources */,
+				OBJ_418 /* XCTestManifests.swift in Sources */,
+				OBJ_419 /* danakeMongoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_461 /* Sources */ = {
+		OBJ_445 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_462 /* Package.swift in Sources */,
+				OBJ_446 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		OBJ_250 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "CryptoKitten::CryptoKitten" /* CryptoKitten */;
+			targetProxy = 08B8887C20CACAD700F0BC02 /* PBXContainerItemProxy */;
+		};
 		OBJ_251 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "Schrodinger::Schrodinger" /* Schrodinger */;
-			targetProxy = 0812520420C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_253 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "CryptoKitten::CryptoKitten" /* CryptoKitten */;
-			targetProxy = 0812520520C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_254 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
 			target = "Cheetah::Cheetah" /* Cheetah */;
-			targetProxy = 0812520620C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8887D20CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
-		OBJ_255 /* PBXTargetDependency */ = {
+		OBJ_252 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "BSON::BSON" /* BSON */;
-			targetProxy = 0812520720C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8887E20CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
-		OBJ_277 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "Schrodinger::Schrodinger" /* Schrodinger */;
-			targetProxy = 0812521020C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_278 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "CryptoKitten::CryptoKitten" /* CryptoKitten */;
-			targetProxy = 0812521120C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_279 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "Cheetah::Cheetah" /* Cheetah */;
-			targetProxy = 0812521220C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_280 /* PBXTargetDependency */ = {
+		OBJ_271 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "BSON::BSON" /* BSON */;
-			targetProxy = 0812521320C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8887F20CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
-		OBJ_339 /* PBXTargetDependency */ = {
+		OBJ_330 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Schrodinger::Schrodinger" /* Schrodinger */;
+			targetProxy = 08B8888020CACAD700F0BC02 /* PBXContainerItemProxy */;
+		};
+		OBJ_332 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::ExtendedJSON" /* ExtendedJSON */;
-			targetProxy = 0812520D20C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8888120CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
-		OBJ_340 /* PBXTargetDependency */ = {
+		OBJ_333 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "CryptoKitten::CryptoKitten" /* CryptoKitten */;
+			targetProxy = 08B8888220CACAD700F0BC02 /* PBXContainerItemProxy */;
+		};
+		OBJ_334 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Cheetah::Cheetah" /* Cheetah */;
+			targetProxy = 08B8888320CACAD700F0BC02 /* PBXContainerItemProxy */;
+		};
+		OBJ_335 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::MongoSocket" /* MongoSocket */;
-			targetProxy = 0812520E20C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8888420CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
-		OBJ_342 /* PBXTargetDependency */ = {
+		OBJ_337 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::GeoJSON" /* GeoJSON */;
-			targetProxy = 0812520F20C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8888520CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
-		OBJ_343 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "Schrodinger::Schrodinger" /* Schrodinger */;
-			targetProxy = 0812521420C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_344 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "CryptoKitten::CryptoKitten" /* CryptoKitten */;
-			targetProxy = 0812521520C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_345 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "Cheetah::Cheetah" /* Cheetah */;
-			targetProxy = 0812521620C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_346 /* PBXTargetDependency */ = {
+		OBJ_338 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "BSON::BSON" /* BSON */;
-			targetProxy = 0812521720C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8888620CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
-		OBJ_364 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "Schrodinger::Schrodinger" /* Schrodinger */;
-			targetProxy = 0812520820C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_365 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "CryptoKitten::CryptoKitten" /* CryptoKitten */;
-			targetProxy = 0812520920C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_366 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "Cheetah::Cheetah" /* Cheetah */;
-			targetProxy = 0812520A20C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_367 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "BSON::BSON" /* BSON */;
-			targetProxy = 0812520B20C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_409 /* PBXTargetDependency */ = {
+		OBJ_393 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::MongoKitten" /* MongoKitten */;
-			targetProxy = 0812520C20C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8888720CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
-		OBJ_410 /* PBXTargetDependency */ = {
+		OBJ_394 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Schrodinger::Schrodinger" /* Schrodinger */;
+			targetProxy = 08B8888820CACAD700F0BC02 /* PBXContainerItemProxy */;
+		};
+		OBJ_395 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "MongoKitten::ExtendedJSON" /* ExtendedJSON */;
+			targetProxy = 08B8888920CACAD700F0BC02 /* PBXContainerItemProxy */;
+		};
+		OBJ_396 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "CryptoKitten::CryptoKitten" /* CryptoKitten */;
+			targetProxy = 08B8888A20CACAD700F0BC02 /* PBXContainerItemProxy */;
+		};
+		OBJ_397 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Cheetah::Cheetah" /* Cheetah */;
+			targetProxy = 08B8888B20CACAD700F0BC02 /* PBXContainerItemProxy */;
+		};
+		OBJ_398 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::MongoSocket" /* MongoSocket */;
-			targetProxy = 0812521820C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8888C20CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
-		OBJ_411 /* PBXTargetDependency */ = {
+		OBJ_399 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::GeoJSON" /* GeoJSON */;
-			targetProxy = 0812521920C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8888D20CACAD700F0BC02 /* PBXContainerItemProxy */;
+		};
+		OBJ_400 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "BSON::BSON" /* BSON */;
+			targetProxy = 08B8888E20CACAD700F0BC02 /* PBXContainerItemProxy */;
+		};
+		OBJ_401 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "danake::danake" /* danake */;
+			targetProxy = 08B8888F20CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
 		OBJ_412 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "MongoKitten::ExtendedJSON" /* ExtendedJSON */;
-			targetProxy = 0812521A20C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_413 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "Schrodinger::Schrodinger" /* Schrodinger */;
-			targetProxy = 0812521B20C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_414 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "CryptoKitten::CryptoKitten" /* CryptoKitten */;
-			targetProxy = 0812521C20C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_415 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "Cheetah::Cheetah" /* Cheetah */;
-			targetProxy = 0812521D20C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_416 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "BSON::BSON" /* BSON */;
-			targetProxy = 0812521E20C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_417 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "danake::danake" /* danake */;
-			targetProxy = 0812521F20C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_428 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
 			target = "danakeMongo::danakeMongoTests" /* danakeMongoTests */;
-			targetProxy = 0812522A20C8EDBA001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8889A20CACAD800F0BC02 /* PBXContainerItemProxy */;
 		};
-		OBJ_447 /* PBXTargetDependency */ = {
+		OBJ_431 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "danakeMongo::danakeMongo" /* danakeMongo */;
-			targetProxy = 0812522020C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8889020CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
-		OBJ_448 /* PBXTargetDependency */ = {
+		OBJ_432 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoKitten::MongoKitten" /* MongoKitten */;
-			targetProxy = 0812522120C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8889120CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
-		OBJ_449 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "MongoKitten::MongoSocket" /* MongoSocket */;
-			targetProxy = 0812522220C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_450 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "MongoKitten::GeoJSON" /* GeoJSON */;
-			targetProxy = 0812522320C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_451 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "MongoKitten::ExtendedJSON" /* ExtendedJSON */;
-			targetProxy = 0812522420C8EDB9001E0FC9 /* PBXContainerItemProxy */;
-		};
-		OBJ_452 /* PBXTargetDependency */ = {
+		OBJ_433 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Schrodinger::Schrodinger" /* Schrodinger */;
-			targetProxy = 0812522520C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8889220CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
-		OBJ_453 /* PBXTargetDependency */ = {
+		OBJ_434 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "MongoKitten::ExtendedJSON" /* ExtendedJSON */;
+			targetProxy = 08B8889320CACAD700F0BC02 /* PBXContainerItemProxy */;
+		};
+		OBJ_435 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "CryptoKitten::CryptoKitten" /* CryptoKitten */;
-			targetProxy = 0812522620C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8889420CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
-		OBJ_454 /* PBXTargetDependency */ = {
+		OBJ_436 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Cheetah::Cheetah" /* Cheetah */;
-			targetProxy = 0812522720C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8889520CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
-		OBJ_455 /* PBXTargetDependency */ = {
+		OBJ_437 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "MongoKitten::MongoSocket" /* MongoSocket */;
+			targetProxy = 08B8889620CACAD700F0BC02 /* PBXContainerItemProxy */;
+		};
+		OBJ_438 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "MongoKitten::GeoJSON" /* GeoJSON */;
+			targetProxy = 08B8889720CACAD700F0BC02 /* PBXContainerItemProxy */;
+		};
+		OBJ_439 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "BSON::BSON" /* BSON */;
-			targetProxy = 0812522820C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8889820CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
-		OBJ_456 /* PBXTargetDependency */ = {
+		OBJ_440 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "danake::danake" /* danake */;
-			targetProxy = 0812522920C8EDB9001E0FC9 /* PBXContainerItemProxy */;
+			targetProxy = 08B8889920CACAD700F0BC02 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2126,7 +2006,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGET_NAME = ExtendedJSON;
 			};
 			name = Debug;
@@ -2149,12 +2029,12 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGET_NAME = ExtendedJSON;
 			};
 			name = Release;
 		};
-		OBJ_258 /* Debug */ = {
+		OBJ_255 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -2172,12 +2052,12 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGET_NAME = GeoJSON;
 			};
 			name = Debug;
 		};
-		OBJ_259 /* Release */ = {
+		OBJ_256 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -2195,12 +2075,12 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGET_NAME = GeoJSON;
 			};
 			name = Release;
 		};
-		OBJ_283 /* Debug */ = {
+		OBJ_274 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -2218,12 +2098,12 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGET_NAME = MongoKitten;
 			};
 			name = Debug;
 		};
-		OBJ_284 /* Release */ = {
+		OBJ_275 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -2241,7 +2121,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGET_NAME = MongoKitten;
 			};
 			name = Release;
@@ -2268,25 +2148,25 @@
 			};
 			name = Debug;
 		};
-		OBJ_349 /* Debug */ = {
+		OBJ_341 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 3 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/3 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
-				SWIFT_VERSION = 3.0;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
-		OBJ_350 /* Release */ = {
+		OBJ_342 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 3 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/3 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
-				SWIFT_VERSION = 3.0;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
-		OBJ_354 /* Debug */ = {
+		OBJ_346 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -2304,12 +2184,12 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGET_NAME = MongoSocket;
 			};
 			name = Debug;
 		};
-		OBJ_355 /* Release */ = {
+		OBJ_347 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -2327,12 +2207,12 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGET_NAME = MongoSocket;
 			};
 			name = Release;
 		};
-		OBJ_369 /* Debug */ = {
+		OBJ_353 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -2355,7 +2235,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_370 /* Release */ = {
+		OBJ_354 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -2378,7 +2258,7 @@
 			};
 			name = Release;
 		};
-		OBJ_376 /* Debug */ = {
+		OBJ_360 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -2387,7 +2267,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_377 /* Release */ = {
+		OBJ_361 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -2396,7 +2276,7 @@
 			};
 			name = Release;
 		};
-		OBJ_382 /* Debug */ = {
+		OBJ_366 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -2419,7 +2299,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_383 /* Release */ = {
+		OBJ_367 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -2442,7 +2322,7 @@
 			};
 			name = Release;
 		};
-		OBJ_395 /* Debug */ = {
+		OBJ_379 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -2465,7 +2345,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_396 /* Release */ = {
+		OBJ_380 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -2508,7 +2388,7 @@
 			};
 			name = Release;
 		};
-		OBJ_420 /* Debug */ = {
+		OBJ_404 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -2517,7 +2397,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_421 /* Release */ = {
+		OBJ_405 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -2526,19 +2406,19 @@
 			};
 			name = Release;
 		};
-		OBJ_426 /* Debug */ = {
+		OBJ_410 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		OBJ_427 /* Release */ = {
+		OBJ_411 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Release;
 		};
-		OBJ_431 /* Debug */ = {
+		OBJ_415 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -2557,7 +2437,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_432 /* Release */ = {
+		OBJ_416 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -2576,7 +2456,7 @@
 			};
 			name = Release;
 		};
-		OBJ_459 /* Debug */ = {
+		OBJ_443 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -2585,7 +2465,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_460 /* Release */ = {
+		OBJ_444 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -2669,110 +2549,110 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_257 /* Build configuration list for PBXNativeTarget "GeoJSON" */ = {
+		OBJ_254 /* Build configuration list for PBXNativeTarget "GeoJSON" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_258 /* Debug */,
-				OBJ_259 /* Release */,
+				OBJ_255 /* Debug */,
+				OBJ_256 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_282 /* Build configuration list for PBXNativeTarget "MongoKitten" */ = {
+		OBJ_273 /* Build configuration list for PBXNativeTarget "MongoKitten" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_283 /* Debug */,
-				OBJ_284 /* Release */,
+				OBJ_274 /* Debug */,
+				OBJ_275 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_348 /* Build configuration list for PBXNativeTarget "MongoKittenPackageDescription" */ = {
+		OBJ_340 /* Build configuration list for PBXNativeTarget "MongoKittenPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_349 /* Debug */,
-				OBJ_350 /* Release */,
+				OBJ_341 /* Debug */,
+				OBJ_342 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_353 /* Build configuration list for PBXNativeTarget "MongoSocket" */ = {
+		OBJ_345 /* Build configuration list for PBXNativeTarget "MongoSocket" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_354 /* Debug */,
-				OBJ_355 /* Release */,
+				OBJ_346 /* Debug */,
+				OBJ_347 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_368 /* Build configuration list for PBXNativeTarget "Schrodinger" */ = {
+		OBJ_352 /* Build configuration list for PBXNativeTarget "Schrodinger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_369 /* Debug */,
-				OBJ_370 /* Release */,
+				OBJ_353 /* Debug */,
+				OBJ_354 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_375 /* Build configuration list for PBXNativeTarget "SchrodingerPackageDescription" */ = {
+		OBJ_359 /* Build configuration list for PBXNativeTarget "SchrodingerPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_376 /* Debug */,
-				OBJ_377 /* Release */,
+				OBJ_360 /* Debug */,
+				OBJ_361 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_381 /* Build configuration list for PBXNativeTarget "danake" */ = {
+		OBJ_365 /* Build configuration list for PBXNativeTarget "danake" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_382 /* Debug */,
-				OBJ_383 /* Release */,
+				OBJ_366 /* Debug */,
+				OBJ_367 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_394 /* Build configuration list for PBXNativeTarget "danakeMongo" */ = {
+		OBJ_378 /* Build configuration list for PBXNativeTarget "danakeMongo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_395 /* Debug */,
-				OBJ_396 /* Release */,
+				OBJ_379 /* Debug */,
+				OBJ_380 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_419 /* Build configuration list for PBXNativeTarget "danakeMongoPackageDescription" */ = {
+		OBJ_403 /* Build configuration list for PBXNativeTarget "danakeMongoPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_420 /* Debug */,
-				OBJ_421 /* Release */,
+				OBJ_404 /* Debug */,
+				OBJ_405 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_425 /* Build configuration list for PBXAggregateTarget "danakeMongoPackageTests" */ = {
+		OBJ_409 /* Build configuration list for PBXAggregateTarget "danakeMongoPackageTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_426 /* Debug */,
-				OBJ_427 /* Release */,
+				OBJ_410 /* Debug */,
+				OBJ_411 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_430 /* Build configuration list for PBXNativeTarget "danakeMongoTests" */ = {
+		OBJ_414 /* Build configuration list for PBXNativeTarget "danakeMongoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_431 /* Debug */,
-				OBJ_432 /* Release */,
+				OBJ_415 /* Debug */,
+				OBJ_416 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_458 /* Build configuration list for PBXNativeTarget "danakePackageDescription" */ = {
+		OBJ_442 /* Build configuration list for PBXNativeTarget "danakePackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_459 /* Debug */,
-				OBJ_460 /* Release */,
+				OBJ_443 /* Debug */,
+				OBJ_444 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -179,28 +179,121 @@ final class DanakeMongoTests: XCTestCase {
         clearTestDatabase()
     }
     
-    public func clearTestDatabase () {
+    public func testCRUD() {
+        clearTestDatabase()
         if let connectionString = connectionString() {
-            clearCollection(connectionString: connectionString, name: MongoAccessor.metadataCollectionName)
+            do {
+                let accessor = try MongoAccessor (dbConnectionString: connectionString, logger: nil)
+                let logger = InMemoryLogger()
+                let database = danake.Database(accessor: accessor, schemaVersion: 1, logger: logger)
+                let cache = EntityCache<MyStruct>(database: database, name: myStructCacheName)
+                let myStruct = MyStruct (myInt: 10, myString: "10")
+                let batch = EventuallyConsistentBatch()
+                var entity: Entity<MyStruct>? = cache.new(batch: batch, item: myStruct)
+                let id = entity!.id
+                batch.commitSync()
+                entity = nil
+                cache.waitWhileCached (id: id)
+                entity = cache.get (id: id).item()
+                entity!.sync() { myStruct in
+                    XCTAssertEqual (10, myStruct.myInt)
+                    XCTAssertEqual ("10", myStruct.myString)
+                }
+                entity!.update(batch: batch) { myStruct in
+                    myStruct.myInt = 20
+                    myStruct.myString = "20"
+                }
+                batch.commitSync()
+                entity = nil
+                cache.waitWhileCached (id: id)
+                entity = cache.get (id: id).item()
+                entity!.sync() { myStruct in
+                    XCTAssertEqual (20, myStruct.myInt)
+                    XCTAssertEqual ("20", myStruct.myString)
+                }
+                entity?.remove(batch: batch)
+                batch.commitSync()
+                entity = nil
+                cache.waitWhileCached (id: id)
+                entity = cache.get (id: id).item()
+                XCTAssertNil (entity)
+            } catch {
+                XCTFail("No Error expected but got \(error)")
+            }
         } else {
-            XCTFail ("Expected connectionString")
+            XCTFail("No Connection String")
+        }
+        clearTestDatabase()
+    }
+
+    public func testScan() {
+        clearTestDatabase()
+        if let connectionString = connectionString() {
+            do {
+                let accessor = try MongoAccessor (dbConnectionString: connectionString, logger: nil)
+                let logger = InMemoryLogger()
+                let database = danake.Database(accessor: accessor, schemaVersion: 1, logger: logger)
+                let cache = EntityCache<MyStruct>(database: database, name: myStructCacheName)
+                let batch = EventuallyConsistentBatch()
+                let myStruct1 = MyStruct (myInt: 10, myString: "10")
+                var entity1: Entity<MyStruct>? = cache.new(batch: batch, item: myStruct1)
+                let id1 = entity1!.id
+                let myStruct2 = MyStruct (myInt: 20, myString: "20")
+                var entity2: Entity<MyStruct>? = cache.new(batch: batch, item: myStruct2)
+                let id2 = entity2!.id
+                batch.commitSync()
+                entity1 = nil
+                entity2 = nil
+                cache.waitWhileCached (id: id1)
+                cache.waitWhileCached (id: id2)
+                let entities = cache.scan().item()!
+                XCTAssertEqual (2, entities.count)
+                var found1 = false
+                var found2 = false
+                for entity in entities {
+                    if entity.id.uuidString == id1.uuidString {
+                        found1 = true
+                        entity.sync() { myStruct in
+                            XCTAssertEqual (10, myStruct.myInt)
+                            XCTAssertEqual ("10", myStruct.myString)
+                        }
+                    } else if entity.id.uuidString == id2.uuidString {
+                        found2 = true
+                        entity.sync() { myStruct in
+                            XCTAssertEqual (20, myStruct.myInt)
+                            XCTAssertEqual ("20", myStruct.myString)
+                        }
+                    }
+                }
+                XCTAssertTrue (found1)
+                XCTAssertTrue (found2)
+            } catch {
+                XCTFail("No Error expected but got \(error)")
+            }
+        } else {
+            XCTFail("No Connection String")
+        }
+        clearTestDatabase()
+    }
+
+    public func clearTestDatabase () {
+        do {
+            if let connectionString = connectionString() {
+                let database = try MongoKitten.Database(connectionString)
+                clearCollection(database: database, name: MongoAccessor.metadataCollectionName)
+                clearCollection(database: database, name: myStructCacheName)
+            } else {
+                XCTFail ("Expected connectionString")
+            }
+        } catch {
+            XCTFail("Expected success but got \(error)")
         }
     }
     
-    public func clearCollection (connectionString: String, name: String) {
+    public func clearCollection (database: MongoKitten.Database, name: String) {
         do {
-            var database = try MongoKitten.Database(connectionString)
-            var collection = database[MongoAccessor.metadataCollectionName]
+            let collection = database[name]
             try collection.remove()
-            database = try MongoKitten.Database(connectionString)
-            collection = database[MongoAccessor.metadataCollectionName]
-            var count = try collection.count()
-            let endTime = Date().timeIntervalSince1970 + 30.0
-            while count > 0 && (Date().timeIntervalSince1970 < endTime) {
-                usleep (3000000)
-                count = try collection.count()
-            }
-            XCTAssertEqual (0, count)
         } catch {
             XCTFail ("Expected success but got \(error)")
         }
@@ -208,9 +301,17 @@ final class DanakeMongoTests: XCTestCase {
     
     public struct MyStruct : Codable {
         
-        var myInt = 0
-        var myString = ""
+        init (myInt: Int = 0, myString: String = "") {
+            self.myInt = myInt
+            self.myString = myString
+        }
+        
+        var myInt: Int
+        var myString: String
     }
+    
+    public let myStructCacheName = "myStruct"
+
     
     
     
