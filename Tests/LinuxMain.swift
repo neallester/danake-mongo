@@ -14,6 +14,7 @@ extension DanakeMongoTests {
     ("testIsValidCacheName", testIsValidCacheName),
     ("testCRUD", testCRUD),
     ("testScan", testScan),
+    ("testParallelTests", testParallelTests),
   ]
 }
 

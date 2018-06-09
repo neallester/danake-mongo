@@ -275,6 +275,15 @@ final class DanakeMongoTests: XCTestCase {
         }
         clearTestDatabase()
     }
+    
+    public func testParallelTests() throws {
+        if let connectionString = connectionString() {
+            let accessor = try MongoAccessor (dbConnectionString: connectionString, logger: nil)
+//            XCTAssertTrue (ParallelTest.performTest (accessor: accessor, repetitions: 5, logger: nil))
+        } else {
+            XCTFail("Expected connectionString")
+        }
+    }
 
     public func clearTestDatabase () {
         do {
