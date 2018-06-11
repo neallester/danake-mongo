@@ -48,6 +48,7 @@ playground.xcworkspace
 # Package.pins
 .build/
 Package.resolved
+danakeMongo.xcodeproj/
 
 # CocoaPods
 #

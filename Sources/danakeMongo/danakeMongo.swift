@@ -21,8 +21,9 @@ enum DanakeMongoError : Error {
 
 class MongoAccessor : DatabaseAccessor {
     
-    init (dbConnectionString: String, logger: danake.Logger?) throws {
+    init (dbConnectionString: String, maxConnections: Int, logger: danake.Logger?) throws {
         self.logger = logger
+        connectionGate = DispatchSemaphore (value: maxConnections)
         database = try MongoKitten.Database(dbConnectionString)
         let metadataCollection = database[MongoAccessor.metadataCollectionName]
         let metadataCount = try metadataCollection.count()
@@ -49,10 +50,15 @@ class MongoAccessor : DatabaseAccessor {
     }
     
     func get<T>(type: Entity<T>.Type, cache: EntityCache<T>, id: UUID) -> RetrievalResult<Entity<T>> where T : Decodable, T : Encodable {
+        var inGate = false
         let query = selectId(id)
         let collection = self.database[cache.name]
         do {
+            connectionGate.wait()
+            inGate = true
             let document = try collection.findOne(query);
+            connectionGate.signal()
+            inGate = false
             if let document = document {
                 let bsonDecoder = decoder(cache: cache)
                 let entity = try bsonDecoder.decode(type, from: document)
@@ -60,14 +66,22 @@ class MongoAccessor : DatabaseAccessor {
             }
             return .ok (nil)
         } catch {
+            if inGate {
+                connectionGate.signal()
+            }
             return .error ("\(error)")
         }
     }
     
     func scan<T>(type: Entity<T>.Type, cache: EntityCache<T>) -> DatabaseAccessListResult<Entity<T>> where T : Decodable, T : Encodable {
+        var inGate = false
         let collection = self.database[cache.name]
         do {
+            connectionGate.wait()
+            inGate = true
             let documents = try collection.find();
+            connectionGate.signal()
+            inGate = false
             var result: [Entity<T>] = []
             for document in documents {
                 let bsonDecoder = decoder(cache: cache)
@@ -75,6 +89,9 @@ class MongoAccessor : DatabaseAccessor {
             }
             return .ok (result)
         } catch {
+            if inGate {
+                connectionGate.signal()
+            }
             return .error ("\(error)")
         }
     }
@@ -107,11 +124,19 @@ class MongoAccessor : DatabaseAccessor {
             var document = try encoder().encode(wrapper)
             document[MongoAccessor.kittenIdFieldName] = wrapper.id.uuidString
             let result: () -> DatabaseUpdateResult = {
+                var inGate = false
                 do {
                     let collection = self.database[wrapper.cacheName]
+                    self.connectionGate.wait()
+                    inGate = true
                     try collection.insert(document)
+                    self.connectionGate.signal()
+                    inGate = false
                     return .ok
                 } catch {
+                    if inGate {
+                        self.connectionGate.signal()
+                    }
                     return .error ("\(error)")
                 }
             }
@@ -127,11 +152,19 @@ class MongoAccessor : DatabaseAccessor {
             document[MongoAccessor.kittenIdFieldName] = wrapper.id.uuidString
             let query = selectId(wrapper.id)
             let result: () -> DatabaseUpdateResult = {
+                var inGate = false
                 do {
                     let collection = self.database[wrapper.cacheName]
+                    self.connectionGate.wait()
+                    inGate = true
                     try collection.update(query, to: document)
+                    self.connectionGate.signal()
+                    inGate = false
                     return .ok
                 } catch {
+                    if inGate {
+                        self.connectionGate.signal()
+                    }
                     return .error ("\(error)")
                 }
             }
@@ -145,11 +178,19 @@ class MongoAccessor : DatabaseAccessor {
         do {
             let query = selectId(wrapper.id)
             let result: () -> DatabaseUpdateResult = {
+                var inGate = false
                 do {
                     let collection = self.database[wrapper.cacheName]
+                    self.connectionGate.wait()
+                    inGate = true
                     try collection.remove(query)
+                    self.connectionGate.signal()
+                    inGate = false
                     return .ok
                 } catch {
+                    if inGate {
+                        self.connectionGate.signal()
+                    }
                     return .error ("\(error)")
                 }
             }
@@ -178,6 +219,7 @@ class MongoAccessor : DatabaseAccessor {
     public let logger: danake.Logger?
     internal let database: MongoKitten.Database
     let hashValue: String
+    let connectionGate: DispatchSemaphore
     
     static let metadataCollectionName = "danakeMetadata"
     static let kittenIdFieldName = "_id"

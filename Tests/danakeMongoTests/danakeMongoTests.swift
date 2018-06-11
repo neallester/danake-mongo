@@ -87,25 +87,25 @@ final class DanakeMongoTests: XCTestCase {
         clearTestDatabase()
         let logger = danake.InMemoryLogger()
         do {
-            let _ = try MongoAccessor (dbConnectionString: "xhbpaiewerjjlsizppskne320982734qpeijfz1209873.com", logger: logger)
+            let _ = try MongoAccessor (dbConnectionString: "xhbpaiewerjjlsizppskne320982734qpeijfz1209873.com", maxConnections: 40, logger: logger)
             XCTFail("Expected Error")
         } catch {
             XCTAssertEqual ("invalidDatabase(Optional(\"\"))", "\(error)")
         }
         do {
-            let _ = try MongoAccessor (dbConnectionString: "mongodb://www.mysafetyprogram.com:27017", logger: logger)
+            let _ = try MongoAccessor (dbConnectionString: "mongodb://www.mysafetyprogram.com:27017", maxConnections: 40, logger: logger)
             XCTFail("Expected Error")
         } catch {
             XCTAssertEqual ("invalidDatabase(Optional(\"\"))", "\(error)")
         }
         if let connectionString = connectionString() {
             do {
-                var accessor = try MongoAccessor (dbConnectionString: connectionString, logger: logger)
+                var accessor = try MongoAccessor (dbConnectionString: connectionString, maxConnections: 40, logger: logger)
                 XCTAssertTrue (logger === accessor.logger as! InMemoryLogger)
                 let metadataCollection = accessor.database[MongoAccessor.metadataCollectionName]
                 try XCTAssertEqual (1, metadataCollection.count())
                 let hashCode = accessor.hashValue
-                accessor = try MongoAccessor (dbConnectionString: connectionString, logger: logger)
+                accessor = try MongoAccessor (dbConnectionString: connectionString, maxConnections: 40, logger: logger)
                 try XCTAssertEqual (1, metadataCollection.count())
                 XCTAssertEqual (hashCode, accessor.hashValue)
                 // Add a second metadata document which should cause subsequent accessor creation to fail
@@ -131,7 +131,7 @@ final class DanakeMongoTests: XCTestCase {
                 XCTFail("No Error expected but got \(error)")
             }
             do {
-                let _ = try MongoAccessor (dbConnectionString: connectionString, logger: logger)
+                let _ = try MongoAccessor (dbConnectionString: connectionString, maxConnections: 40, logger: logger)
                 XCTFail ("Expected Error")
             } catch {
                 XCTAssertEqual ("multipleMetadata(2)", "\(error)")
@@ -148,7 +148,7 @@ final class DanakeMongoTests: XCTestCase {
         clearTestDatabase()
         if let connectionString = connectionString() {
             do {
-                let accessor = try MongoAccessor (dbConnectionString: connectionString, logger: nil)
+                let accessor = try MongoAccessor (dbConnectionString: connectionString, maxConnections: 40, logger: nil)
                 XCTAssertEqual ("error(\"name may not be empty\")", "\(accessor.isValidCacheName(""))")
                 XCTAssertEqual ("error(\"name cannot start with \\\"system\\\"\")", "\(accessor.isValidCacheName("system"))")
                 XCTAssertEqual ("error(\"name cannot start with \\\"system\\\"\")", "\(accessor.isValidCacheName("systemCache"))")
@@ -183,7 +183,7 @@ final class DanakeMongoTests: XCTestCase {
         clearTestDatabase()
         if let connectionString = connectionString() {
             do {
-                let accessor = try MongoAccessor (dbConnectionString: connectionString, logger: nil)
+                let accessor = try MongoAccessor (dbConnectionString: connectionString, maxConnections: 40, logger: nil)
                 let logger = InMemoryLogger()
                 let database = danake.Database(accessor: accessor, schemaVersion: 1, logger: logger)
                 let cache = EntityCache<MyStruct>(database: database, name: myStructCacheName)
@@ -230,7 +230,7 @@ final class DanakeMongoTests: XCTestCase {
         clearTestDatabase()
         if let connectionString = connectionString() {
             do {
-                let accessor = try MongoAccessor (dbConnectionString: connectionString, logger: nil)
+                let accessor = try MongoAccessor (dbConnectionString: connectionString, maxConnections: 40, logger: nil)
                 let logger = InMemoryLogger()
                 let database = danake.Database(accessor: accessor, schemaVersion: 1, logger: logger)
                 let cache = EntityCache<MyStruct>(database: database, name: myStructCacheName)
@@ -277,12 +277,14 @@ final class DanakeMongoTests: XCTestCase {
     }
     
     public func testParallelTests() throws {
-        if let connectionString = connectionString() {
-            let accessor = try MongoAccessor (dbConnectionString: connectionString, logger: nil)
+//        if let connectionString = connectionString() {
+//            let logger = ConsoleLogger()
+//            let accessor = try MongoAccessor (dbConnectionString: connectionString, maxConnections: 40, logger: nil)
+// See https://github.com/OpenKitten/MongoKitten/issues/170
 //            XCTAssertTrue (ParallelTest.performTest (accessor: accessor, repetitions: 5, logger: nil))
-        } else {
-            XCTFail("Expected connectionString")
-        }
+//        } else {
+//            XCTFail("Expected connectionString")
+//        }
     }
 
     public func clearTestDatabase () {
