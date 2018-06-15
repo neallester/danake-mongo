@@ -8,10 +8,10 @@ extension DanakeMongoTests {
   static var allTests = [
     ("testConnection", testConnection),
     ("testBson", testBson),
-    ("testCount", testCount),
     ("testDanakeMetadata", testDanakeMetadata),
     ("testDanakeMongoCreation", testDanakeMongoCreation),
     ("testIsValidCacheName", testIsValidCacheName),
+    ("testCollectionFor", testCollectionFor),
     ("testCRUD", testCRUD),
     ("testScan", testScan),
     ("testParallelTests", testParallelTests),

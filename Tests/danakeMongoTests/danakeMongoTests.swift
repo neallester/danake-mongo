@@ -1,7 +1,7 @@
 import XCTest
 @testable import danakeMongo
-import MongoKitten
 import danake
+import MongoSwift
 
 /*
  
@@ -17,16 +17,18 @@ import danake
 final class DanakeMongoTests: XCTestCase {
     
     func testConnection() throws {
-        
         if let connectionString = connectionString() {
             do {
-                let _ = try MongoKitten.Database(connectionString)
+                let client = try MongoClient (connectionString: connectionString)
+                let database = try client.db (DanakeMongoTests.testDbName)
+                let _ = try database.listCollections()
+                XCTAssertTrue (true)
             } catch {
                 XCTFail ("Program With Connection String: \(error)")
             }
         }
     }
-    
+
     private func connectionString() -> String? {
         var connectionString: String? = nil
         if #available(OSX 10.12, *) {
@@ -42,37 +44,14 @@ final class DanakeMongoTests: XCTestCase {
         }
         return connectionString
     }
-    
+
     public func testBson() throws {
-        let encoder = BSONEncoder()
+        let encoder = BsonEncoder()
         let myStruct = MyStruct()
-        var document = try encoder.encode(myStruct)
-        let id = UUID(uuidString: "B6A42FA9-73A8-475A-85CD-C85353A24225")!
-        document["_id"] = id.uuidString // This is how we'll set the _id
-        if let connectionString = connectionString() {
-            let db = try MongoKitten.Database(connectionString)
-            let collection = db["myStructs"]
-            try collection.insert(document)
-        }
+        let document = try encoder.encode(myStruct)
         XCTAssertNotNil (document)
     }
-    
-    public func testCount() throws {
-        if let connectionString = connectionString() {
-            let db = try MongoKitten.Database(connectionString)
-            let collection = db["myStructs"]
-            try XCTAssertEqual (1, collection.count())
-            let query: Query = "_id" == "B6A42FA9-73A8-475A-85CD-C85353A24225"
-            let document = try collection.findOne(query)!
-            let decoder = BSONDecoder()
-            let myStruct = try decoder.decode (MyStruct.self, from: document)
-            XCTAssertEqual (0, myStruct.myInt)
-        } else {
-            XCTFail()
-        }
 
-    }
-    
     public func testDanakeMetadata() throws {
         let metadata = DanakeMetadata()
         let encoder = JSONEncoder()
@@ -82,73 +61,85 @@ final class DanakeMongoTests: XCTestCase {
         let decodedMetadata = try decoder.decode(DanakeMetadata.self, from: json.data(using: .utf8)!)
         XCTAssertEqual (metadata.id.uuidString, decodedMetadata.id.uuidString)
     }
-    
+
     public func testDanakeMongoCreation() {
         clearTestDatabase()
         let logger = danake.InMemoryLogger()
         do {
-            let _ = try MongoAccessor (dbConnectionString: "xhbpaiewerjjlsizppskne320982734qpeijfz1209873.com", maxConnections: 40, logger: logger)
+            let _ = try MongoAccessor (dbConnectionString: "xhbpaiewerjjlsizppskne320982734qpeijfz1209873.com", databaseName: DanakeMongoTests.testDbName, logger: logger)
             XCTFail("Expected Error")
         } catch {
-            XCTAssertEqual ("invalidDatabase(Optional(\"\"))", "\(error)")
+            XCTAssertEqual ("invalidUri(\"Invalid URI Schema, expecting \\'mongodb://\\' or \\'mongodb+srv://\\'\")", "\(error)")
         }
         do {
-            let _ = try MongoAccessor (dbConnectionString: "mongodb://www.mysafetyprogram.com:27017", maxConnections: 40, logger: logger)
+            let _ = try MongoAccessor (dbConnectionString: "mongodb://www.mysafetyprogram.com:27017", databaseName: DanakeMongoTests.testDbName, logger: logger)
             XCTFail("Expected Error")
-        } catch {
-            XCTAssertEqual ("invalidDatabase(Optional(\"\"))", "\(error)")
-        }
+        } catch {}
         if let connectionString = connectionString() {
             do {
-                var accessor = try MongoAccessor (dbConnectionString: connectionString, maxConnections: 40, logger: logger)
+                let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
                 XCTAssertTrue (logger === accessor.logger as! InMemoryLogger)
-                let metadataCollection = accessor.database[MongoAccessor.metadataCollectionName]
+                let client = try MongoClient (connectionString: connectionString)
+                let database = try client.db (DanakeMongoTests.testDbName)
+                let metadataCollection = try database.collection (MongoAccessor.metadataCollectionName)
                 try XCTAssertEqual (1, metadataCollection.count())
                 let hashCode = accessor.hashValue
-                accessor = try MongoAccessor (dbConnectionString: connectionString, maxConnections: 40, logger: logger)
-                try XCTAssertEqual (1, metadataCollection.count())
-                XCTAssertEqual (hashCode, accessor.hashValue)
+                let decoder = BsonDecoder()
+                for document in try metadataCollection.find() {
+                    let metadata = try decoder.decode(DanakeMetadata.self, from: document)
+                    XCTAssertEqual (hashCode, metadata.id.uuidString)
+                }
+                XCTAssertEqual (1, accessor.existingCollections.count)
+                XCTAssertTrue (accessor.existingCollections.contains(MongoAccessor.metadataCollectionName))
+                let accessor2 = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
+                XCTAssertTrue (logger === accessor2.logger as! InMemoryLogger)
+                let metadataCollection2 = try database.collection (MongoAccessor.metadataCollectionName)
+                try XCTAssertEqual (1, metadataCollection2.count())
+                let hashCode2 = accessor2.hashValue
+                for document in try metadataCollection2.find() {
+                    let metadata = try decoder.decode(DanakeMetadata.self, from: document)
+                    XCTAssertEqual (hashCode2, metadata.id.uuidString)
+                }
+                XCTAssertEqual (1, accessor2.existingCollections.count)
+                XCTAssertTrue (accessor2.existingCollections.contains (MongoAccessor.metadataCollectionName))
+                let _ = try database.createCollection("testCollection")
+                let accessor3 = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
+                XCTAssertTrue (logger === accessor3.logger as! InMemoryLogger)
+                let metadataCollection3 = try database.collection (MongoAccessor.metadataCollectionName)
+                try XCTAssertEqual (1, metadataCollection3.count())
+                let hashCode3 = accessor3.hashValue
+                for document in try metadataCollection3.find() {
+                    let metadata = try decoder.decode(DanakeMetadata.self, from: document)
+                    XCTAssertEqual (hashCode3, metadata.id.uuidString)
+                }
+                XCTAssertEqual (2, accessor3.existingCollections.count)
+                XCTAssertTrue (accessor3.existingCollections.contains (MongoAccessor.metadataCollectionName))
+                XCTAssertTrue (accessor3.existingCollections.contains ("testCollection"))
                 // Add a second metadata document which should cause subsequent accessor creation to fail
                 let anotherMetadata = DanakeMetadata()
-                let encoder = BSONEncoder()
-                var metadataDocument = try encoder.encode(anotherMetadata)
-                metadataDocument[MongoAccessor.kittenIdFieldName] = anotherMetadata.id.uuidString
-                try metadataCollection.insert(metadataDocument)
-            } catch {
-                XCTFail("No Error expected but got \(error)")
-            }
-            do {
-                let database = try MongoKitten.Database(connectionString)
-                let metadataCollection = database[MongoAccessor.metadataCollectionName]
-                var count = try metadataCollection.count()
-                let endTime = Date().timeIntervalSince1970 + 30.0
-                while count != 2 && (Date().timeIntervalSince1970 < endTime) {
-                    usleep (3000000)
-                    count = try metadataCollection.count()
+                let encoder = BsonEncoder()
+                let metadataDocument = try encoder.encode(anotherMetadata)
+                try metadataCollection2.insertOne(metadataDocument)
+                do {
+                    let _ = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
+                    XCTFail ("Expected error")
+                } catch {
+                    XCTAssertEqual ("metadataCount(2)", "\(error)")
                 }
-                XCTAssertEqual (2, count)
+
             } catch {
                 XCTFail("No Error expected but got \(error)")
             }
-            do {
-                let _ = try MongoAccessor (dbConnectionString: connectionString, maxConnections: 40, logger: logger)
-                XCTFail ("Expected Error")
-            } catch {
-                XCTAssertEqual ("multipleMetadata(2)", "\(error)")
-            }
-            // TODO Test Case where  metadata document retrieval fails; need MongoKitten.Database with mocking capability
-            
         } else {
             XCTFail("No Connection String")
         }
         clearTestDatabase()
     }
-    
+
     public func testIsValidCacheName() {
-        clearTestDatabase()
         if let connectionString = connectionString() {
             do {
-                let accessor = try MongoAccessor (dbConnectionString: connectionString, maxConnections: 40, logger: nil)
+                let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
                 XCTAssertEqual ("error(\"name may not be empty\")", "\(accessor.isValidCacheName(""))")
                 XCTAssertEqual ("error(\"name cannot start with \\\"system\\\"\")", "\(accessor.isValidCacheName("system"))")
                 XCTAssertEqual ("error(\"name cannot start with \\\"system\\\"\")", "\(accessor.isValidCacheName("systemCache"))")
@@ -176,14 +167,58 @@ final class DanakeMongoTests: XCTestCase {
         } else {
             XCTFail("No Connection String")
         }
-        clearTestDatabase()
     }
     
+    public func testCollectionFor() {
+        clearTestDatabase()
+        if let connectionString = connectionString() {
+            do {
+                let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
+                accessor.newCollectionsSync() { newCollections in
+                    XCTAssertEqual (0, newCollections.count)
+                }
+                let collectionName = "myCollection"
+                let newCollection = try accessor.collectionFor (name: collectionName).collection
+                XCTAssertEqual (collectionName, newCollection.name)
+                accessor.newCollectionsSync() { newCollections in
+                    XCTAssertEqual (1, newCollections.count)
+                    XCTAssertTrue (newCollections.contains (collectionName))
+                }
+                var indexCount = 0;
+                for index in try newCollection.listIndexes() {
+                    XCTAssertEqual ("_id_", index["name"] as! String)
+                    indexCount = indexCount + 1
+                }
+                XCTAssertEqual (1, indexCount)
+                let accessor2 = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
+                XCTAssertEqual (2, accessor2.existingCollections.count)
+                XCTAssertTrue (accessor2.existingCollections.contains (collectionName))
+                XCTAssertTrue (accessor2.existingCollections.contains(MongoAccessor.metadataCollectionName))
+                let newCollection2 = try accessor2.collectionFor (name: collectionName).collection
+                accessor2.newCollectionsSync() { newCollections in
+                    XCTAssertEqual (0, newCollections.count)
+                }
+                XCTAssertEqual (newCollection2.name, collectionName)
+                indexCount = 0;
+                for index in try newCollection2.listIndexes() {
+                    XCTAssertEqual ("_id_", index["name"] as! String)
+                    indexCount = indexCount + 1
+                }
+                XCTAssertEqual (1, indexCount)
+            } catch {
+                XCTFail("No Error expected but got \(error)")
+            }
+        } else {
+            XCTFail("No Connection String")
+        }
+        clearTestDatabase()
+    }
+
     public func testCRUD() {
         clearTestDatabase()
         if let connectionString = connectionString() {
             do {
-                let accessor = try MongoAccessor (dbConnectionString: connectionString, maxConnections: 40, logger: nil)
+                let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
                 let logger = InMemoryLogger()
                 let database = danake.Database(accessor: accessor, schemaVersion: 1, logger: logger)
                 let cache = EntityCache<MyStruct>(database: database, name: myStructCacheName)
@@ -230,7 +265,7 @@ final class DanakeMongoTests: XCTestCase {
         clearTestDatabase()
         if let connectionString = connectionString() {
             do {
-                let accessor = try MongoAccessor (dbConnectionString: connectionString, maxConnections: 40, logger: nil)
+                let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
                 let logger = InMemoryLogger()
                 let database = danake.Database(accessor: accessor, schemaVersion: 1, logger: logger)
                 let cache = EntityCache<MyStruct>(database: database, name: myStructCacheName)
@@ -277,36 +312,30 @@ final class DanakeMongoTests: XCTestCase {
     }
     
     public func testParallelTests() throws {
-//        if let connectionString = connectionString() {
-//            let logger = ConsoleLogger()
-//            let accessor = try MongoAccessor (dbConnectionString: connectionString, maxConnections: 40, logger: nil)
+        if let connectionString = connectionString() {
+            let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
 // See https://github.com/OpenKitten/MongoKitten/issues/170
-//            XCTAssertTrue (ParallelTest.performTest (accessor: accessor, repetitions: 5, logger: nil))
-//        } else {
-//            XCTFail("Expected connectionString")
-//        }
+            XCTAssertTrue (ParallelTest.performTest (accessor: accessor, repetitions: 5, logger: nil))
+        } else {
+            XCTFail("Expected connectionString")
+        }
     }
 
     public func clearTestDatabase () {
         do {
             if let connectionString = connectionString() {
-                let database = try MongoKitten.Database(connectionString)
-                clearCollection(database: database, name: MongoAccessor.metadataCollectionName)
-                clearCollection(database: database, name: myStructCacheName)
+                let client = try MongoClient (connectionString: connectionString)
+                let database = try client.db (DanakeMongoTests.testDbName)
+                for collectionDocument in try database.listCollections() {
+                    let name: String = try collectionDocument.get("name")
+                    let command: Document = [ "drop" : name]
+                    try database.runCommand(command)
+                }
             } else {
                 XCTFail ("Expected connectionString")
             }
         } catch {
             XCTFail("Expected success but got \(error)")
-        }
-    }
-    
-    public func clearCollection (database: MongoKitten.Database, name: String) {
-        do {
-            let collection = database[name]
-            try collection.remove()
-        } catch {
-            XCTFail ("Expected success but got \(error)")
         }
     }
     
@@ -322,6 +351,7 @@ final class DanakeMongoTests: XCTestCase {
     }
     
     public let myStructCacheName = "myStruct"
+    public static let testDbName = "danake"
 
     
     
