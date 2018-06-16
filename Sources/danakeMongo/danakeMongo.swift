@@ -19,7 +19,23 @@ enum DanakeMongoError : Error {
     case unableToCreateCollection (String)
 }
 
-struct ConnectionPoolOptions {
+/**
+    Options for tuning the behavior the connection pool used by the MongoAccessor.
+*/
+public struct ConnectionPoolOptions {
+
+/**
+     - parameter maximumConnections: The maximum number of database connections which may be open at one time.
+     - parameter minimumCached: The minimum number of open connections to retain in the cache. Actual cache count may drop below this
+                                under high demand. **Default = 0**
+     - parameter reservedCacheCapacity: The initial capacity reserved for the cache beyond **minimumCached**.
+                                        That is, initial cache reservedCapcity = (**minimumCached** + **reservedCacheCapcity**) or
+                                        **capacity**, whichever is less. **Default = 30**.
+     - parameter idleTimeout: Connections will be removed from the cache if they are not used within **idleTimeout** seconds
+                              of their checkIn. 0.0 means connections live forever (not recommended). **Default = 300.0**
+     - parameter timeout: The maximum number of seconds the MongoAccesor will wait for an object in the pool to become available.
+                          **Default = 60.0**
+*/
     public init (maximumConnections: Int, minimumCached: Int = 0, reservedCacheCapacity: Int = 30, idleTimeout: TimeInterval = 300.0, timeout: TimeInterval = 60.0) {
         self.maximumConnections = maximumConnections
         self.minimumCached = minimumCached
@@ -36,13 +52,31 @@ struct ConnectionPoolOptions {
     
 }
     
+/**
+    A Danake DatabaseAccessor for the Mongo Database; used as a database access delegate by a Database object.
+*/
+public final class MongoAccessor : DatabaseAccessor {
 
-final class MongoAccessor : DatabaseAccessor {
-
+/**
+     - parameter dbConnectionString: A string defining [connection parameters](https://docs.mongodb.com/manual/reference/connection-string/)
+                                     to a Mongo database.
+     - parameter databaseName: Name of the database to connect to.
+     - parameter maximumConnections: The maximum number of database connections which may be open at one time. **Default = 30**
+     - parameter logger: The logger to use for reporting database activity and errors.
+*/
     convenience init (dbConnectionString: String, databaseName: String, maximumConnections: Int = 30, logger: danake.Logger?) throws {
         try self.init (dbConnectionString: dbConnectionString, databaseName: databaseName, connectionPoolOptions: ConnectionPoolOptions(maximumConnections: maximumConnections), clientOptions: nil, databaseOptions: nil, logger: logger)
     }
-    
+
+/**
+     - parameter dbConnectionString: A string defining [connection parameters](https://docs.mongodb.com/manual/reference/connection-string/)
+     to a Mongo database.
+     - parameter databaseName: Name of the database to connect to.
+     - parameter connectionPoolOptions: Options for tuning the behavior of the connection pool.
+     - parameter clientOptions: Options for tuning the behavior of MongoDB client sessions.
+     - parameter databaseOptions: Options for tuning the behavior of MongoDB database sessions.
+     - parameter logger: The logger to use for reporting database activity and errors.
+*/
     init (dbConnectionString: String, databaseName: String, connectionPoolOptions: ConnectionPoolOptions, clientOptions: ClientOptions? = nil, databaseOptions: DatabaseOptions? = nil, logger: danake.Logger?) throws {
         self.dbConnectionString = dbConnectionString
         self.databaseName = databaseName
@@ -104,7 +138,7 @@ final class MongoAccessor : DatabaseAccessor {
         connectionPool = ManagedPool<MongoDatabase>(capacity: connectionPoolOptions.maximumConnections, minimumCached: connectionPoolOptions.minimumCached, reservedCacheCapacity: connectionPoolOptions.reservedCacheCapacity, idleTimeout: connectionPoolOptions.idleTimeout, timeout: connectionPoolOptions.timeout, onError: logPoolErrorClosure, create: newConnectionClosure)
     }
     
-    func get<T>(type: Entity<T>.Type, cache: EntityCache<T>, id: UUID) -> RetrievalResult<Entity<T>> where T : Decodable, T : Encodable {
+    public func get<T>(type: Entity<T>.Type, cache: EntityCache<T>, id: UUID) -> RetrievalResult<Entity<T>> where T : Decodable, T : Encodable {
         var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
         do {
             let query = selectId(id)
@@ -129,7 +163,7 @@ final class MongoAccessor : DatabaseAccessor {
         }
     }
     
-    func scan<T>(type: Entity<T>.Type, cache: EntityCache<T>) -> DatabaseAccessListResult<Entity<T>> where T : Decodable, T : Encodable {
+    public func scan<T>(type: Entity<T>.Type, cache: EntityCache<T>) -> DatabaseAccessListResult<Entity<T>> where T : Decodable, T : Encodable {
         var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
         do {
             connection = try collectionFor(name: cache.name)
@@ -153,7 +187,7 @@ final class MongoAccessor : DatabaseAccessor {
         }
     }
     
-    func isValidCacheName(_ name: CacheName) -> ValidationResult {
+    public func isValidCacheName(_ name: CacheName) -> ValidationResult {
         if name.count == 0 {
             return .error ("name may not be empty")
         }
@@ -176,7 +210,7 @@ final class MongoAccessor : DatabaseAccessor {
         return .ok
     }
     
-    func addAction(wrapper: EntityPersistenceWrapper) -> DatabaseActionResult {
+    public func addAction(wrapper: EntityPersistenceWrapper) -> DatabaseActionResult {
         do {
             let document = try self.documentForWrapper(wrapper)
             let result: () -> DatabaseUpdateResult = {
@@ -203,7 +237,7 @@ final class MongoAccessor : DatabaseAccessor {
         }
     }
     
-    func updateAction(wrapper: EntityPersistenceWrapper) -> DatabaseActionResult {
+    public func updateAction(wrapper: EntityPersistenceWrapper) -> DatabaseActionResult {
         do {
             let document = try self.documentForWrapper(wrapper)
             let query = selectId (wrapper.id)
@@ -231,7 +265,7 @@ final class MongoAccessor : DatabaseAccessor {
         }
     }
     
-    func removeAction(wrapper: EntityPersistenceWrapper) -> DatabaseActionResult {
+    public func removeAction(wrapper: EntityPersistenceWrapper) -> DatabaseActionResult {
         let query = selectId (wrapper.id)
         let result: () -> DatabaseUpdateResult = {
             var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil

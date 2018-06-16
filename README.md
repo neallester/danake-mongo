@@ -1,2 +1,2 @@
 # danake-mongo
-Mongo DB Accessor for danake-sw persistence framework
+A Mongo DB Accessor for the [danake-sw persistence framework](https://github.com/neallester/danake-sw). Currently tested on OSX.
