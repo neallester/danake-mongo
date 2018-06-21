@@ -15,6 +15,7 @@ extension DanakeMongoTests {
     ("testCRUD", testCRUD),
     ("testScan", testScan),
     ("testParallelTests", testParallelTests),
+    ("testSampleCompany", testSampleCompany),
   ]
 }
 

@@ -2,6 +2,7 @@
 import danake
 import Foundation
 import MongoSwift
+import ManagedPool
 
 class DanakeMetadata : Codable {
     
@@ -33,14 +34,16 @@ public struct ConnectionPoolOptions {
                                         **capacity**, whichever is less. **Default = 30**.
      - parameter idleTimeout: Connections will be removed from the cache if they are not used within **idleTimeout** seconds
                               of their checkIn. 0.0 means connections live forever (not recommended). **Default = 300.0**
+     - parameter statusReportInterval: Status reports will be logged (.info) every **statusReportInterval** seconds. 0.0 indicates no reports. Ignored if logger is nil. **Default = 300.0**
      - parameter timeout: The maximum number of seconds the MongoAccesor will wait for an object in the pool to become available.
                           **Default = 60.0**
 */
-    public init (maximumConnections: Int, minimumCached: Int = 0, reservedCacheCapacity: Int = 30, idleTimeout: TimeInterval = 300.0, timeout: TimeInterval = 60.0) {
+    public init (maximumConnections: Int, minimumCached: Int = 0, reservedCacheCapacity: Int = 30, idleTimeout: TimeInterval = 300.0, timeout: TimeInterval = 60.0, statusReportInterval: TimeInterval = 300.0) {
         self.maximumConnections = maximumConnections
         self.minimumCached = minimumCached
         self.reservedCacheCapacity = reservedCacheCapacity
         self.idleTimeout = idleTimeout
+        self.statusReportInterval = statusReportInterval
         self.timeout = timeout
     }
     
@@ -49,13 +52,14 @@ public struct ConnectionPoolOptions {
     internal let reservedCacheCapacity: Int
     internal let idleTimeout: TimeInterval
     internal let timeout: TimeInterval
+    internal let statusReportInterval: TimeInterval
     
 }
     
 /**
     A Danake DatabaseAccessor for the Mongo Database; used as a database access delegate by a Database object.
 */
-public final class MongoAccessor : DatabaseAccessor {
+open class MongoAccessor : DatabaseAccessor {
 
 /**
      - parameter dbConnectionString: A string defining [connection parameters](https://docs.mongodb.com/manual/reference/connection-string/)
@@ -134,12 +138,23 @@ public final class MongoAccessor : DatabaseAccessor {
                 logger.log(level: level, source: MongoAccessor.self, featureName: "logPoolError", message: "\(poolError)", data: nil)
             }
         }
-
         connectionPool = ManagedPool<MongoDatabase>(capacity: connectionPoolOptions.maximumConnections, minimumCached: connectionPoolOptions.minimumCached, reservedCacheCapacity: connectionPoolOptions.reservedCacheCapacity, idleTimeout: connectionPoolOptions.idleTimeout, timeout: connectionPoolOptions.timeout, onError: logPoolErrorClosure, create: newConnectionClosure)
+        if let _ = logger {
+            if connectionPoolOptions.statusReportInterval > 0.0 {
+                self.logStatusReport(nextReport: connectionPoolOptions.statusReportInterval)
+            }
+        }
+
     }
     
     public func get<T>(type: Entity<T>.Type, cache: EntityCache<T>, id: UUID) -> RetrievalResult<Entity<T>> where T : Decodable, T : Encodable {
         var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
+        var isConnectionOk = true
+        defer {
+            if let connection = connection {
+                connectionPool.checkIn(connection.poolObject, isOK: isConnectionOk)
+            }
+        }
         do {
             let query = selectId(id)
             connection = try collectionFor (name: cache.name)
@@ -148,41 +163,42 @@ public final class MongoAccessor : DatabaseAccessor {
                 var entity: Entity<T>? = nil
                 if let resultDocument = resultCursor.next() {
                     let bsonDecoder = decoder(cache: cache)
-                    entity = try bsonDecoder.decode(type, from: resultDocument)
+                    switch entityCreation.entity(creator: { try bsonDecoder.decode(type, from: resultDocument) }) {
+                    case .ok (let newEntity):
+                        entity = newEntity
+                    case .error(let errorMessage):
+                        return .error (errorMessage)
+                    }
                 }
-                connectionPool.checkIn(connection.poolObject)
                 return .ok (entity)
             } else {
                 return .error ("NoCollection")
             }
         } catch {
-            if let connection = connection {
-                connectionPool.checkIn(connection.poolObject, isOK: false)
-            }
+            isConnectionOk = false
             return .error ("\(error)")
         }
     }
     
     public func scan<T>(type: Entity<T>.Type, cache: EntityCache<T>) -> DatabaseAccessListResult<Entity<T>> where T : Decodable, T : Encodable {
         var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
+        var isConnectionOk = true
+        defer {
+            if let connection = connection {
+                connectionPool.checkIn(connection.poolObject, isOK: isConnectionOk)
+            }
+        }
         do {
             connection = try collectionFor(name: cache.name)
             if let connection = connection {
                 let documents = try connection.collection.find();
-                var result: [Entity<T>] = []
-                for document in documents {
-                    let bsonDecoder = decoder(cache: cache)
-                    try result.append (bsonDecoder.decode(type, from: document))
-                }
-                connectionPool.checkIn(connection.poolObject)
+                let result: [Entity<T>] = try entityForDocuments(documents, cache: cache, type: type)
                 return .ok (result)
             } else {
                 return .error ("NoCollection")
             }
         } catch {
-            if let connection = connection {
-                connectionPool.checkIn(connection.poolObject, isOK: false)
-            }
+            isConnectionOk = false
             return .error ("\(error)")
         }
     }
@@ -215,19 +231,22 @@ public final class MongoAccessor : DatabaseAccessor {
             let document = try self.documentForWrapper(wrapper)
             let result: () -> DatabaseUpdateResult = {
                 var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
+                var isConnectionOk = true
+                defer {
+                    if let connection = connection {
+                        self.connectionPool.checkIn(connection.poolObject, isOK: isConnectionOk)
+                    }
+                }
                 do {
                     connection = try self.collectionFor(name: wrapper.cacheName)
                     if let connection = connection {
                         try connection.collection.insertOne(document)
-                        self.connectionPool.checkIn(connection.poolObject)
                         return .ok
                     } else {
                         return .error ("NoCollection")
                     }
                 } catch {
-                    if let connection = connection {
-                        self.connectionPool.checkIn(connection.poolObject, isOK: false)
-                    }
+                    isConnectionOk = false
                     return .error ("\(error)")
                 }
             }
@@ -243,19 +262,22 @@ public final class MongoAccessor : DatabaseAccessor {
             let query = selectId (wrapper.id)
             let result: () -> DatabaseUpdateResult = {
                 var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
+                var isConnectionOk = true
+                defer {
+                    if let connection = connection {
+                        self.connectionPool.checkIn(connection.poolObject, isOK: isConnectionOk)
+                    }
+                }
                 do {
                     connection = try self.collectionFor(name: wrapper.cacheName)
                     if let connection = connection {
                         try connection.collection.replaceOne(filter: query, replacement: document)
-                        self.connectionPool.checkIn(connection.poolObject)
                         return .ok
                     } else {
                         return .error ("NoCollection")
                     }
                 } catch {
-                    if let connection = connection {
-                        self.connectionPool.checkIn(connection.poolObject, isOK: false)
-                    }
+                    isConnectionOk = false
                     return .error ("\(error)")
                 }
             }
@@ -269,19 +291,22 @@ public final class MongoAccessor : DatabaseAccessor {
         let query = selectId (wrapper.id)
         let result: () -> DatabaseUpdateResult = {
             var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
+            var isConnectionOk = true
+            defer {
+                if let connection = connection {
+                    self.connectionPool.checkIn(connection.poolObject, isOK: isConnectionOk)
+                }
+            }
             do {
                 connection = try self.collectionFor(name: wrapper.cacheName)
                 if let connection = connection {
                     try connection.collection.deleteOne(query)
-                    self.connectionPool.checkIn(connection.poolObject)
                     return .ok
                 } else {
                     return .error ("NoCollection")
                 }
             } catch {
-                if let connection = connection {
-                    self.connectionPool.checkIn(connection.poolObject, isOK: false)
-                }
+                isConnectionOk = false
                 return .error ("\(error)")
             }
         }
@@ -291,8 +316,28 @@ public final class MongoAccessor : DatabaseAccessor {
     public func encoder() -> BsonEncoder {
         return BsonEncoder()
     }
+    
+/**
+     - parameter documents: A MongoCursor containing the documents representing the Entities to be created
+     - parameter cache: The cache for the type of Entities to be created.
+     - parameter type: The type of the Entities
+     - returns: an Array of Entity<T> created from the provided documents.
+*/
+    public func entityForDocuments<T: Codable> (_ documents: MongoCursor<Document>, cache: EntityCache<T>, type: Entity<T>.Type) throws -> [Entity<T>] {
+        var result: [Entity<T>] = []
+        for document in documents {
+            let bsonDecoder = decoder(cache: cache)
+            switch entityCreation.entity(creator: { try bsonDecoder.decode(type, from: document) }) {
+            case .ok (let newEntity):
+                result.append (newEntity)
+            case .error(let errorMessage):
+                logger?.log (level: .error, source: self, featureName: "entityForDocument", message: "decodingError", data: [("cacheName", cache.name), ("documentId", document["id"] as? CustomStringConvertible), (name: "errorMessage", value: errorMessage)])
+            }
+        }
+        return result
+    }
 
-    private func decoder<T> (cache: EntityCache<T>) -> BsonDecoder {
+    public func decoder<T> (cache: EntityCache<T>) -> BsonDecoder {
         var userInfo: [CodingUserInfoKey : Any] = [:]
         userInfo[Database.cacheKey] = cache
         userInfo[Database.parentDataKey] = DataContainer()
@@ -303,8 +348,13 @@ public final class MongoAccessor : DatabaseAccessor {
         result.userInfo = userInfo
         return result
     }
-    
-    internal func collectionFor (name: String) throws -> (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>) {
+
+/**
+     - returns: a MongoCollection and the associated database connection (wrapped in a PoolObject). The connection must be returned to the
+     connectionPool using checkIn() when finished using the MongoCollection
+     - parameter name: The name of the collection.
+*/
+    public func collectionFor (name: String) throws -> (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>) {
         let databaseObject = try connectionPool.checkOut()
         var errorMessage: String? = nil
         var newCollection: MongoCollection<Document>? = nil
@@ -338,14 +388,48 @@ public final class MongoAccessor : DatabaseAccessor {
         }
     }
     
-    internal func documentForWrapper (_ wrapper: EntityPersistenceWrapper) throws -> Document {
+/**
+     - parameter wrapper: An EntityPersistentWrapper (type erased wrapper for an Entity<T>
+     - returns: A mongo Document representing the wrapped entity.
+*/
+    public func documentForWrapper (_ wrapper: EntityPersistenceWrapper) throws -> Document {
         var result = try encoder().encode(wrapper)
         result [MongoAccessor.mongoIdFieldName] = wrapper.id.uuidString
         return result
     }
 
-    private func selectId (_ id: UUID) -> Document {
+/**
+     - parameter id: Id of the Entity to be selected for
+     - returns: A Document query which selects an Entity by id
+*/
+    public func selectId (_ id: UUID) -> Document {
         return [MongoAccessor.mongoIdFieldName : id.uuidString]
+    }
+    
+    public func poolStatus() -> ManagedPool<Database>.StatusReport {
+        return connectionPool.status()
+    }
+
+/**
+     Return a connection to the pool.
+     - parameter poolObject: The object to be returned to the pool.
+     - parameter isOK: Is the connection ok to return to the cache?
+*/
+    public func checkIn (_ poolObject: PoolObject<MongoDatabase>, isOK: Bool = true) {
+        connectionPool.checkIn(poolObject, isOK: isOK)
+    }
+    
+/**
+     Prepare for deinitialization. Failure to call this function before dereferencing may cause a memory
+     leak due to the strong reference held by the dispatch jobs used to periodically manage the connectionPool
+     and log periodic status reports. Note that the invalidated accessor will remain in memory until the existing
+     dipatch jobs run.
+*/
+    public func invalidate() {
+        connectionPool.invalidate()
+        statusReportQueue.sync {
+            isInvalidated = true
+        }
     }
 
     internal func newCollectionsSync (closure: (Set<String>) -> ()) {
@@ -354,19 +438,37 @@ public final class MongoAccessor : DatabaseAccessor {
         }
     }
     
-    private var newCollections = Set<String>()
-
+    private func logStatusReport(nextReport: TimeInterval) {
+        if hasStatusReportStarted {
+            let status = connectionPool.status()
+            logger?.log(level: .info, source: self, featureName: "logStatusReport", message: "status", data: [(name: "maximumConnections", value: connectionPool.capacity), (name: "checkedOut", value: status.checkedOut), (name: "cached", value: status.cached), (name: "firstExpires", value: status.firstExpires?.timeIntervalSince1970), (name: "lastExpires", value: status.lastExpires?.timeIntervalSince1970)])
+        } else {
+            hasStatusReportStarted = true
+        }
+        if !isInvalidated {
+            statusReportQueue.asyncAfter(deadline: DispatchTime.now() + nextReport) {
+                self.logStatusReport(nextReport: nextReport)
+            }
+        }
+    }
     
     public let logger: danake.Logger?
     public let hashValue: String
+    public let entityCreation = EntityCreation()
 
+    
+    internal var hasStatusReportStarted = false
+    internal let connectionPool: ManagedPool<MongoDatabase>
     internal let existingCollections: Set<String>
-    private let newCollectionsQueue = DispatchQueue (label: "newCollections")
     internal let clientOptions: ClientOptions?
     internal let databaseOptions: DatabaseOptions?
     internal let dbConnectionString: String
     internal let databaseName: String
-    private let connectionPool: ManagedPool<MongoDatabase>
+
+    private var newCollections = Set<String>()
+    private var isInvalidated = false
+    private let newCollectionsQueue = DispatchQueue (label: "newCollections")
+    private let statusReportQueue = DispatchQueue (label: "statusReport")
 
     static let metadataCollectionName = "danakeMetadata"
     static let mongoIdFieldName = "_id"
