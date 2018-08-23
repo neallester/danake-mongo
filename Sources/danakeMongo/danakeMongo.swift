@@ -39,6 +39,7 @@ public struct ConnectionPoolOptions {
                           **Default = 60.0**
 */
     public init (maximumConnections: Int, minimumCached: Int = 0, reservedCacheCapacity: Int = 30, idleTimeout: TimeInterval = 300.0, timeout: TimeInterval = 60.0, statusReportInterval: TimeInterval = 300.0) {
+        MongoSwift.initialize()
         self.maximumConnections = maximumConnections
         self.minimumCached = minimumCached
         self.reservedCacheCapacity = reservedCacheCapacity
