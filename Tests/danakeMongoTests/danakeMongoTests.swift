@@ -20,11 +20,16 @@ final class DanakeMongoTests: XCTestCase {
     func testConnection() throws {
         if let connectionString = connectionString() {
             do {
+                print ("1")
                 let client = try MongoClient (connectionString: connectionString)
+                print ("2")
                 let database = try client.db (DanakeMongoTests.testDbName)
+                print ("3")
                 let _ = try database.listCollections()
+                print ("4")
                 XCTAssertTrue (true)
             } catch {
+                print ("Fail")
                 XCTFail ("Program With Connection String: \(error)")
             }
         }
@@ -43,6 +48,7 @@ final class DanakeMongoTests: XCTestCase {
         } else {
             XCTFail ("Test Needs OSX 10.12 or greater")
         }
+        print ("Connection String: \(connectionString)")
         return connectionString
     }
 
