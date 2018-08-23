@@ -36,6 +36,7 @@ final class DanakeMongoTests: XCTestCase {
     }
 
     private func connectionString() -> String? {
+        MongoSwift.initialize()
         var connectionString: String? = nil
         #if os(Linux)
             sleep (1)
