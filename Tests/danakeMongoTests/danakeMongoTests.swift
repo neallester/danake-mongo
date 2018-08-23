@@ -37,6 +37,9 @@ final class DanakeMongoTests: XCTestCase {
 
     private func connectionString() -> String? {
         var connectionString: String? = nil
+        #if os(Linux)
+            sleep (1)
+        #endif
         if #available(OSX 10.12, *) {
             let fm = FileManager.default
             let url = fm.homeDirectoryForCurrentUser.appendingPathComponent("danake-mongo-connection.txt")
