@@ -16,6 +16,9 @@ extension DanakeMongoTests {
     ("testScan", testScan),
     ("testParallelTests", testParallelTests),
     ("testSampleCompany", testSampleCompany),
+    ("testCheckIn", testCheckIn),
+    ("testErrorLogging", testErrorLogging),
+    ("testStatusReport", testStatusReport),
   ]
 }
 
