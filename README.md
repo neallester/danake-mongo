@@ -11,7 +11,7 @@ import danakeMongo
 let logger = ConsoleLogger()
 let mongoAccessor = try MongoAccessor(dbConnectionString: "connectionString", databaseName: "dbName", logger: logger)
 ```
-The **mongoAccessor** object may be used to create a DatabaseAccessor (see  [danake-sw](https://github.com/neallester/danake-sw) for details).
+The **mongoAccessor** object may be used to create a Danake Framework Database (see  [danake-sw](https://github.com/neallester/danake-sw) for details).
 
 See class [MongoAccessor](https://github.com/neallester/danake-mongo/blob/master/Sources/danakeMongo/danakeMongo.swift) for additional initialization options.
 
