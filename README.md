@@ -1,5 +1,5 @@
 # danake-mongo
-A Mongo DB Accessor for the [danake-sw persistence framework](https://github.com/neallester/danake-sw). Currently tested on OSX and Linux.
+A Mongo DB Accessor for the [danake-sw persistence framework](https://github.com/neallester/danake-sw). Currently tested on OSX and Ubuntu 16.04.
 ## Installation
 1. Install the [MongoDb C Driver](https://github.com/mongodb/mongo-swift-driver#first-install-the-mongodb-c-driver)
 1. Add the following your project's Package.swift package description:
