@@ -362,7 +362,9 @@ final class DanakeMongoTests: XCTestCase {
         }
         
         if let connectionString = connectionString() {
+            print ("Creating accessor")
             let accessor = try SampleMongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
+            print ("Running sample tests")
             XCTAssertTrue (SampleUsage.runSample (accessor: accessor))
             XCTAssertEqual (0, accessor.connectionPool.status().checkedOut)
         } else {
