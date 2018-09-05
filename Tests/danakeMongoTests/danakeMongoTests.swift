@@ -361,6 +361,7 @@ final class DanakeMongoTests: XCTestCase {
             }
         }
         
+        print ("Getting connection string")
         if let connectionString = connectionString() {
             print ("Creating accessor")
             let accessor = try SampleMongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
