@@ -18,7 +18,9 @@ import ManagedPool
 final class DanakeMongoTests: XCTestCase {
     
     override func setUp() {
+        print ("setUp.start")
         MongoSwift.initialize()
+        print ("setUp.start")
     }
 
     
@@ -361,11 +363,8 @@ final class DanakeMongoTests: XCTestCase {
             }
         }
         
-        print ("Getting connection string")
         if let connectionString = connectionString() {
-            print ("Creating accessor")
             let accessor = try SampleMongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
-            print ("Running sample tests")
             XCTAssertTrue (SampleUsage.runSample (accessor: accessor))
             XCTAssertEqual (0, accessor.connectionPool.status().checkedOut)
         } else {
