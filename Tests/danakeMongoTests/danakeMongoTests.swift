@@ -332,6 +332,9 @@ final class DanakeMongoTests: XCTestCase {
         } else {
             XCTFail("Expected connectionString")
         }
+        #if os(Linux)
+            sleep (3)
+        #endif
     }
     
     public func testSampleCompany() throws {
