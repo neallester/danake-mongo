@@ -59,6 +59,9 @@ public struct ConnectionPoolOptions {
     
 /**
     A Danake DatabaseAccessor for the Mongo Database; used as a database access delegate by a Database object.
+ 
+    Important Note: Call MongoSwift.cleanup() exactly once at end of application execution.
+ 
 */
 open class MongoAccessor : DatabaseAccessor {
 

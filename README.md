@@ -17,5 +17,7 @@ The **mongoAccessor** object may be used to create a Danake Framework Database (
 
 See class [MongoAccessor](https://github.com/neallester/danake-mongo/blob/master/Sources/danakeMongo/danakeMongo.swift) for additional initialization options.
 
+**Important Note:** Call MongoSwift.cleanup() exactly once at end of application execution.
+
 
 
