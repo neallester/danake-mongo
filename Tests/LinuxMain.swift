@@ -14,11 +14,11 @@ extension DanakeMongoTests {
     ("testCollectionFor", testCollectionFor),
     ("testCRUD", testCRUD),
     ("testScan", testScan),
-    ("testParallelTests", testParallelTests),
-    ("testSampleCompany", testSampleCompany),
     ("testCheckIn", testCheckIn),
     ("testErrorLogging", testErrorLogging),
     ("testStatusReport", testStatusReport),
+    ("testSampleCompany", testSampleCompany),
+    ("testParallelTests", testParallelTests),
   ]
 }
 
