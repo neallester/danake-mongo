@@ -446,6 +446,7 @@ final class DanakeMongoTests: XCTestCase {
             #if os(Linux)
                 sleep (3)
             #endif
+            MongoSwift.cleanup()
         }
     }
     
