@@ -429,7 +429,7 @@ final class DanakeMongoTests: XCTestCase {
         // The test often throws a Signal 4 or Signal 9 Error on Linux
         // Appears to be a problem with the mongo-swift-driver which is still
         // immature. Hoping they'll fix it and then I can remove this iff statement.
-            if Calendar.current.dateComponents([.weekday], from: Date()).weekday != 2 {
+            if Calendar.current.dateComponents([.weekday], from: Date()).weekday >= 2 {
                 runTest = false
             } else {
                 sleep (3)
