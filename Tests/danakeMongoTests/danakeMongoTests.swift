@@ -373,7 +373,7 @@ final class DanakeMongoTests: XCTestCase {
                 XCTAssertEqual ("INFO|MongoAccessor.logStatusReport|status|maximumConnections=5;checkedOut=1;cached=0;firstExpires=nil;lastExpires=nil", entries.last?.asTestString())
             }
             accessor.checkIn(c1)
-            sleep (100000)
+            usleep (100000)
             logger.sync() { entries in
                 XCTAssertTrue (entries.count > 0)
                 XCTAssertTrue (entries.last!.asTestString().contains ("INFO|MongoAccessor.logStatusReport|status|maximumConnections=5;checkedOut=0;cached=1;firstExpires="))
