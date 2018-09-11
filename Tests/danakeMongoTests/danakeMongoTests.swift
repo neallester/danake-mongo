@@ -18,9 +18,7 @@ import ManagedPool
 final class DanakeMongoTests: XCTestCase {
     
     override func setUp() {
-        print ("setUp.start")
         MongoSwift.initialize()
-        print ("setUp.end")
     }
 
     
