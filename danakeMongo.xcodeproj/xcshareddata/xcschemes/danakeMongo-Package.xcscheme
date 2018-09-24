@@ -14,51 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "danake::danake"
-               BuildableName = "danake.framework"
-               BlueprintName = "danake"
-               ReferencedContainer = "container:danakeMongo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "danakeMongo::danakeMongo"
                BuildableName = "danakeMongo.framework"
                BlueprintName = "danakeMongo"
-               ReferencedContainer = "container:danakeMongo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "MongoSwift::MongoSwift"
-               BuildableName = "MongoSwift.framework"
-               BlueprintName = "MongoSwift"
-               ReferencedContainer = "container:danakeMongo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ManagedPool::ManagedPool"
-               BuildableName = "ManagedPool.framework"
-               BlueprintName = "ManagedPool"
                ReferencedContainer = "container:danakeMongo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -97,9 +55,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "danake::danake"
-            BuildableName = "danake.framework"
-            BlueprintName = "danake"
+            BlueprintIdentifier = "danakeMongo::danakeMongo"
+            BuildableName = "danakeMongo.framework"
+            BlueprintName = "danakeMongo"
             ReferencedContainer = "container:danakeMongo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -79,7 +79,7 @@ final class DanakeMongoTests: XCTestCase {
             let _ = try MongoAccessor (dbConnectionString: "xhbpaiewerjjlsizppskne320982734qpeijfz1209873.com", databaseName: DanakeMongoTests.testDbName, logger: logger)
             XCTFail("Expected Error")
         } catch {
-            XCTAssertEqual ("invalidUri(\"Invalid URI Schema, expecting \\'mongodb://\\' or \\'mongodb+srv://\\'\")", "\(error)")
+            XCTAssertEqual ("invalidUri(message: \"Invalid URI Schema, expecting \\'mongodb://\\' or \\'mongodb+srv://\\'\")", "\(error)")
         }
         do {
             let _ = try MongoAccessor (dbConnectionString: "mongodb://www.mysafetyprogram.com:27017", databaseName: DanakeMongoTests.testDbName, logger: logger)
@@ -422,7 +422,7 @@ final class DanakeMongoTests: XCTestCase {
     }
     
     public func testParallelTests() throws {
-        var runTest = false;
+        var runTest = true;
         #if os(Linux)
         // The test often throws a Signal 4 or Signal 9 Error on Linux
         // Appears to be a problem with the mongo-swift-driver which is still

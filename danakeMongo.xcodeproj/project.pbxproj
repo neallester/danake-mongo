@@ -93,56 +93,56 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		08547AF821377137005AE21F /* PBXContainerItemProxy */ = {
+		085A92E52159A58D002B8F19 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "ManagedPool::ManagedPool";
 			remoteInfo = ManagedPool;
 		};
-		08547AF921377137005AE21F /* PBXContainerItemProxy */ = {
+		085A92E62159A58D002B8F19 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoSwift::MongoSwift";
 			remoteInfo = MongoSwift;
 		};
-		08547AFA21377137005AE21F /* PBXContainerItemProxy */ = {
+		085A92E72159A58D002B8F19 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "danake::danake";
 			remoteInfo = danake;
 		};
-		08547AFB21377137005AE21F /* PBXContainerItemProxy */ = {
+		085A92E82159A58D002B8F19 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "danakeMongo::danakeMongo";
 			remoteInfo = danakeMongo;
 		};
-		08547AFC21377137005AE21F /* PBXContainerItemProxy */ = {
+		085A92E92159A58D002B8F19 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "ManagedPool::ManagedPool";
 			remoteInfo = ManagedPool;
 		};
-		08547AFD21377137005AE21F /* PBXContainerItemProxy */ = {
+		085A92EA2159A58D002B8F19 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoSwift::MongoSwift";
 			remoteInfo = MongoSwift;
 		};
-		08547AFE21377137005AE21F /* PBXContainerItemProxy */ = {
+		085A92EB2159A58D002B8F19 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "danake::danake";
 			remoteInfo = danake;
 		};
-		08547AFF21377138005AE21F /* PBXContainerItemProxy */ = {
+		085A92EC2159A58E002B8F19 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -152,13 +152,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		"ManagedPool::ManagedPool::Product" /* ManagedPool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ManagedPool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"MongoSwift::MongoSwift::Product" /* MongoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MongoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"ManagedPool::ManagedPool::Product" /* ManagedPool.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ManagedPool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"MongoSwift::MongoSwift::Product" /* MongoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MongoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_12 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_13 /* danakeMongoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danakeMongoTests.swift; sourceTree = "<group>"; };
 		OBJ_14 /* sourcery */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sourcery; sourceTree = SOURCE_ROOT; };
 		OBJ_18 /* ManagedPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedPool.swift; sourceTree = "<group>"; };
-		OBJ_19 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/ManagedPool-sw.git-710094877684731753/Package.swift"; sourceTree = "<group>"; };
+		OBJ_19 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/ManagedPool-sw.git-1816063396692914653/Package.swift"; sourceTree = "<group>"; };
 		OBJ_22 /* APM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APM.swift; sourceTree = "<group>"; };
 		OBJ_24 /* AnyBsonValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyBsonValue.swift; sourceTree = "<group>"; };
 		OBJ_25 /* BsonDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BsonDecoder.swift; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 		OBJ_45 /* ReadPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadPreference.swift; sourceTree = "<group>"; };
 		OBJ_46 /* SDAM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDAM.swift; sourceTree = "<group>"; };
 		OBJ_47 /* WriteConcern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteConcern.swift; sourceTree = "<group>"; };
-		OBJ_48 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/mongo-swift-driver.git--3116645871691136268/Package.swift"; sourceTree = "<group>"; };
+		OBJ_48 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/mongo-swift-driver.git--5172544073117506001/Package.swift"; sourceTree = "<group>"; };
 		OBJ_51 /* EntityCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityCache.swift; sourceTree = "<group>"; };
 		OBJ_52 /* InMemoryAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryAccessor.swift; sourceTree = "<group>"; };
 		OBJ_53 /* ParallelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallelTest.swift; sourceTree = "<group>"; };
@@ -195,10 +195,10 @@
 		OBJ_58 /* entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = entity.swift; sourceTree = "<group>"; };
 		OBJ_59 /* logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logging.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		OBJ_60 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/danake-sw.git-5146620458204812865/Package.swift"; sourceTree = "<group>"; };
+		OBJ_60 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/danake-sw.git--6180691660846839616/Package.swift"; sourceTree = "<group>"; };
 		OBJ_9 /* danakeMongo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danakeMongo.swift; sourceTree = "<group>"; };
-		"danake::danake::Product" /* danake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = danake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"danakeMongo::danakeMongo::Product" /* danakeMongo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = danakeMongo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"danake::danake::Product" /* danake.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = danake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"danakeMongo::danakeMongo::Product" /* danakeMongo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = danakeMongo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"danakeMongo::danakeMongoTests::Product" /* danakeMongoTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = danakeMongoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -291,7 +291,7 @@
 				OBJ_18 /* ManagedPool.swift */,
 			);
 			name = ManagedPool;
-			path = ".build/checkouts/ManagedPool-sw.git-710094877684731753/Sources/ManagedPool";
+			path = ".build/checkouts/ManagedPool-sw.git-1816063396692914653/Sources/ManagedPool";
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_20 /* MongoSwift */ = {
@@ -326,7 +326,7 @@
 				OBJ_47 /* WriteConcern.swift */,
 			);
 			name = MongoSwift;
-			path = ".build/checkouts/mongo-swift-driver.git--3116645871691136268/Sources/MongoSwift";
+			path = ".build/checkouts/mongo-swift-driver.git--5172544073117506001/Sources/MongoSwift";
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_23 /* BSON */ = {
@@ -380,17 +380,17 @@
 				OBJ_59 /* logging.swift */,
 			);
 			name = danake;
-			path = ".build/checkouts/danake-sw.git-5146620458204812865/Sources/danake";
+			path = ".build/checkouts/danake-sw.git--6180691660846839616/Sources/danake";
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_61 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				"danake::danake::Product" /* danake.framework */,
 				"danakeMongo::danakeMongoTests::Product" /* danakeMongoTests.xctest */,
-				"ManagedPool::ManagedPool::Product" /* ManagedPool.framework */,
+				"danake::danake::Product" /* danake.framework */,
 				"danakeMongo::danakeMongo::Product" /* danakeMongo.framework */,
 				"MongoSwift::MongoSwift::Product" /* MongoSwift.framework */,
+				"ManagedPool::ManagedPool::Product" /* ManagedPool.framework */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -544,7 +544,7 @@
 			buildPhases = (
 				OBJ_160 /* Sources */,
 				OBJ_163 /* Frameworks */,
-				08547B0021377143005AE21F /* ShellScript */,
+				085A92ED2159A63C002B8F19 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -596,18 +596,22 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08547B0021377143005AE21F /* ShellScript */ = {
+		085A92ED2159A63C002B8F19 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
+			);
+			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = $SRCROOT/sourcery.sh;
+			shellScript = "$SRCROOT/sourcery.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -723,42 +727,42 @@
 		OBJ_142 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "ManagedPool::ManagedPool" /* ManagedPool */;
-			targetProxy = 08547AF821377137005AE21F /* PBXContainerItemProxy */;
+			targetProxy = 085A92E52159A58D002B8F19 /* PBXContainerItemProxy */;
 		};
 		OBJ_143 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoSwift::MongoSwift" /* MongoSwift */;
-			targetProxy = 08547AF921377137005AE21F /* PBXContainerItemProxy */;
+			targetProxy = 085A92E62159A58D002B8F19 /* PBXContainerItemProxy */;
 		};
 		OBJ_144 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "danake::danake" /* danake */;
-			targetProxy = 08547AFA21377137005AE21F /* PBXContainerItemProxy */;
+			targetProxy = 085A92E72159A58D002B8F19 /* PBXContainerItemProxy */;
 		};
 		OBJ_155 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "danakeMongo::danakeMongoTests" /* danakeMongoTests */;
-			targetProxy = 08547AFF21377138005AE21F /* PBXContainerItemProxy */;
+			targetProxy = 085A92EC2159A58E002B8F19 /* PBXContainerItemProxy */;
 		};
 		OBJ_168 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "danakeMongo::danakeMongo" /* danakeMongo */;
-			targetProxy = 08547AFB21377137005AE21F /* PBXContainerItemProxy */;
+			targetProxy = 085A92E82159A58D002B8F19 /* PBXContainerItemProxy */;
 		};
 		OBJ_169 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "ManagedPool::ManagedPool" /* ManagedPool */;
-			targetProxy = 08547AFC21377137005AE21F /* PBXContainerItemProxy */;
+			targetProxy = 085A92E92159A58D002B8F19 /* PBXContainerItemProxy */;
 		};
 		OBJ_170 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoSwift::MongoSwift" /* MongoSwift */;
-			targetProxy = 08547AFD21377137005AE21F /* PBXContainerItemProxy */;
+			targetProxy = 085A92EA2159A58D002B8F19 /* PBXContainerItemProxy */;
 		};
 		OBJ_171 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "danake::danake" /* danake */;
-			targetProxy = 08547AFE21377137005AE21F /* PBXContainerItemProxy */;
+			targetProxy = 085A92EB2159A58D002B8F19 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -767,7 +771,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -776,7 +780,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -799,6 +803,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 4.0;
 				TARGET_NAME = danake;
 			};
@@ -822,6 +827,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 4.0;
 				TARGET_NAME = danake;
 			};
@@ -837,8 +843,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/.build/checkouts/swift-mongoc-4572998624666171810",
-					"$(SRCROOT)/.build/checkouts/swift-bson-2873930670968179217",
+					"$(SRCROOT)/.build/checkouts/swift-mongoc--1804024162758272654",
+					"$(SRCROOT)/.build/checkouts/swift-bson-4372259365814064288",
 				);
 				INFOPLIST_FILE = danakeMongo.xcodeproj/danakeMongo_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
@@ -862,6 +868,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 4.0;
 				TARGET_NAME = danakeMongo;
 			};
@@ -877,8 +884,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/.build/checkouts/swift-mongoc-4572998624666171810",
-					"$(SRCROOT)/.build/checkouts/swift-bson-2873930670968179217",
+					"$(SRCROOT)/.build/checkouts/swift-mongoc--1804024162758272654",
+					"$(SRCROOT)/.build/checkouts/swift-bson-4372259365814064288",
 				);
 				INFOPLIST_FILE = danakeMongo.xcodeproj/danakeMongo_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
@@ -902,6 +909,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 4.0;
 				TARGET_NAME = danakeMongo;
 			};
@@ -911,7 +919,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -920,7 +928,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -940,6 +948,7 @@
 		OBJ_158 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -947,8 +956,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/.build/checkouts/swift-mongoc-4572998624666171810",
-					"$(SRCROOT)/.build/checkouts/swift-bson-2873930670968179217",
+					"$(SRCROOT)/.build/checkouts/swift-mongoc--1804024162758272654",
+					"$(SRCROOT)/.build/checkouts/swift-bson-4372259365814064288",
 				);
 				INFOPLIST_FILE = danakeMongo.xcodeproj/danakeMongoTests_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
@@ -968,6 +977,7 @@
 					"-lbson-1.0",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/mongo-c-driver/1.12.0/include/libmongoc-1.0 -I/usr/local/Cellar/mongo-c-driver/1.12.0/include/libbson-1.0 -I/usr/local/Cellar/mongo-c-driver/1.12.0/include/libbson-1.0";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 4.0;
 				TARGET_NAME = danakeMongoTests;
 			};
@@ -976,6 +986,7 @@
 		OBJ_159 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -983,8 +994,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/.build/checkouts/swift-mongoc-4572998624666171810",
-					"$(SRCROOT)/.build/checkouts/swift-bson-2873930670968179217",
+					"$(SRCROOT)/.build/checkouts/swift-mongoc--1804024162758272654",
+					"$(SRCROOT)/.build/checkouts/swift-bson-4372259365814064288",
 				);
 				INFOPLIST_FILE = danakeMongo.xcodeproj/danakeMongoTests_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
@@ -1004,6 +1015,7 @@
 					"-lbson-1.0",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -I/usr/local/Cellar/mongo-c-driver/1.12.0/include/libmongoc-1.0 -I/usr/local/Cellar/mongo-c-driver/1.12.0/include/libbson-1.0 -I/usr/local/Cellar/mongo-c-driver/1.12.0/include/libbson-1.0";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 4.0;
 				TARGET_NAME = danakeMongoTests;
 			};
@@ -1013,7 +1025,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -1022,7 +1034,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -1061,13 +1073,17 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "SWIFT_PACKAGE DEBUG";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				USE_HEADERMAP = NO;
 			};
@@ -1111,6 +1127,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 4.0;
 				TARGET_NAME = ManagedPool;
 			};
@@ -1134,6 +1151,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 4.0;
 				TARGET_NAME = ManagedPool;
 			};
@@ -1143,7 +1161,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -1152,7 +1170,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk";
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -1167,8 +1185,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/.build/checkouts/swift-mongoc-4572998624666171810",
-					"$(SRCROOT)/.build/checkouts/swift-bson-2873930670968179217",
+					"$(SRCROOT)/.build/checkouts/swift-mongoc--1804024162758272654",
+					"$(SRCROOT)/.build/checkouts/swift-bson-4372259365814064288",
 				);
 				INFOPLIST_FILE = danakeMongo.xcodeproj/MongoSwift_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
@@ -1192,6 +1210,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 4.0;
 				TARGET_NAME = MongoSwift;
 			};
@@ -1207,8 +1226,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/.build/checkouts/swift-mongoc-4572998624666171810",
-					"$(SRCROOT)/.build/checkouts/swift-bson-2873930670968179217",
+					"$(SRCROOT)/.build/checkouts/swift-mongoc--1804024162758272654",
+					"$(SRCROOT)/.build/checkouts/swift-bson-4372259365814064288",
 				);
 				INFOPLIST_FILE = danakeMongo.xcodeproj/MongoSwift_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
@@ -1232,6 +1251,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 4.0;
 				TARGET_NAME = MongoSwift;
 			};
