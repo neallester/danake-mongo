@@ -94,56 +94,56 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		08B729A721822B5800B58CCF /* PBXContainerItemProxy */ = {
+		08B2B2B62182323B007BB9FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "ManagedPool::ManagedPool";
 			remoteInfo = ManagedPool;
 		};
-		08B729A821822B5800B58CCF /* PBXContainerItemProxy */ = {
+		08B2B2B72182323B007BB9FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoSwift::MongoSwift";
 			remoteInfo = MongoSwift;
 		};
-		08B729A921822B5800B58CCF /* PBXContainerItemProxy */ = {
+		08B2B2B82182323B007BB9FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "danake::danake";
 			remoteInfo = danake;
 		};
-		08B729AA21822B5800B58CCF /* PBXContainerItemProxy */ = {
+		08B2B2B92182323B007BB9FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "danakeMongo::danakeMongo";
 			remoteInfo = danakeMongo;
 		};
-		08B729AB21822B5800B58CCF /* PBXContainerItemProxy */ = {
+		08B2B2BA2182323B007BB9FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "ManagedPool::ManagedPool";
 			remoteInfo = ManagedPool;
 		};
-		08B729AC21822B5800B58CCF /* PBXContainerItemProxy */ = {
+		08B2B2BB2182323B007BB9FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "MongoSwift::MongoSwift";
 			remoteInfo = MongoSwift;
 		};
-		08B729AD21822B5800B58CCF /* PBXContainerItemProxy */ = {
+		08B2B2BC2182323B007BB9FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "danake::danake";
 			remoteInfo = danake;
 		};
-		08B729AE21822B5900B58CCF /* PBXContainerItemProxy */ = {
+		08B2B2BD2182323D007BB9FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -159,7 +159,7 @@
 		OBJ_13 /* danakeMongoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danakeMongoTests.swift; sourceTree = "<group>"; };
 		OBJ_14 /* sourcery */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sourcery; sourceTree = SOURCE_ROOT; };
 		OBJ_18 /* ManagedPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedPool.swift; sourceTree = "<group>"; };
-		OBJ_19 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/ManagedPool-sw.git--1739110661644329873/Package.swift"; sourceTree = "<group>"; };
+		OBJ_19 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/ManagedPool-sw.git--571370081837873927/Package.swift"; sourceTree = "<group>"; };
 		OBJ_22 /* APM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APM.swift; sourceTree = "<group>"; };
 		OBJ_24 /* AnyBSONValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyBSONValue.swift; sourceTree = "<group>"; };
 		OBJ_25 /* BSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSONDecoder.swift; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 		OBJ_46 /* ReadPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadPreference.swift; sourceTree = "<group>"; };
 		OBJ_47 /* SDAM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDAM.swift; sourceTree = "<group>"; };
 		OBJ_48 /* WriteConcern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteConcern.swift; sourceTree = "<group>"; };
-		OBJ_49 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/mongo-swift-driver.git--2006039697485341033/Package.swift"; sourceTree = "<group>"; };
+		OBJ_49 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/mongo-swift-driver.git--7900352766033490692/Package.swift"; sourceTree = "<group>"; };
 		OBJ_52 /* EntityCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityCache.swift; sourceTree = "<group>"; };
 		OBJ_53 /* InMemoryAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryAccessor.swift; sourceTree = "<group>"; };
 		OBJ_54 /* ParallelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallelTest.swift; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 		OBJ_59 /* entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = entity.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_60 /* logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logging.swift; sourceTree = "<group>"; };
-		OBJ_61 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/danake-sw.git-4300333823337844057/Package.swift"; sourceTree = "<group>"; };
+		OBJ_61 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/neal/xcode/danakeMongo/.build/checkouts/danake-sw.git--8363562194654404394/Package.swift"; sourceTree = "<group>"; };
 		OBJ_9 /* danakeMongo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = danakeMongo.swift; sourceTree = "<group>"; };
 		"danake::danake::Product" /* danake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = danake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"danakeMongo::danakeMongo::Product" /* danakeMongo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = danakeMongo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,7 +293,7 @@
 				OBJ_18 /* ManagedPool.swift */,
 			);
 			name = ManagedPool;
-			path = ".build/checkouts/ManagedPool-sw.git--1739110661644329873/Sources/ManagedPool";
+			path = ".build/checkouts/ManagedPool-sw.git--571370081837873927/Sources/ManagedPool";
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_20 /* MongoSwift */ = {
@@ -328,7 +328,7 @@
 				OBJ_48 /* WriteConcern.swift */,
 			);
 			name = MongoSwift;
-			path = ".build/checkouts/mongo-swift-driver.git--2006039697485341033/Sources/MongoSwift";
+			path = ".build/checkouts/mongo-swift-driver.git--7900352766033490692/Sources/MongoSwift";
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_23 /* BSON */ = {
@@ -383,17 +383,17 @@
 				OBJ_60 /* logging.swift */,
 			);
 			name = danake;
-			path = ".build/checkouts/danake-sw.git-4300333823337844057/Sources/danake";
+			path = ".build/checkouts/danake-sw.git--8363562194654404394/Sources/danake";
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_62 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				"ManagedPool::ManagedPool::Product" /* ManagedPool.framework */,
 				"MongoSwift::MongoSwift::Product" /* MongoSwift.framework */,
+				"danake::danake::Product" /* danake.framework */,
 				"danakeMongo::danakeMongo::Product" /* danakeMongo.framework */,
 				"danakeMongo::danakeMongoTests::Product" /* danakeMongoTests.xctest */,
-				"ManagedPool::ManagedPool::Product" /* ManagedPool.framework */,
-				"danake::danake::Product" /* danake.framework */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -547,6 +547,7 @@
 			buildPhases = (
 				OBJ_166 /* Sources */,
 				OBJ_169 /* Frameworks */,
+				08B2B2BE2182325F007BB9FC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -613,6 +614,26 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		08B2B2BE2182325F007BB9FC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/sourcery.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		OBJ_117 /* Sources */ = {
@@ -727,42 +748,42 @@
 		OBJ_148 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "ManagedPool::ManagedPool" /* ManagedPool */;
-			targetProxy = 08B729A721822B5800B58CCF /* PBXContainerItemProxy */;
+			targetProxy = 08B2B2B62182323B007BB9FC /* PBXContainerItemProxy */;
 		};
 		OBJ_149 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoSwift::MongoSwift" /* MongoSwift */;
-			targetProxy = 08B729A821822B5800B58CCF /* PBXContainerItemProxy */;
+			targetProxy = 08B2B2B72182323B007BB9FC /* PBXContainerItemProxy */;
 		};
 		OBJ_150 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "danake::danake" /* danake */;
-			targetProxy = 08B729A921822B5800B58CCF /* PBXContainerItemProxy */;
+			targetProxy = 08B2B2B82182323B007BB9FC /* PBXContainerItemProxy */;
 		};
 		OBJ_161 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "danakeMongo::danakeMongoTests" /* danakeMongoTests */;
-			targetProxy = 08B729AE21822B5900B58CCF /* PBXContainerItemProxy */;
+			targetProxy = 08B2B2BD2182323D007BB9FC /* PBXContainerItemProxy */;
 		};
 		OBJ_174 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "danakeMongo::danakeMongo" /* danakeMongo */;
-			targetProxy = 08B729AA21822B5800B58CCF /* PBXContainerItemProxy */;
+			targetProxy = 08B2B2B92182323B007BB9FC /* PBXContainerItemProxy */;
 		};
 		OBJ_175 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "ManagedPool::ManagedPool" /* ManagedPool */;
-			targetProxy = 08B729AB21822B5800B58CCF /* PBXContainerItemProxy */;
+			targetProxy = 08B2B2BA2182323B007BB9FC /* PBXContainerItemProxy */;
 		};
 		OBJ_176 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "MongoSwift::MongoSwift" /* MongoSwift */;
-			targetProxy = 08B729AC21822B5800B58CCF /* PBXContainerItemProxy */;
+			targetProxy = 08B2B2BB2182323B007BB9FC /* PBXContainerItemProxy */;
 		};
 		OBJ_177 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "danake::danake" /* danake */;
-			targetProxy = 08B729AD21822B5800B58CCF /* PBXContainerItemProxy */;
+			targetProxy = 08B2B2BC2182323B007BB9FC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -855,8 +876,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/.build/checkouts/swift-mongoc--4497256499911709792",
-					"$(SRCROOT)/.build/checkouts/swift-bson--6843784003568073991",
+					"$(SRCROOT)/.build/checkouts/swift-mongoc-4937531317079152965",
+					"$(SRCROOT)/.build/checkouts/swift-bson--5631496884646273173",
 				);
 				INFOPLIST_FILE = danakeMongo.xcodeproj/danakeMongo_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
@@ -896,8 +917,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/.build/checkouts/swift-mongoc--4497256499911709792",
-					"$(SRCROOT)/.build/checkouts/swift-bson--6843784003568073991",
+					"$(SRCROOT)/.build/checkouts/swift-mongoc-4937531317079152965",
+					"$(SRCROOT)/.build/checkouts/swift-bson--5631496884646273173",
 				);
 				INFOPLIST_FILE = danakeMongo.xcodeproj/danakeMongo_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
@@ -968,8 +989,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/.build/checkouts/swift-mongoc--4497256499911709792",
-					"$(SRCROOT)/.build/checkouts/swift-bson--6843784003568073991",
+					"$(SRCROOT)/.build/checkouts/swift-mongoc-4937531317079152965",
+					"$(SRCROOT)/.build/checkouts/swift-bson--5631496884646273173",
 				);
 				INFOPLIST_FILE = danakeMongo.xcodeproj/danakeMongoTests_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
@@ -1006,8 +1027,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/.build/checkouts/swift-mongoc--4497256499911709792",
-					"$(SRCROOT)/.build/checkouts/swift-bson--6843784003568073991",
+					"$(SRCROOT)/.build/checkouts/swift-mongoc-4937531317079152965",
+					"$(SRCROOT)/.build/checkouts/swift-bson--5631496884646273173",
 				);
 				INFOPLIST_FILE = danakeMongo.xcodeproj/danakeMongoTests_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
@@ -1185,8 +1206,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/.build/checkouts/swift-mongoc--4497256499911709792",
-					"$(SRCROOT)/.build/checkouts/swift-bson--6843784003568073991",
+					"$(SRCROOT)/.build/checkouts/swift-mongoc-4937531317079152965",
+					"$(SRCROOT)/.build/checkouts/swift-bson--5631496884646273173",
 				);
 				INFOPLIST_FILE = danakeMongo.xcodeproj/MongoSwift_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
@@ -1226,8 +1247,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/.build/checkouts/swift-mongoc--4497256499911709792",
-					"$(SRCROOT)/.build/checkouts/swift-bson--6843784003568073991",
+					"$(SRCROOT)/.build/checkouts/swift-mongoc-4937531317079152965",
+					"$(SRCROOT)/.build/checkouts/swift-bson--5631496884646273173",
 				);
 				INFOPLIST_FILE = danakeMongo.xcodeproj/MongoSwift_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
