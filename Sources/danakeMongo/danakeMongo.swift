@@ -100,7 +100,7 @@ open class MongoAccessor : DatabaseAccessor {
         do {
             let metadataCollection = try database.createCollection (MongoAccessor.metadataCollectionName)
             let newMetadata = DanakeMetadata()
-            let encoder = BsonEncoder()
+            let encoder = BSONEncoder()
             let document = try encoder.encode(newMetadata)
             try metadataCollection.insertOne(document)
             hashValue = newMetadata.id.uuidString
@@ -111,7 +111,7 @@ open class MongoAccessor : DatabaseAccessor {
             case 1:
                 let cursor = try metadataCollection.find()
                 if let metadataDocument = cursor.next() {
-                    let decoder = BsonDecoder()
+                    let decoder = BSONDecoder()
                     let metadata = try decoder.decode(DanakeMetadata.self, from: metadataDocument)
                     hashValue = metadata.id.uuidString
                 } else {
@@ -317,8 +317,8 @@ open class MongoAccessor : DatabaseAccessor {
         return .ok (result)
     }
     
-    public func encoder() -> BsonEncoder {
-        return BsonEncoder()
+    public func encoder() -> BSONEncoder {
+        return BSONEncoder()
     }
     
 /**
@@ -341,14 +341,14 @@ open class MongoAccessor : DatabaseAccessor {
         return result
     }
 
-    public func decoder<T> (cache: EntityCache<T>) -> BsonDecoder {
+    public func decoder<T> (cache: EntityCache<T>) -> BSONDecoder {
         var userInfo: [CodingUserInfoKey : Any] = [:]
         userInfo[Database.cacheKey] = cache
         userInfo[Database.parentDataKey] = DataContainer()
         if let closure = cache.userInfoClosure {
             closure (&userInfo)
         }
-        let result = BsonDecoder()
+        let result = BSONDecoder()
         result.userInfo = userInfo
         return result
     }

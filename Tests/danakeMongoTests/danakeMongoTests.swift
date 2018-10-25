@@ -56,7 +56,7 @@ final class DanakeMongoTests: XCTestCase {
     }
 
     public func testBson() throws {
-        let encoder = BsonEncoder()
+        let encoder = BSONEncoder()
         let myStruct = MyStruct()
         let document = try encoder.encode(myStruct)
         XCTAssertNotNil (document)
@@ -94,7 +94,7 @@ final class DanakeMongoTests: XCTestCase {
                 let metadataCollection = try database.collection (MongoAccessor.metadataCollectionName)
                 try XCTAssertEqual (1, metadataCollection.count())
                 let hashCode = accessor.hashValue
-                let decoder = BsonDecoder()
+                let decoder = BSONDecoder()
                 for document in try metadataCollection.find() {
                     let metadata = try decoder.decode(DanakeMetadata.self, from: document)
                     XCTAssertEqual (hashCode, metadata.id.uuidString)
@@ -127,7 +127,7 @@ final class DanakeMongoTests: XCTestCase {
                 XCTAssertTrue (accessor3.existingCollections.contains ("testCollection"))
                 // Add a second metadata document which should cause subsequent accessor creation to fail
                 let anotherMetadata = DanakeMetadata()
-                let encoder = BsonEncoder()
+                let encoder = BSONEncoder()
                 let metadataDocument = try encoder.encode(anotherMetadata)
                 try metadataCollection2.insertOne(metadataDocument)
                 do {
