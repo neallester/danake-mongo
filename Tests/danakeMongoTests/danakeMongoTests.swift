@@ -359,13 +359,13 @@ final class DanakeMongoTests: XCTestCase {
             let logger = InMemoryLogger(level: .info)
             let options = ConnectionPoolOptions(maximumConnections: 5, statusReportInterval: 0.0000001)
             let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, connectionPoolOptions: options, logger: logger)
-            usleep (100)
+            usleep (100000)
             logger.sync() { entries in
                 XCTAssertTrue (entries.count > 0)
                 XCTAssertEqual ("INFO|MongoAccessor.logStatusReport|status|maximumConnections=5;checkedOut=0;cached=0;firstExpires=nil;lastExpires=nil", entries.last?.asTestString())
             }
             let c1 = try accessor.connectionPool.checkOut()
-            usleep (1000)
+            usleep (100000)
             logger.sync() { entries in
                 XCTAssertTrue (entries.count > 0)
                 XCTAssertEqual ("INFO|MongoAccessor.logStatusReport|status|maximumConnections=5;checkedOut=1;cached=0;firstExpires=nil;lastExpires=nil", entries.last?.asTestString())
