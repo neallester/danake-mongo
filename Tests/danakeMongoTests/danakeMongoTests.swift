@@ -452,7 +452,7 @@ final class DanakeMongoTests: XCTestCase {
         }
     }
     
-    public func testParallelTests() throws {
+    public func testParallelTests() throws {        
         let runTest = true;
         var repetitions = 5
         #if os(Linux)
@@ -462,7 +462,7 @@ final class DanakeMongoTests: XCTestCase {
 //            if Calendar.current.dateComponents([.weekday], from: Date()).weekday != 2 {
 //                runTest = false
 //            } else {
-            repetitions = 25
+//            repetitions = 25
             sleep (3)
 //            }
         #endif
