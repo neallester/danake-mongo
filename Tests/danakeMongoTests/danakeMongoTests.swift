@@ -462,7 +462,7 @@ final class DanakeMongoTests: XCTestCase {
 //            if Calendar.current.dateComponents([.weekday], from: Date()).weekday != 2 {
 //                runTest = false
 //            } else {
-            repetitions = 50
+            repetitions = 1
             sleep (3)
 //            }
         #endif
