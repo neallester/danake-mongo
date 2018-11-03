@@ -181,15 +181,18 @@ final class DanakeMongoTests: XCTestCase {
     
     public func testCollectionFor() {
         clearTestDatabase()
+        var stage = 1
         if let connectionString = connectionString() {
             do {
                 let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
+                stage = 2
                 accessor.newCollectionsSync() { newCollections in
                     XCTAssertEqual (0, newCollections.count)
                 }
                 let collectionName = "myCollection"
                 let newCollection = try accessor.collectionFor (name: collectionName).collection
                 XCTAssertEqual (collectionName, newCollection.name)
+                stage = 3
                 accessor.newCollectionsSync() { newCollections in
                     XCTAssertEqual (1, newCollections.count)
                     XCTAssertTrue (newCollections.contains (collectionName))
@@ -200,14 +203,18 @@ final class DanakeMongoTests: XCTestCase {
                     indexCount = indexCount + 1
                 }
                 XCTAssertEqual (1, indexCount)
+                stage = 4
                 let accessor2 = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
                 XCTAssertEqual (2, accessor2.existingCollections.count)
                 XCTAssertTrue (accessor2.existingCollections.contains (collectionName))
                 XCTAssertTrue (accessor2.existingCollections.contains(MongoAccessor.metadataCollectionName))
+                stage = 5
                 let newCollection2 = try accessor2.collectionFor (name: collectionName).collection
+                stage = 6
                 accessor2.newCollectionsSync() { newCollections in
                     XCTAssertEqual (0, newCollections.count)
                 }
+                stage = 7
                 XCTAssertEqual (newCollection2.name, collectionName)
                 indexCount = 0;
                 for index in try newCollection2.listIndexes() {
@@ -216,7 +223,7 @@ final class DanakeMongoTests: XCTestCase {
                 }
                 XCTAssertEqual (1, indexCount)
             } catch {
-                XCTFail("No Error expected but got \(error)")
+                XCTFail("Stage \(stage): No Error expected but got \(error)")
             }
         } else {
             XCTFail("No Connection String")
@@ -227,6 +234,7 @@ final class DanakeMongoTests: XCTestCase {
     public func testCRUD() {
         clearTestDatabase()
         if let connectionString = connectionString() {
+            var stage = 1
             do {
                 let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
                 let logger = InMemoryLogger()
@@ -236,7 +244,9 @@ final class DanakeMongoTests: XCTestCase {
                 let batch = EventuallyConsistentBatch()
                 var entity: Entity<MyStruct>? = cache.new(batch: batch, item: myStruct)
                 let id = entity!.id
+                stage = 2
                 batch.commitSync()
+                stage = 3
                 entity = nil
                 cache.waitWhileCached (id: id)
                 entity = cache.get (id: id).item()
@@ -244,11 +254,13 @@ final class DanakeMongoTests: XCTestCase {
                     XCTAssertEqual (10, myStruct.myInt)
                     XCTAssertEqual ("10", myStruct.myString)
                 }
+                stage = 4
                 entity!.update(batch: batch) { myStruct in
                     myStruct.myInt = 20
                     myStruct.myString = "20"
                 }
                 batch.commitSync()
+                stage = 5
                 entity = nil
                 cache.waitWhileCached (id: id)
                 entity = cache.get (id: id).item()
@@ -258,13 +270,14 @@ final class DanakeMongoTests: XCTestCase {
                 }
                 entity?.remove(batch: batch)
                 batch.commitSync()
+                stage = 6
                 entity = nil
                 cache.waitWhileCached (id: id)
                 entity = cache.get (id: id).item()
                 XCTAssertNil (entity)
                 XCTAssertEqual (0, accessor.connectionPool.status().checkedOut)
             } catch {
-                XCTFail("No Error expected but got \(error)")
+                XCTFail("Stage \(stage): No Error expected but got \(error)")
             }
         } else {
             XCTFail("No Connection String")
@@ -274,6 +287,7 @@ final class DanakeMongoTests: XCTestCase {
 
     public func testScan() {
         clearTestDatabase()
+        var stage = 1
         if let connectionString = connectionString() {
             do {
                 let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
@@ -287,7 +301,9 @@ final class DanakeMongoTests: XCTestCase {
                 let myStruct2 = MyStruct (myInt: 20, myString: "20")
                 var entity2: Entity<MyStruct>? = cache.new(batch: batch, item: myStruct2)
                 let id2 = entity2!.id
+                stage = 2
                 batch.commitSync()
+                stage = 3
                 entity1 = nil
                 entity2 = nil
                 cache.waitWhileCached (id: id1)
@@ -314,7 +330,7 @@ final class DanakeMongoTests: XCTestCase {
                 XCTAssertTrue (found1)
                 XCTAssertTrue (found2)
             } catch {
-                XCTFail("No Error expected but got \(error)")
+                XCTFail("Stage \(stage): No Error expected but got \(error)")
             }
         } else {
             XCTFail("No Connection String")
@@ -359,24 +375,39 @@ final class DanakeMongoTests: XCTestCase {
             let logger = InMemoryLogger(level: .info)
             let options = ConnectionPoolOptions(maximumConnections: 5, statusReportInterval: 0.0000001)
             let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, connectionPoolOptions: options, logger: logger)
-            usleep (100000)
-            logger.sync() { entries in
-                XCTAssertTrue (entries.count > 0)
-                XCTAssertEqual ("INFO|MongoAccessor.logStatusReport|status|maximumConnections=5;checkedOut=0;cached=0;firstExpires=nil;lastExpires=nil", entries.last?.asTestString())
+            var actualLogEntry: String? = nil
+            var foundEntry = logger.waitForEntry(intervalUseconds: 100, timeoutSeconds: 100) { entries in
+                actualLogEntry = entries.last!.asTestString()
+                return actualLogEntry == "INFO|MongoAccessor.logStatusReport|status|maximumConnections=5;checkedOut=0;cached=0;firstExpires=nil;lastExpires=nil"
             }
+            if !foundEntry {
+                print ("Unexpected Entry 1: \(String(describing: actualLogEntry))")
+            }
+            XCTAssertTrue (foundEntry)
             let c1 = try accessor.connectionPool.checkOut()
-            usleep (100000)
-            logger.sync() { entries in
-                XCTAssertTrue (entries.count > 0)
-                XCTAssertEqual ("INFO|MongoAccessor.logStatusReport|status|maximumConnections=5;checkedOut=1;cached=0;firstExpires=nil;lastExpires=nil", entries.last?.asTestString())
+            foundEntry = false
+            actualLogEntry = nil
+            foundEntry = logger.waitForEntry(intervalUseconds: 100, timeoutSeconds: 100) { entries in
+                actualLogEntry = entries.last!.asTestString()
+                return actualLogEntry == "INFO|MongoAccessor.logStatusReport|status|maximumConnections=5;checkedOut=1;cached=0;firstExpires=nil;lastExpires=nil"
             }
+            if !foundEntry {
+                print ("Unexpected Entry 2: \(String(describing: actualLogEntry))")
+            }
+            XCTAssertTrue (foundEntry)
             accessor.checkIn(c1)
-            usleep (100000)
-            logger.sync() { entries in
-                XCTAssertTrue (entries.count > 0)
-                XCTAssertTrue (entries.last!.asTestString().contains ("INFO|MongoAccessor.logStatusReport|status|maximumConnections=5;checkedOut=0;cached=1;firstExpires="))
-                XCTAssertTrue (entries.last!.asTestString().contains (";lastExpires="))
+            foundEntry = false
+            actualLogEntry = nil
+            foundEntry = logger.waitForEntry(intervalUseconds: 100, timeoutSeconds: 100) { entries in
+                actualLogEntry = entries.last!.asTestString()
+                return entries.last!.asTestString().contains ("INFO|MongoAccessor.logStatusReport|status|maximumConnections=5;checkedOut=0;cached=1;firstExpires=") &&
+                       entries.last!.asTestString().contains (";lastExpires=") &&
+                       !entries.last!.asTestString().contains (";lastExpires=nil")
             }
+            if !foundEntry {
+                print ("Unexpected Entry 3: \(String(describing: actualLogEntry))")
+            }
+            XCTAssertTrue (foundEntry)
         } else {
             XCTFail("Expected connectionString")
         }
@@ -422,21 +453,23 @@ final class DanakeMongoTests: XCTestCase {
     }
     
     public func testParallelTests() throws {
-        var runTest = true;
+        let runTest = true;
+        var repetitions = 5
         #if os(Linux)
         // The test often throws a Signal 4 or Signal 9 Error on Linux
         // Appears to be a problem with the mongo-swift-driver which is still
         // immature. Hoping they'll fix it and then I can remove this iff statement.
-            if Calendar.current.dateComponents([.weekday], from: Date()).weekday != 2 {
-                runTest = false
-            } else {
-                sleep (3)
-            }
+//            if Calendar.current.dateComponents([.weekday], from: Date()).weekday != 2 {
+//                runTest = false
+//            } else {
+            repetitions = 25
+            sleep (3)
+//            }
         #endif
         if runTest {
             if let connectionString = connectionString() {
                 let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
-                XCTAssertTrue (ParallelTest.performTest (accessor: accessor, repetitions: 5, logger: nil))
+                XCTAssertTrue (ParallelTest.performTest (accessor: accessor, repetitions: repetitions, logger: nil))
                 XCTAssertEqual (0, accessor.connectionPool.status().checkedOut)
             } else {
                 XCTFail("Expected connectionString")
