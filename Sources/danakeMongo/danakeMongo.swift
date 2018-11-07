@@ -124,8 +124,9 @@ open class MongoAccessor : DatabaseAccessor {
         }
         var existingCollections = Set<String>()
         for collectionDocument in try database.listCollections()  {
-            let name: String = try collectionDocument.get("name")
-            existingCollections.insert(name)
+            if let name: String = collectionDocument ["name"] as? String {
+                existingCollections.insert(name)
+            }
         }
         self.existingCollections = existingCollections
 

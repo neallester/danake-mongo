@@ -488,9 +488,11 @@ final class DanakeMongoTests: XCTestCase {
                 let client = try MongoClient (connectionString: connectionString)
                 let database = try client.db (DanakeMongoTests.testDbName)
                 for collectionDocument in try database.listCollections() {
-                    let name: String = try collectionDocument.get("name")
-                    let command: Document = [ "drop" : name]
-                    try database.runCommand(command)
+                    if let name: String = collectionDocument ["name"] as? String {
+                        let command: Document = [ "drop" : name]
+                        try database.runCommand(command)
+                        
+                    }
                 }
             } else {
                 XCTFail ("Expected connectionString")
