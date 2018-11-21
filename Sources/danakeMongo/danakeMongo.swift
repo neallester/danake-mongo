@@ -175,8 +175,9 @@ open class MongoAccessor : DatabaseAccessor {
                         throw AccessorError.creationError(errorMessage)
                     }
                 }
+                return entity
             }
-            return entity
+            throw AccessorError.creationError("UnknownError") // Should never happen ever
         } catch {
             isConnectionOk = false
             throw error
