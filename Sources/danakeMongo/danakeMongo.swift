@@ -163,15 +163,17 @@ open class MongoAccessor : DatabaseAccessor {
         do {
             let query = selectId(id)
             connection = try collectionFor (name: cache.name)
-            let resultCursor = try connection.collection.find(query)
-            var entity: Entity<T>? = nil
-            if let resultDocument = resultCursor.next() {
-                let bsonDecoder = decoder(cache: cache)
-                switch entityCreation.entity(creator: { try bsonDecoder.decode(type, from: resultDocument) }) {
-                case .ok (let newEntity):
-                    entity = newEntity
-                case .error(let errorMessage):
-                    throw AccessorError.creationError(errorMessage)
+            if let connection = connection {
+                let resultCursor = try connection.collection.find(query)
+                var entity: Entity<T>? = nil
+                if let resultDocument = resultCursor.next() {
+                    let bsonDecoder = decoder(cache: cache)
+                    switch entityCreation.entity(creator: { try bsonDecoder.decode(type, from: resultDocument) }) {
+                    case .ok (let newEntity):
+                        entity = newEntity
+                    case .error(let errorMessage):
+                        throw AccessorError.creationError(errorMessage)
+                    }
                 }
             }
             return entity
@@ -191,9 +193,12 @@ open class MongoAccessor : DatabaseAccessor {
         }
         do {
             connection = try collectionFor(name: cache.name)
-            let documents = try connection.collection.find();
-            let result: [Entity<T>] = try entityForDocuments(documents, cache: cache, type: type)
-            return result
+            if let connection = connection {
+                let documents = try connection.collection.find();
+                let result: [Entity<T>] = try entityForDocuments(documents, cache: cache, type: type)
+                return result
+            }
+            throw AccessorError.creationError("UnexpectedError") // Should not occur ever
         } catch {
             isConnectionOk = false
             throw error
