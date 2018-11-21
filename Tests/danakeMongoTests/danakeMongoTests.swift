@@ -249,7 +249,7 @@ final class DanakeMongoTests: XCTestCase {
                 stage = 3
                 entity = nil
                 cache.waitWhileCached (id: id)
-                entity = cache.get (id: id).item()
+                entity = try cache.getSync (id: id)
                 entity!.sync() { myStruct in
                     XCTAssertEqual (10, myStruct.myInt)
                     XCTAssertEqual ("10", myStruct.myString)
@@ -263,7 +263,7 @@ final class DanakeMongoTests: XCTestCase {
                 stage = 5
                 entity = nil
                 cache.waitWhileCached (id: id)
-                entity = cache.get (id: id).item()
+                entity = try cache.getSync (id: id)
                 entity!.sync() { myStruct in
                     XCTAssertEqual (20, myStruct.myInt)
                     XCTAssertEqual ("20", myStruct.myString)
@@ -273,8 +273,12 @@ final class DanakeMongoTests: XCTestCase {
                 stage = 6
                 entity = nil
                 cache.waitWhileCached (id: id)
-                entity = cache.get (id: id).item()
-                XCTAssertNil (entity)
+		do {
+		   let _ = try cache.getSync (id: id)
+		   XCTFail ("Expected error")
+		} catch {
+		  XCTAssertEqual ("unknownUUID(\(id.uuidString))", "\(error)")
+		}
                 XCTAssertEqual (0, accessor.connectionPool.status().checkedOut)
             } catch {
                 XCTFail("Stage \(stage): No Error expected but got \(error)")
@@ -308,7 +312,7 @@ final class DanakeMongoTests: XCTestCase {
                 entity2 = nil
                 cache.waitWhileCached (id: id1)
                 cache.waitWhileCached (id: id2)
-                let entities = cache.scan().item()!
+                let entities = try cache.scanSync()
                 XCTAssertEqual (2, entities.count)
                 var found1 = false
                 var found2 = false
@@ -417,7 +421,12 @@ final class DanakeMongoTests: XCTestCase {
     public func testSampleCompany() throws {
         
         class SampleMongoAccessor : MongoAccessor, SampleAccessor {
-            func employeesForCompany(cache: EntityCache<SampleEmployee>, company: SampleCompany) -> DatabaseAccessListResult<Entity<SampleEmployee>> {
+            func employeesForCompany(cache: EntityCache<SampleEmployee>, company: SampleCompany) throws -> [Entity<SampleEmployee>] {
+
+	    	enum TestErrors: Error {
+		     case testError
+		}
+
                 var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
                 var isConnectionOk = true
                 defer {
@@ -431,14 +440,14 @@ final class DanakeMongoTests: XCTestCase {
                         let query: Document = [ "item.company.id" : company.id.uuidString]
                         let documents = try connection.collection.find(query);
                         let result: [Entity<SampleEmployee>] = try entityForDocuments(documents, cache: cache, type: Entity<SampleEmployee>.self)
-                        return .ok (result)
+                        return result
                     } else {
                         isConnectionOk = false
-                        return .error ("NoCollection")
+			throw TestErrors.testError
                     }
                 } catch {
                     isConnectionOk = false
-                    return .error ("\(error)")
+                    throw error
                 }
             }
         }
