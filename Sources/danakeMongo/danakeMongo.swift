@@ -152,7 +152,7 @@ open class MongoAccessor : DatabaseAccessor {
 
     }
     
-    public func get<T>(type: Entity<T>.Type, cache: EntityCache<T>, id: UUID) -> RetrievalResult<Entity<T>> where T : Decodable, T : Encodable {
+    public func get<T>(type: Entity<T>.Type, cache: EntityCache<T>, id: UUID) throws -> Entity<T>? where T : Decodable, T : Encodable {
         var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
         var isConnectionOk = true
         defer {
@@ -163,29 +163,25 @@ open class MongoAccessor : DatabaseAccessor {
         do {
             let query = selectId(id)
             connection = try collectionFor (name: cache.name)
-            if let connection = connection {
-                let resultCursor = try connection.collection.find(query)
-                var entity: Entity<T>? = nil
-                if let resultDocument = resultCursor.next() {
-                    let bsonDecoder = decoder(cache: cache)
-                    switch entityCreation.entity(creator: { try bsonDecoder.decode(type, from: resultDocument) }) {
-                    case .ok (let newEntity):
-                        entity = newEntity
-                    case .error(let errorMessage):
-                        return .error (errorMessage)
-                    }
+            let resultCursor = try connection.collection.find(query)
+            var entity: Entity<T>? = nil
+            if let resultDocument = resultCursor.next() {
+                let bsonDecoder = decoder(cache: cache)
+                switch entityCreation.entity(creator: { try bsonDecoder.decode(type, from: resultDocument) }) {
+                case .ok (let newEntity):
+                    entity = newEntity
+                case .error(let errorMessage):
+                    throw AccessorError.creationError(errorMessage)
                 }
-                return .ok (entity)
-            } else {
-                return .error ("NoCollection")
             }
+            return entity
         } catch {
             isConnectionOk = false
-            return .error ("\(error)")
+            throw error
         }
     }
     
-    public func scan<T>(type: Entity<T>.Type, cache: EntityCache<T>) -> DatabaseAccessListResult<Entity<T>> where T : Decodable, T : Encodable {
+    public func scan<T>(type: Entity<T>.Type, cache: EntityCache<T>) throws -> [Entity<T>] where T : Decodable, T : Encodable {
         var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
         var isConnectionOk = true
         defer {
@@ -195,16 +191,12 @@ open class MongoAccessor : DatabaseAccessor {
         }
         do {
             connection = try collectionFor(name: cache.name)
-            if let connection = connection {
-                let documents = try connection.collection.find();
-                let result: [Entity<T>] = try entityForDocuments(documents, cache: cache, type: type)
-                return .ok (result)
-            } else {
-                return .error ("NoCollection")
-            }
+            let documents = try connection.collection.find();
+            let result: [Entity<T>] = try entityForDocuments(documents, cache: cache, type: type)
+            return result
         } catch {
             isConnectionOk = false
-            return .error ("\(error)")
+            throw error
         }
     }
     
