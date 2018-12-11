@@ -227,8 +227,9 @@ final class DanakeMongoTests: XCTestCase {
                         XCTAssertEqual (1, indexCount)
                     } catch {
                         if stage > 1 || tryCount >= maxTries {
-                            XCTFail("Stage \(stage): No Error expected but got \(error)")
+                            XCTFail("Stage \(stage): No Error expected but got \(error) (tryCount=\(tryCount)")
                         } else {
+                            tryCount = tryCount + 1
                             usleep(1000000)
                         }
                     }
