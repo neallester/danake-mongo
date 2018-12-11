@@ -185,7 +185,7 @@ final class DanakeMongoTests: XCTestCase {
         let maxTries = 3
         if let connectionString = connectionString() {
                 var tryCount = 0
-                while stage = 1 && tryCount < maxTries {
+                while stage == 1 && tryCount < maxTries {
                     do {
                         let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
                         stage = 2
