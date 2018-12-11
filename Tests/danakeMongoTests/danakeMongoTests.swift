@@ -182,49 +182,58 @@ final class DanakeMongoTests: XCTestCase {
     public func testCollectionFor() {
         clearTestDatabase()
         var stage = 1
+        let maxTries = 3
         if let connectionString = connectionString() {
-            do {
-                let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
-                stage = 2
-                accessor.newCollectionsSync() { newCollections in
-                    XCTAssertEqual (0, newCollections.count)
+                var tryCount = 0
+                while stage = 1 && tryCount < maxTries {
+                    do {
+                        let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
+                        stage = 2
+                        accessor.newCollectionsSync() { newCollections in
+                            XCTAssertEqual (0, newCollections.count)
+                        }
+                        let collectionName = "myCollection"
+                        let newCollection = try accessor.collectionFor (name: collectionName).collection
+                        XCTAssertEqual (collectionName, newCollection.name)
+                        stage = 3
+                        accessor.newCollectionsSync() { newCollections in
+                            XCTAssertEqual (1, newCollections.count)
+                            XCTAssertTrue (newCollections.contains (collectionName))
+                        }
+                        var indexCount = 0;
+                        for index in try newCollection.listIndexes() {
+                            XCTAssertEqual ("_id_", index["name"] as! String)
+                            indexCount = indexCount + 1
+                        }
+                        XCTAssertEqual (1, indexCount)
+                        stage = 4
+                        let accessor2 = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
+                        XCTAssertEqual (2, accessor2.existingCollections.count)
+                        XCTAssertTrue (accessor2.existingCollections.contains (collectionName))
+                        XCTAssertTrue (accessor2.existingCollections.contains(MongoAccessor.metadataCollectionName))
+                        stage = 5
+                        let newCollection2 = try accessor2.collectionFor (name: collectionName).collection
+                        stage = 6
+                        accessor2.newCollectionsSync() { newCollections in
+                            XCTAssertEqual (0, newCollections.count)
+                        }
+                        stage = 7
+                        XCTAssertEqual (newCollection2.name, collectionName)
+                        indexCount = 0;
+                        for index in try newCollection2.listIndexes() {
+                            XCTAssertEqual ("_id_", index["name"] as! String)
+                            indexCount = indexCount + 1
+                        }
+                        XCTAssertEqual (1, indexCount)
+                    } catch {
+                        if stage > 1 || tryCount >= maxTries {
+                            XCTFail("Stage \(stage): No Error expected but got \(error)")
+                        } else {
+                            usleep(1000000)
+                        }
+                    }
+
                 }
-                let collectionName = "myCollection"
-                let newCollection = try accessor.collectionFor (name: collectionName).collection
-                XCTAssertEqual (collectionName, newCollection.name)
-                stage = 3
-                accessor.newCollectionsSync() { newCollections in
-                    XCTAssertEqual (1, newCollections.count)
-                    XCTAssertTrue (newCollections.contains (collectionName))
-                }
-                var indexCount = 0;
-                for index in try newCollection.listIndexes() {
-                    XCTAssertEqual ("_id_", index["name"] as! String)
-                    indexCount = indexCount + 1
-                }
-                XCTAssertEqual (1, indexCount)
-                stage = 4
-                let accessor2 = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
-                XCTAssertEqual (2, accessor2.existingCollections.count)
-                XCTAssertTrue (accessor2.existingCollections.contains (collectionName))
-                XCTAssertTrue (accessor2.existingCollections.contains(MongoAccessor.metadataCollectionName))
-                stage = 5
-                let newCollection2 = try accessor2.collectionFor (name: collectionName).collection
-                stage = 6
-                accessor2.newCollectionsSync() { newCollections in
-                    XCTAssertEqual (0, newCollections.count)
-                }
-                stage = 7
-                XCTAssertEqual (newCollection2.name, collectionName)
-                indexCount = 0;
-                for index in try newCollection2.listIndexes() {
-                    XCTAssertEqual ("_id_", index["name"] as! String)
-                    indexCount = indexCount + 1
-                }
-                XCTAssertEqual (1, indexCount)
-            } catch {
-                XCTFail("Stage \(stage): No Error expected but got \(error)")
-            }
         } else {
             XCTFail("No Connection String")
         }
