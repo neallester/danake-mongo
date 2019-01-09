@@ -447,7 +447,7 @@ final class DanakeMongoTests: XCTestCase {
                 do {
                     connection = try collectionFor(name: cache.name)
                     if let connection = connection {
-                        let query: Document = [ "item.company.id" : company.id.uuidString]
+                        let query: Document = try [ "item.company.id" : Binary (from: company.id)]
                         let documents = try connection.collection.find(query);
                         let result: [Entity<SampleEmployee>] = try entityForDocuments(documents, cache: cache, type: Entity<SampleEmployee>.self)
                         return result
