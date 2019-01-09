@@ -283,12 +283,12 @@ final class DanakeMongoTests: XCTestCase {
                 stage = 6
                 entity = nil
                 cache.waitWhileCached (id: id)
-		do {
-		   let _ = try cache.getSync (id: id)
-		   XCTFail ("Expected error")
-		} catch {
-		  XCTAssertEqual ("unknownUUID(\(id.uuidString))", "\(error)")
-		}
+                do {
+                   let _ = try cache.getSync (id: id)
+                   XCTFail ("Expected error")
+                } catch {
+                  XCTAssertEqual ("unknownUUID(\(id.uuidString))", "\(error)")
+                }
                 XCTAssertEqual (0, accessor.connectionPool.status().checkedOut)
             } catch {
                 XCTFail("Stage \(stage): No Error expected but got \(error)")
