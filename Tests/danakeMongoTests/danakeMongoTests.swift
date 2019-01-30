@@ -26,7 +26,7 @@ final class DanakeMongoTests: XCTestCase {
         if let connectionString = connectionString() {
             do {
                 let client = try MongoClient (connectionString: connectionString)
-                let database = try client.db (DanakeMongoTests.testDbName)
+                let database = client.db (DanakeMongoTests.testDbName)
                 let _ = try database.listCollections()
                 XCTAssertTrue (true)
             } catch {
@@ -79,7 +79,7 @@ final class DanakeMongoTests: XCTestCase {
             let _ = try MongoAccessor (dbConnectionString: "xhbpaiewerjjlsizppskne320982734qpeijfz1209873.com", databaseName: DanakeMongoTests.testDbName, logger: logger)
             XCTFail("Expected Error")
         } catch {
-            XCTAssertEqual ("invalidUri(message: \"Invalid URI Schema, expecting \\'mongodb://\\' or \\'mongodb+srv://\\'\")", "\(error)")
+            XCTAssertEqual ("invalidArgumentError(message: \"Invalid URI Schema, expecting \\'mongodb://\\' or \\'mongodb+srv://\\'\")", "\(error)")
         }
         do {
             let _ = try MongoAccessor (dbConnectionString: "mongodb://www.mysafetyprogram.com:27017", databaseName: DanakeMongoTests.testDbName, logger: logger)
@@ -90,8 +90,8 @@ final class DanakeMongoTests: XCTestCase {
                 let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
                 XCTAssertTrue (logger === accessor.logger as! InMemoryLogger)
                 let client = try MongoClient (connectionString: connectionString)
-                let database = try client.db (DanakeMongoTests.testDbName)
-                let metadataCollection = try database.collection (MongoAccessor.metadataCollectionName)
+                let database = client.db (DanakeMongoTests.testDbName)
+                let metadataCollection = database.collection (MongoAccessor.metadataCollectionName)
                 try XCTAssertEqual (1, metadataCollection.count())
                 let hashCode = accessor.hashValue
                 let decoder = BSONDecoder()
@@ -103,7 +103,7 @@ final class DanakeMongoTests: XCTestCase {
                 XCTAssertTrue (accessor.existingCollections.contains(MongoAccessor.metadataCollectionName))
                 let accessor2 = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
                 XCTAssertTrue (logger === accessor2.logger as! InMemoryLogger)
-                let metadataCollection2 = try database.collection (MongoAccessor.metadataCollectionName)
+                let metadataCollection2 = database.collection (MongoAccessor.metadataCollectionName)
                 try XCTAssertEqual (1, metadataCollection2.count())
                 let hashCode2 = accessor2.hashValue
                 for document in try metadataCollection2.find() {
@@ -115,7 +115,7 @@ final class DanakeMongoTests: XCTestCase {
                 let _ = try database.createCollection("testCollection")
                 let accessor3 = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
                 XCTAssertTrue (logger === accessor3.logger as! InMemoryLogger)
-                let metadataCollection3 = try database.collection (MongoAccessor.metadataCollectionName)
+                let metadataCollection3 = database.collection (MongoAccessor.metadataCollectionName)
                 try XCTAssertEqual (1, metadataCollection3.count())
                 let hashCode3 = accessor3.hashValue
                 for document in try metadataCollection3.find() {
@@ -505,7 +505,7 @@ final class DanakeMongoTests: XCTestCase {
         do {
             if let connectionString = connectionString() {
                 let client = try MongoClient (connectionString: connectionString)
-                let database = try client.db (DanakeMongoTests.testDbName)
+                let database = client.db (DanakeMongoTests.testDbName)
                 for collectionDocument in try database.listCollections() {
                     if let name: String = collectionDocument ["name"] as? String {
                         let command: Document = [ "drop" : name]

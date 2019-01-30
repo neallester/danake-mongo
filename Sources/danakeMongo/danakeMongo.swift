@@ -94,7 +94,7 @@ open class MongoAccessor : DatabaseAccessor {
         
         let newConnectionClosure: () throws -> MongoDatabase = {
             let client = try MongoClient (connectionString: dbConnectionString, options: clientOptions)
-            return try client.db (databaseName, options: databaseOptions)
+            return client.db (databaseName, options: databaseOptions)
         }
         let database = try newConnectionClosure()
         do {
@@ -105,7 +105,7 @@ open class MongoAccessor : DatabaseAccessor {
             try metadataCollection.insertOne(document)
             hashValue = newMetadata.id.uuidString
         } catch {
-            let metadataCollection = try database.collection (MongoAccessor.metadataCollectionName)
+            let metadataCollection = database.collection (MongoAccessor.metadataCollectionName)
             let metadataCount = try metadataCollection.count()
             switch metadataCount {
             case 1:
@@ -366,12 +366,12 @@ open class MongoAccessor : DatabaseAccessor {
         do {
             if existingCollections.contains(name) {
                 wasExisting = true
-                newCollection = try databaseObject.object.collection (name)
+                newCollection = databaseObject.object.collection (name)
             } else {
                 try newCollectionsQueue.sync {
                     if newCollections.contains(name) {
                         wasPreviouslyCreated = true
-                        newCollection = try databaseObject.object.collection (name)
+                        newCollection = databaseObject.object.collection (name)
                     } else {
                         let createdCollection = try databaseObject.object.createCollection(name)
                         newCollection = createdCollection
