@@ -63,7 +63,7 @@ public struct ConnectionPoolOptions {
     Important Note: Call MongoSwift.cleanup() exactly once at end of application execution.
  
 */
-open class MongoAccessor : DatabaseAccessor {
+open class MongoAccessor : SynchronousAccessor {
 
 /**
      - parameter dbConnectionString: A string defining [connection parameters](https://docs.mongodb.com/manual/reference/connection-string/)
@@ -152,7 +152,7 @@ open class MongoAccessor : DatabaseAccessor {
 
     }
     
-    public func get<T>(type: Entity<T>.Type, cache: EntityCache<T>, id: UUID) throws -> Entity<T>? where T : Decodable, T : Encodable {
+    public func getImplementation<T>(type: Entity<T>.Type, cache: EntityCache<T>, id: UUID) throws -> Entity<T>? where T : Decodable, T : Encodable {
         var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
         var isConnectionOk = true
         defer {
@@ -184,7 +184,7 @@ open class MongoAccessor : DatabaseAccessor {
         }
     }
     
-    public func scan<T>(type: Entity<T>.Type, cache: EntityCache<T>) throws -> [Entity<T>] where T : Decodable, T : Encodable {
+    public func scanImplementation<T>(type: Entity<T>.Type, cache: EntityCache<T>) throws -> [Entity<T>] where T : Decodable, T : Encodable {
         var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
         var isConnectionOk = true
         defer {

@@ -135,8 +135,8 @@
             );
             HEADER_SEARCH_PATHS = (
                "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-mongoc--7224177555837484775",
-               "$(SRCROOT)/.build/checkouts/swift-bson-4085030786301919230"
+               "$(SRCROOT)/.build/checkouts/swift-mongoc--5780913475119027778",
+               "$(SRCROOT)/.build/checkouts/swift-bson--8017738249884204413"
             );
             INFOPLIST_FILE = "danakeMongo.xcodeproj/MongoSwift_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
@@ -186,8 +186,8 @@
             );
             HEADER_SEARCH_PATHS = (
                "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-mongoc--7224177555837484775",
-               "$(SRCROOT)/.build/checkouts/swift-bson-4085030786301919230"
+               "$(SRCROOT)/.build/checkouts/swift-mongoc--5780913475119027778",
+               "$(SRCROOT)/.build/checkouts/swift-bson--8017738249884204413"
             );
             INFOPLIST_FILE = "danakeMongo.xcodeproj/MongoSwift_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
@@ -708,7 +708,7 @@
             "OBJ_18"
          );
          name = "ManagedPool";
-         path = ".build/checkouts/ManagedPool-sw.git-7572920217660149805/Sources/ManagedPool";
+         path = ".build/checkouts/ManagedPool-sw.git--4253830766633502088/Sources/ManagedPool";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_170" = {
@@ -889,7 +889,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/ManagedPool-sw.git-7572920217660149805/Package.swift";
+         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/ManagedPool-sw.git--4253830766633502088/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_190" = {
@@ -915,8 +915,8 @@
             );
             HEADER_SEARCH_PATHS = (
                "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-mongoc--7224177555837484775",
-               "$(SRCROOT)/.build/checkouts/swift-bson-4085030786301919230"
+               "$(SRCROOT)/.build/checkouts/swift-mongoc--5780913475119027778",
+               "$(SRCROOT)/.build/checkouts/swift-bson--8017738249884204413"
             );
             INFOPLIST_FILE = "danakeMongo.xcodeproj/danakeMongo_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
@@ -966,8 +966,8 @@
             );
             HEADER_SEARCH_PATHS = (
                "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-mongoc--7224177555837484775",
-               "$(SRCROOT)/.build/checkouts/swift-bson-4085030786301919230"
+               "$(SRCROOT)/.build/checkouts/swift-mongoc--5780913475119027778",
+               "$(SRCROOT)/.build/checkouts/swift-bson--8017738249884204413"
             );
             INFOPLIST_FILE = "danakeMongo.xcodeproj/danakeMongo_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
@@ -1146,7 +1146,7 @@
             "OBJ_50"
          );
          name = "MongoSwift";
-         path = ".build/checkouts/mongo-swift-driver.git--5397708562467090553/Sources/MongoSwift";
+         path = ".build/checkouts/mongo-swift-driver.git-6134104725270109266/Sources/MongoSwift";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_210" = {
@@ -1204,8 +1204,8 @@
             );
             HEADER_SEARCH_PATHS = (
                "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-mongoc--7224177555837484775",
-               "$(SRCROOT)/.build/checkouts/swift-bson-4085030786301919230"
+               "$(SRCROOT)/.build/checkouts/swift-mongoc--5780913475119027778",
+               "$(SRCROOT)/.build/checkouts/swift-bson--8017738249884204413"
             );
             INFOPLIST_FILE = "danakeMongo.xcodeproj/danakeMongoTests_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
@@ -1258,8 +1258,8 @@
             );
             HEADER_SEARCH_PATHS = (
                "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-mongoc--7224177555837484775",
-               "$(SRCROOT)/.build/checkouts/swift-bson-4085030786301919230"
+               "$(SRCROOT)/.build/checkouts/swift-mongoc--5780913475119027778",
+               "$(SRCROOT)/.build/checkouts/swift-bson--8017738249884204413"
             );
             INFOPLIST_FILE = "danakeMongo.xcodeproj/danakeMongoTests_Info.plist";
             LD_RUNPATH_SEARCH_PATHS = (
@@ -1678,7 +1678,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/mongo-swift-driver.git--5397708562467090553/Package.swift";
+         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/mongo-swift-driver.git-6134104725270109266/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_52" = {
@@ -1706,7 +1706,7 @@
             "OBJ_63"
          );
          name = "danake";
-         path = ".build/checkouts/danake-sw.git-566526989490789870/Sources/danake";
+         path = ".build/checkouts/danake-sw.git-7663085772432893506/Sources/danake";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_54" = {
@@ -1769,7 +1769,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/danake-sw.git-566526989490789870/Package.swift";
+         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/danake-sw.git-7663085772432893506/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_65" = {
@@ -1792,15 +1792,15 @@
             "OBJ_80",
             "OBJ_81"
          );
-         name = "PromiseKit 6.8.2";
-         path = ".build/checkouts/PromiseKit-4502808752288677645/Sources";
+         name = "PromiseKit 6.8.3";
+         path = ".build/checkouts/PromiseKit-2884415924616428434/Sources";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_66" = {
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/PromiseKit-4502808752288677645/Package.swift";
+         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/PromiseKit-2884415924616428434/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_67" = {
@@ -1899,12 +1899,12 @@
       "OBJ_82" = {
          isa = "PBXGroup";
          children = (
-            "danakeMongo::danakeMongo::Product",
             "ManagedPool::ManagedPool::Product",
-            "MongoSwift::MongoSwift::Product",
-            "danakeMongo::danakeMongoTests::Product",
             "PromiseKit::PromiseKit::Product",
-            "danake::danake::Product"
+            "danake::danake::Product",
+            "danakeMongo::danakeMongo::Product",
+            "MongoSwift::MongoSwift::Product",
+            "danakeMongo::danakeMongoTests::Product"
          );
          name = "Products";
          path = "";
