@@ -172,12 +172,12 @@ open class MongoAccessor : SynchronousAccessor {
                     case .ok (let newEntity):
                         entity = newEntity
                     case .error(let errorMessage):
-                        throw AccessorError.creationError(errorMessage)
+                        throw AccessorError.creation(errorMessage)
                     }
                 }
                 return entity
             }
-            throw AccessorError.creationError("UnknownError") // Should never happen ever
+            throw AccessorError.creation("UnknownError") // Should never happen ever
         } catch {
             isConnectionOk = false
             throw error
@@ -199,7 +199,7 @@ open class MongoAccessor : SynchronousAccessor {
                 let result: [Entity<T>] = try entityForDocuments(documents, cache: cache, type: type)
                 return result
             }
-            throw AccessorError.creationError("UnexpectedError") // Should not occur ever
+            throw AccessorError.creation("UnexpectedError") // Should not occur ever
         } catch {
             isConnectionOk = false
             throw error
@@ -228,42 +228,36 @@ open class MongoAccessor : SynchronousAccessor {
         }
         return .ok
     }
-    
-    public func addAction(wrapper: EntityPersistenceWrapper) -> DatabaseActionResult {
-        do {
-            let document = try self.documentForWrapper(wrapper)
-            let result: () -> DatabaseUpdateResult = {
-                var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
-                var isConnectionOk = true
-                defer {
-                    if let connection = connection {
-                        self.connectionPool.checkIn(connection.poolObject, isOK: isConnectionOk)
-                    }
-                }
-                do {
-                    connection = try self.collectionFor(name: wrapper.cacheName)
-                    if let connection = connection {
-                        try connection.collection.insertOne(document)
-                        return .ok
-                    } else {
-                        return .error ("NoCollection")
-                    }
-                } catch {
-                    isConnectionOk = false
-                    return .error ("\(error)")
+ 
+    public func addActionImplementation(wrapper: EntityPersistenceWrapper, callback: @escaping ((DatabaseUpdateResult) -> ())) throws -> () -> () {
+        let document = try self.documentForWrapper(wrapper)
+        return {
+            var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
+            var isConnectionOk = true
+            defer {
+                if let connection = connection {
+                    self.connectionPool.checkIn(connection.poolObject, isOK: isConnectionOk)
                 }
             }
-            return .ok (result)
-        } catch {
-            return .error ("\(error)")
+            do {
+                connection = try self.collectionFor(name: wrapper.cacheName)
+                if let connection = connection {
+                    try connection.collection.insertOne(document)
+                    callback (.ok)
+                } else {
+                    callback (.error ("NoCollection"))
+                }
+            } catch {
+                isConnectionOk = false
+                callback (.error ("\(error)"))
+            }
         }
     }
     
-    public func updateAction(wrapper: EntityPersistenceWrapper) -> DatabaseActionResult {
-        do {
+    public func updateActionImplementation(wrapper: EntityPersistenceWrapper, callback: @escaping ((DatabaseUpdateResult) -> ())) throws -> () -> () {
             let document = try self.documentForWrapper(wrapper)
             let query = selectId (wrapper.id)
-            let result: () -> DatabaseUpdateResult = {
+            return {
                 var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
                 var isConnectionOk = true
                 defer {
@@ -275,24 +269,25 @@ open class MongoAccessor : SynchronousAccessor {
                     connection = try self.collectionFor(name: wrapper.cacheName)
                     if let connection = connection {
                         try connection.collection.replaceOne(filter: query, replacement: document)
-                        return .ok
+                        callback (.ok)
                     } else {
-                        return .error ("NoCollection")
+                        callback (.error ("NoCollection"))
                     }
                 } catch {
                     isConnectionOk = false
-                    return .error ("\(error)")
+                    callback (.error ("\(error)"))
                 }
             }
-            return .ok (result)
-        } catch {
-            return .error ("\(error)")
-        }
+
     }
     
-    public func removeAction(wrapper: EntityPersistenceWrapper) -> DatabaseActionResult {
+
+    
+    
+    
+    public func removeActionImplementation(wrapper: EntityPersistenceWrapper, callback: @escaping ((DatabaseUpdateResult) -> ())) throws -> () -> () {
         let query = selectId (wrapper.id)
-        let result: () -> DatabaseUpdateResult = {
+        return {
             var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
             var isConnectionOk = true
             defer {
@@ -304,16 +299,16 @@ open class MongoAccessor : SynchronousAccessor {
                 connection = try self.collectionFor(name: wrapper.cacheName)
                 if let connection = connection {
                     try connection.collection.deleteOne(query)
-                    return .ok
+                    callback (.ok)
                 } else {
-                    return .error ("NoCollection")
+                    callback (.error ("NoCollection"))
                 }
             } catch {
                 isConnectionOk = false
-                return .error ("\(error)")
+                callback (.error ("\(error)"))
             }
         }
-        return .ok (result)
+
     }
     
     public func encoder() -> BSONEncoder {
