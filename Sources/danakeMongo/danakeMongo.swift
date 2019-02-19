@@ -93,7 +93,7 @@ open class MongoAccessor : SynchronousAccessor {
         self.logger = logger
         
         let newConnectionClosure: () throws -> MongoDatabase = {
-            let client = try MongoClient (connectionString: dbConnectionString, options: clientOptions)
+            let client = try MongoClient (dbConnectionString, options: clientOptions)
             return client.db (databaseName, options: databaseOptions)
         }
         let database = try newConnectionClosure()
