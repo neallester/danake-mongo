@@ -89,7 +89,7 @@ final class DanakeMongoTests: XCTestCase {
             do {
                 let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
                 XCTAssertTrue (logger === accessor.logger as! InMemoryLogger)
-                let client = try MongoClient (c onnectionString)
+                let client = try MongoClient (connectionString)
                 let database = client.db (DanakeMongoTests.testDbName)
                 let metadataCollection = database.collection (MongoAccessor.metadataCollectionName)
                 try XCTAssertEqual (1, metadataCollection.count())
