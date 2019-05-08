@@ -17,11 +17,6 @@ import ManagedPool
 
 final class DanakeMongoTests: XCTestCase {
     
-    override func setUp() {
-        MongoSwift.initialize()
-    }
-
-    
     func testConnection() throws {
         if let connectionString = connectionString() {
             do {
@@ -36,7 +31,6 @@ final class DanakeMongoTests: XCTestCase {
     }
 
     private func connectionString() -> String? {
-        MongoSwift.initialize()
         var connectionString: String? = nil
         #if os(Linux)
             sleep (1)
@@ -496,7 +490,7 @@ final class DanakeMongoTests: XCTestCase {
             #if os(Linux)
                 sleep (3)
             #endif
-            MongoSwift.cleanup()
+            cleanupMongoSwift()
         }
     }
     
