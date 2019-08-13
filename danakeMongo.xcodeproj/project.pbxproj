@@ -3,12 +3,43 @@
    archiveVersion = "1";
    objectVersion = "46";
    objects = {
+      "JSONEquality::JSONEquality" = {
+         isa = "PBXNativeTarget";
+         buildConfigurationList = "OBJ_111";
+         buildPhases = (
+            "OBJ_114",
+            "OBJ_116"
+         );
+         dependencies = (
+         );
+         name = "JSONEquality";
+         productName = "JSONEquality";
+         productReference = "JSONEquality::JSONEquality::Product";
+         productType = "com.apple.product-type.framework";
+      };
+      "JSONEquality::JSONEquality::Product" = {
+         isa = "PBXFileReference";
+         path = "JSONEquality.framework";
+         sourceTree = "BUILT_PRODUCTS_DIR";
+      };
+      "JSONEquality::SwiftPMPackageDescription" = {
+         isa = "PBXNativeTarget";
+         buildConfigurationList = "OBJ_118";
+         buildPhases = (
+            "OBJ_121"
+         );
+         dependencies = (
+         );
+         name = "JSONEqualityPackageDescription";
+         productName = "JSONEqualityPackageDescription";
+         productType = "com.apple.product-type.framework";
+      };
       "ManagedPool::ManagedPool" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_90";
+         buildConfigurationList = "OBJ_124";
          buildPhases = (
-            "OBJ_93",
-            "OBJ_95"
+            "OBJ_127",
+            "OBJ_129"
          );
          dependencies = (
          );
@@ -24,9 +55,9 @@
       };
       "ManagedPool::SwiftPMPackageDescription" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_97";
+         buildConfigurationList = "OBJ_131";
          buildPhases = (
-            "OBJ_100"
+            "OBJ_134"
          );
          dependencies = (
          );
@@ -36,10 +67,10 @@
       };
       "MongoSwift::MongoSwift" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_103";
+         buildConfigurationList = "OBJ_137";
          buildPhases = (
-            "OBJ_106",
-            "OBJ_135"
+            "OBJ_140",
+            "OBJ_180"
          );
          dependencies = (
          );
@@ -55,9 +86,9 @@
       };
       "MongoSwift::SwiftPMPackageDescription" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_137";
+         buildConfigurationList = "OBJ_182";
          buildPhases = (
-            "OBJ_140"
+            "OBJ_185"
          );
          dependencies = (
          );
@@ -68,6 +99,7 @@
       "OBJ_1" = {
          isa = "PBXProject";
          attributes = {
+            LastSwiftMigration = "9999";
             LastUpgradeCheck = "9999";
          };
          buildConfigurationList = "OBJ_2";
@@ -78,9 +110,11 @@
             "en"
          );
          mainGroup = "OBJ_5";
-         productRefGroup = "OBJ_82";
+         productRefGroup = "OBJ_97";
          projectDirPath = ".";
          targets = (
+            "JSONEquality::JSONEquality",
+            "JSONEquality::SwiftPMPackageDescription",
             "ManagedPool::ManagedPool",
             "ManagedPool::SwiftPMPackageDescription",
             "MongoSwift::MongoSwift",
@@ -106,171 +140,30 @@
          path = "";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_100" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_101"
-         );
-      };
-      "OBJ_101" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_19";
-      };
-      "OBJ_103" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_104",
-            "OBJ_105"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_104" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-mongoc-283258079695340510",
-               "$(SRCROOT)/.build/checkouts/swift-bson-2916119499889001065"
-            );
-            INFOPLIST_FILE = "danakeMongo.xcodeproj/MongoSwift_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lmongoc-1.0",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lbson-1.0",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lbson-1.0"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "MongoSwift";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "4.2";
-            TARGET_NAME = "MongoSwift";
-         };
-         name = "Debug";
-      };
       "OBJ_105" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-mongoc-283258079695340510",
-               "$(SRCROOT)/.build/checkouts/swift-bson-2916119499889001065"
-            );
-            INFOPLIST_FILE = "danakeMongo.xcodeproj/MongoSwift_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lmongoc-1.0",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lbson-1.0",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lbson-1.0"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "MongoSwift";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "4.2";
-            TARGET_NAME = "MongoSwift";
-         };
-         name = "Release";
+         isa = "PBXFileReference";
+         path = "sourcery";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_106" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_107",
-            "OBJ_108",
-            "OBJ_109",
-            "OBJ_110",
-            "OBJ_111",
-            "OBJ_112",
-            "OBJ_113",
-            "OBJ_114",
-            "OBJ_115",
-            "OBJ_116",
-            "OBJ_117",
-            "OBJ_118",
-            "OBJ_119",
-            "OBJ_120",
-            "OBJ_121",
-            "OBJ_122",
-            "OBJ_123",
-            "OBJ_124",
-            "OBJ_125",
-            "OBJ_126",
-            "OBJ_127",
-            "OBJ_128",
-            "OBJ_129",
-            "OBJ_130",
-            "OBJ_131",
-            "OBJ_132",
-            "OBJ_133",
-            "OBJ_134"
-         );
+         isa = "PBXFileReference";
+         path = "LICENSE";
+         sourceTree = "<group>";
       };
       "OBJ_107" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_22";
+         isa = "PBXFileReference";
+         path = "README.md";
+         sourceTree = "<group>";
       };
       "OBJ_108" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_24";
+         isa = "PBXFileReference";
+         path = "update.sh";
+         sourceTree = "<group>";
       };
       "OBJ_109" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_25";
+         isa = "PBXFileReference";
+         path = "sourcery.sh";
+         sourceTree = "<group>";
       };
       "OBJ_11" = {
          isa = "PBXGroup";
@@ -282,45 +175,130 @@
          path = "Tests/danakeMongoTests";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_110" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_26";
-      };
       "OBJ_111" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_27";
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_112",
+            "OBJ_113"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
       };
       "OBJ_112" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_28";
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "danakeMongo.xcodeproj/JSONEquality_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "JSONEquality";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.2";
+            TARGET_NAME = "JSONEquality";
+         };
+         name = "Debug";
       };
       "OBJ_113" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_29";
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "danakeMongo.xcodeproj/JSONEquality_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "JSONEquality";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.2";
+            TARGET_NAME = "JSONEquality";
+         };
+         name = "Release";
       };
       "OBJ_114" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_30";
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_115"
+         );
       };
       "OBJ_115" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_31";
+         fileRef = "OBJ_78";
       };
       "OBJ_116" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_32";
-      };
-      "OBJ_117" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_33";
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+         );
       };
       "OBJ_118" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_34";
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_119",
+            "OBJ_120"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
       };
       "OBJ_119" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_35";
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4.2",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "4.2";
+         };
+         name = "Debug";
       };
       "OBJ_12" = {
          isa = "PBXFileReference";
@@ -328,74 +306,190 @@
          sourceTree = "<group>";
       };
       "OBJ_120" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_36";
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4.2",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "4.2";
+         };
+         name = "Release";
       };
       "OBJ_121" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_37";
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_122"
+         );
       };
       "OBJ_122" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_38";
-      };
-      "OBJ_123" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_39";
+         fileRef = "OBJ_79";
       };
       "OBJ_124" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_40";
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_125",
+            "OBJ_126"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
       };
       "OBJ_125" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_41";
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "danakeMongo.xcodeproj/ManagedPool_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "ManagedPool";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.0";
+            TARGET_NAME = "ManagedPool";
+         };
+         name = "Debug";
       };
       "OBJ_126" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_42";
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "danakeMongo.xcodeproj/ManagedPool_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "ManagedPool";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.0";
+            TARGET_NAME = "ManagedPool";
+         };
+         name = "Release";
       };
       "OBJ_127" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_43";
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_128"
+         );
       };
       "OBJ_128" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_44";
+         fileRef = "OBJ_17";
       };
       "OBJ_129" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_45";
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+         );
       };
       "OBJ_13" = {
          isa = "PBXFileReference";
          path = "danakeMongoTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_130" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_46";
-      };
       "OBJ_131" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_47";
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_132",
+            "OBJ_133"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
       };
       "OBJ_132" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_48";
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "4.0";
+         };
+         name = "Debug";
       };
       "OBJ_133" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_49";
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "4.0";
+         };
+         name = "Release";
       };
       "OBJ_134" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_50";
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_135"
+         );
       };
       "OBJ_135" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-         );
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_18";
       };
       "OBJ_137" = {
          isa = "XCConfigurationList";
@@ -409,140 +503,127 @@
       "OBJ_138" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
-            LD = "/usr/bin/true";
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-mongoc-1054752387249340169",
+               "$(SRCROOT)/.build/checkouts/swift-bson--2596592158871798043"
+            );
+            INFOPLIST_FILE = "danakeMongo.xcodeproj/MongoSwift_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lmongoc-1.0",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lbson-1.0",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lbson-1.0"
+            );
             OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4.2",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+               "$(inherited)",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "MongoSwift";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
             );
             SWIFT_VERSION = "4.2";
+            TARGET_NAME = "MongoSwift";
          };
          name = "Debug";
       };
       "OBJ_139" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
-            LD = "/usr/bin/true";
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-mongoc-1054752387249340169",
+               "$(SRCROOT)/.build/checkouts/swift-bson--2596592158871798043"
+            );
+            INFOPLIST_FILE = "danakeMongo.xcodeproj/MongoSwift_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lmongoc-1.0",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lbson-1.0",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lbson-1.0"
+            );
             OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4.2",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+               "$(inherited)",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "MongoSwift";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
             );
             SWIFT_VERSION = "4.2";
+            TARGET_NAME = "MongoSwift";
          };
          name = "Release";
       };
       "OBJ_14" = {
-         isa = "PBXFileReference";
-         path = "sourcery";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_15",
+            "OBJ_19",
+            "OBJ_63",
+            "OBJ_76",
+            "OBJ_80"
+         );
+         name = "Dependencies";
+         path = "";
+         sourceTree = "<group>";
       };
       "OBJ_140" = {
          isa = "PBXSourcesBuildPhase";
          files = (
-            "OBJ_141"
-         );
-      };
-      "OBJ_141" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_51";
-      };
-      "OBJ_143" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
+            "OBJ_141",
+            "OBJ_142",
+            "OBJ_143",
             "OBJ_144",
-            "OBJ_145"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_144" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "danakeMongo.xcodeproj/PromiseKit_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "PromiseKit";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "4.2";
-            TARGET_NAME = "PromiseKit";
-         };
-         name = "Debug";
-      };
-      "OBJ_145" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "danakeMongo.xcodeproj/PromiseKit_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "PromiseKit";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "4.2";
-            TARGET_NAME = "PromiseKit";
-         };
-         name = "Release";
-      };
-      "OBJ_146" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
+            "OBJ_145",
+            "OBJ_146",
             "OBJ_147",
             "OBJ_148",
             "OBJ_149",
@@ -557,355 +638,284 @@
             "OBJ_158",
             "OBJ_159",
             "OBJ_160",
-            "OBJ_161"
+            "OBJ_161",
+            "OBJ_162",
+            "OBJ_163",
+            "OBJ_164",
+            "OBJ_165",
+            "OBJ_166",
+            "OBJ_167",
+            "OBJ_168",
+            "OBJ_169",
+            "OBJ_170",
+            "OBJ_171",
+            "OBJ_172",
+            "OBJ_173",
+            "OBJ_174",
+            "OBJ_175",
+            "OBJ_176",
+            "OBJ_177",
+            "OBJ_178",
+            "OBJ_179"
          );
+      };
+      "OBJ_141" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_21";
+      };
+      "OBJ_142" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_23";
+      };
+      "OBJ_143" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_24";
+      };
+      "OBJ_144" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_25";
+      };
+      "OBJ_145" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_26";
+      };
+      "OBJ_146" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_27";
       };
       "OBJ_147" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_67";
+         fileRef = "OBJ_28";
       };
       "OBJ_148" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_68";
+         fileRef = "OBJ_29";
       };
       "OBJ_149" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_69";
+         fileRef = "OBJ_30";
       };
       "OBJ_15" = {
          isa = "PBXGroup";
          children = (
             "OBJ_16",
-            "OBJ_20",
-            "OBJ_52",
-            "OBJ_65"
+            "OBJ_18"
          );
-         name = "Dependencies";
+         name = "ManagedPool";
          path = "";
-         sourceTree = "<group>";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_150" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_70";
+         fileRef = "OBJ_31";
       };
       "OBJ_151" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_71";
+         fileRef = "OBJ_32";
       };
       "OBJ_152" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_72";
+         fileRef = "OBJ_33";
       };
       "OBJ_153" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_73";
+         fileRef = "OBJ_34";
       };
       "OBJ_154" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_74";
+         fileRef = "OBJ_35";
       };
       "OBJ_155" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_75";
+         fileRef = "OBJ_36";
       };
       "OBJ_156" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_76";
+         fileRef = "OBJ_37";
       };
       "OBJ_157" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_77";
+         fileRef = "OBJ_38";
       };
       "OBJ_158" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_78";
+         fileRef = "OBJ_39";
       };
       "OBJ_159" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_79";
+         fileRef = "OBJ_40";
       };
       "OBJ_16" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_17",
-            "OBJ_19"
+            "OBJ_17"
          );
          name = "ManagedPool";
-         path = "";
+         path = ".build/checkouts/ManagedPool-sw.git--4295807658643555023/Sources/ManagedPool";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_160" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_80";
+         fileRef = "OBJ_41";
       };
       "OBJ_161" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_81";
+         fileRef = "OBJ_42";
       };
       "OBJ_162" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-         );
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_43";
+      };
+      "OBJ_163" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_44";
       };
       "OBJ_164" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_165",
-            "OBJ_166"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_45";
       };
       "OBJ_165" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4.2",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
-            );
-            SWIFT_VERSION = "4.2";
-         };
-         name = "Debug";
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_46";
       };
       "OBJ_166" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4.2",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
-            );
-            SWIFT_VERSION = "4.2";
-         };
-         name = "Release";
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_48";
       };
       "OBJ_167" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_168"
-         );
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_49";
       };
       "OBJ_168" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_66";
+         fileRef = "OBJ_50";
+      };
+      "OBJ_169" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_51";
       };
       "OBJ_17" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_18"
-         );
-         name = "ManagedPool";
-         path = ".build/checkouts/ManagedPool-sw.git--5760738669426150296/Sources/ManagedPool";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_170" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_171",
-            "OBJ_172"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_171" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Debug";
-      };
-      "OBJ_172" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Release";
-      };
-      "OBJ_174" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_175",
-            "OBJ_176"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_175" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "danakeMongo.xcodeproj/danake_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "danake";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "4.0";
-            TARGET_NAME = "danake";
-         };
-         name = "Debug";
-      };
-      "OBJ_176" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "danakeMongo.xcodeproj/danake_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "danake";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "4.0";
-            TARGET_NAME = "danake";
-         };
-         name = "Release";
-      };
-      "OBJ_177" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_178",
-            "OBJ_179",
-            "OBJ_180",
-            "OBJ_181",
-            "OBJ_182",
-            "OBJ_183",
-            "OBJ_184",
-            "OBJ_185",
-            "OBJ_186",
-            "OBJ_187"
-         );
-      };
-      "OBJ_178" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_54";
-      };
-      "OBJ_179" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_55";
-      };
-      "OBJ_18" = {
          isa = "PBXFileReference";
          path = "ManagedPool.swift";
          sourceTree = "<group>";
       };
-      "OBJ_180" = {
+      "OBJ_170" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_52";
+      };
+      "OBJ_171" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_53";
+      };
+      "OBJ_172" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_54";
+      };
+      "OBJ_173" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_55";
+      };
+      "OBJ_174" = {
          isa = "PBXBuildFile";
          fileRef = "OBJ_56";
       };
-      "OBJ_181" = {
+      "OBJ_175" = {
          isa = "PBXBuildFile";
          fileRef = "OBJ_57";
       };
-      "OBJ_182" = {
+      "OBJ_176" = {
          isa = "PBXBuildFile";
          fileRef = "OBJ_58";
       };
-      "OBJ_183" = {
+      "OBJ_177" = {
          isa = "PBXBuildFile";
          fileRef = "OBJ_59";
       };
-      "OBJ_184" = {
+      "OBJ_178" = {
          isa = "PBXBuildFile";
          fileRef = "OBJ_60";
       };
-      "OBJ_185" = {
+      "OBJ_179" = {
          isa = "PBXBuildFile";
          fileRef = "OBJ_61";
+      };
+      "OBJ_18" = {
+         isa = "PBXFileReference";
+         explicitFileType = "sourcecode.swift";
+         name = "Package.swift";
+         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/ManagedPool-sw.git--4295807658643555023/Package.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_180" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+         );
+      };
+      "OBJ_182" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_183",
+            "OBJ_184"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_183" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4.2",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "4.2";
+         };
+         name = "Debug";
+      };
+      "OBJ_184" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4.2",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "4.2";
+         };
+         name = "Release";
+      };
+      "OBJ_185" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_186"
+         );
       };
       "OBJ_186" = {
          isa = "PBXBuildFile";
          fileRef = "OBJ_62";
       };
-      "OBJ_187" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_63";
-      };
       "OBJ_188" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_189"
-         );
-      };
-      "OBJ_189" = {
-         isa = "PBXBuildFile";
-         fileRef = "PromiseKit::PromiseKit::Product";
-      };
-      "OBJ_19" = {
-         isa = "PBXFileReference";
-         explicitFileType = "sourcecode.swift";
-         name = "Package.swift";
-         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/ManagedPool-sw.git--5760738669426150296/Package.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_190" = {
-         isa = "PBXTargetDependency";
-         target = "PromiseKit::PromiseKit";
-      };
-      "OBJ_192" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_193",
-            "OBJ_194"
+            "OBJ_189",
+            "OBJ_190"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
       };
-      "OBJ_193" = {
+      "OBJ_189" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             ENABLE_TESTABILITY = "YES";
@@ -914,49 +924,49 @@
                "$(PLATFORM_DIR)/Developer/Library/Frameworks"
             );
             HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-mongoc-283258079695340510",
-               "$(SRCROOT)/.build/checkouts/swift-bson-2916119499889001065"
+               "$(inherited)"
             );
-            INFOPLIST_FILE = "danakeMongo.xcodeproj/danakeMongo_Info.plist";
+            INFOPLIST_FILE = "danakeMongo.xcodeproj/PromiseKit_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
             );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
             OTHER_CFLAGS = (
-               "$(inherited)",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+               "$(inherited)"
             );
             OTHER_LDFLAGS = (
-               "$(inherited)",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lmongoc-1.0",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lbson-1.0",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lbson-1.0"
+               "$(inherited)"
             );
             OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+               "$(inherited)"
             );
-            PRODUCT_BUNDLE_IDENTIFIER = "danakeMongo";
+            PRODUCT_BUNDLE_IDENTIFIER = "PromiseKit";
             PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
             PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
             SKIP_INSTALL = "YES";
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
-            SWIFT_VERSION = "4.0";
-            TARGET_NAME = "danakeMongo";
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "PromiseKit";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
          name = "Debug";
       };
-      "OBJ_194" = {
+      "OBJ_19" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_20",
+            "OBJ_62"
+         );
+         name = "MongoSwift";
+         path = "";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_190" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             ENABLE_TESTABILITY = "YES";
@@ -965,74 +975,89 @@
                "$(PLATFORM_DIR)/Developer/Library/Frameworks"
             );
             HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-mongoc-283258079695340510",
-               "$(SRCROOT)/.build/checkouts/swift-bson-2916119499889001065"
+               "$(inherited)"
             );
-            INFOPLIST_FILE = "danakeMongo.xcodeproj/danakeMongo_Info.plist";
+            INFOPLIST_FILE = "danakeMongo.xcodeproj/PromiseKit_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
             );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
             OTHER_CFLAGS = (
-               "$(inherited)",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+               "$(inherited)"
             );
             OTHER_LDFLAGS = (
-               "$(inherited)",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lmongoc-1.0",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lbson-1.0",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lbson-1.0"
+               "$(inherited)"
             );
             OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+               "$(inherited)"
             );
-            PRODUCT_BUNDLE_IDENTIFIER = "danakeMongo";
+            PRODUCT_BUNDLE_IDENTIFIER = "PromiseKit";
             PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
             PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
             SKIP_INSTALL = "YES";
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
-            SWIFT_VERSION = "4.0";
-            TARGET_NAME = "danakeMongo";
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "PromiseKit";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
          name = "Release";
       };
-      "OBJ_195" = {
+      "OBJ_191" = {
          isa = "PBXSourcesBuildPhase";
          files = (
-            "OBJ_196"
-         );
-      };
-      "OBJ_196" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_9";
-      };
-      "OBJ_197" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
+            "OBJ_192",
+            "OBJ_193",
+            "OBJ_194",
+            "OBJ_195",
+            "OBJ_196",
+            "OBJ_197",
             "OBJ_198",
             "OBJ_199",
             "OBJ_200",
-            "OBJ_201"
+            "OBJ_201",
+            "OBJ_202",
+            "OBJ_203",
+            "OBJ_204",
+            "OBJ_205",
+            "OBJ_206"
          );
+      };
+      "OBJ_192" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_82";
+      };
+      "OBJ_193" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_83";
+      };
+      "OBJ_194" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_84";
+      };
+      "OBJ_195" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_85";
+      };
+      "OBJ_196" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_86";
+      };
+      "OBJ_197" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_87";
       };
       "OBJ_198" = {
          isa = "PBXBuildFile";
-         fileRef = "ManagedPool::ManagedPool::Product";
+         fileRef = "OBJ_88";
       };
       "OBJ_199" = {
          isa = "PBXBuildFile";
-         fileRef = "MongoSwift::MongoSwift::Product";
+         fileRef = "OBJ_89";
       };
       "OBJ_2" = {
          isa = "XCConfigurationList";
@@ -1047,87 +1072,7 @@
          isa = "PBXGroup";
          children = (
             "OBJ_21",
-            "OBJ_51"
-         );
-         name = "MongoSwift";
-         path = "";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_200" = {
-         isa = "PBXBuildFile";
-         fileRef = "danake::danake::Product";
-      };
-      "OBJ_201" = {
-         isa = "PBXBuildFile";
-         fileRef = "PromiseKit::PromiseKit::Product";
-      };
-      "OBJ_202" = {
-         isa = "PBXTargetDependency";
-         target = "ManagedPool::ManagedPool";
-      };
-      "OBJ_203" = {
-         isa = "PBXTargetDependency";
-         target = "MongoSwift::MongoSwift";
-      };
-      "OBJ_204" = {
-         isa = "PBXTargetDependency";
-         target = "danake::danake";
-      };
-      "OBJ_205" = {
-         isa = "PBXTargetDependency";
-         target = "PromiseKit::PromiseKit";
-      };
-      "OBJ_207" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_208",
-            "OBJ_209"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_208" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
-            );
-            SWIFT_VERSION = "4.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_209" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
-            );
-            SWIFT_VERSION = "4.0";
-         };
-         name = "Release";
-      };
-      "OBJ_21" = {
-         isa = "PBXGroup";
-         children = (
             "OBJ_22",
-            "OBJ_23",
-            "OBJ_34",
             "OBJ_35",
             "OBJ_36",
             "OBJ_37",
@@ -1141,209 +1086,142 @@
             "OBJ_45",
             "OBJ_46",
             "OBJ_47",
-            "OBJ_48",
-            "OBJ_49",
-            "OBJ_50"
+            "OBJ_58",
+            "OBJ_59",
+            "OBJ_60",
+            "OBJ_61"
          );
          name = "MongoSwift";
-         path = ".build/checkouts/mongo-swift-driver.git--818481785635827520/Sources/MongoSwift";
+         path = ".build/checkouts/mongo-swift-driver.git-7304133144754734562/Sources/MongoSwift";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_210" = {
-         isa = "PBXSourcesBuildPhase";
+      "OBJ_200" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_90";
+      };
+      "OBJ_201" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_91";
+      };
+      "OBJ_202" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_92";
+      };
+      "OBJ_203" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_93";
+      };
+      "OBJ_204" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_94";
+      };
+      "OBJ_205" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_95";
+      };
+      "OBJ_206" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_96";
+      };
+      "OBJ_207" = {
+         isa = "PBXFrameworksBuildPhase";
          files = (
+         );
+      };
+      "OBJ_209" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_210",
             "OBJ_211"
          );
-      };
-      "OBJ_211" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_6";
-      };
-      "OBJ_213" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_214",
-            "OBJ_215"
-         );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
       };
-      "OBJ_214" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Debug";
-      };
-      "OBJ_215" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Release";
-      };
-      "OBJ_216" = {
-         isa = "PBXTargetDependency";
-         target = "danakeMongo::danakeMongoTests";
-      };
-      "OBJ_218" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_219",
-            "OBJ_220"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_219" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-mongoc-283258079695340510",
-               "$(SRCROOT)/.build/checkouts/swift-bson-2916119499889001065"
-            );
-            INFOPLIST_FILE = "danakeMongo.xcodeproj/danakeMongoTests_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lmongoc-1.0",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lbson-1.0",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lbson-1.0"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "4.0";
-            TARGET_NAME = "danakeMongoTests";
-         };
-         name = "Debug";
-      };
-      "OBJ_22" = {
+      "OBJ_21" = {
          isa = "PBXFileReference";
          path = "APM.swift";
          sourceTree = "<group>";
       };
-      "OBJ_220" = {
+      "OBJ_210" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-mongoc-283258079695340510",
-               "$(SRCROOT)/.build/checkouts/swift-bson-2916119499889001065"
-            );
-            INFOPLIST_FILE = "danakeMongo.xcodeproj/danakeMongoTests_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lmongoc-1.0",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lbson-1.0",
-               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
-               "-lbson-1.0"
-            );
+            LD = "/usr/bin/true";
             OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
-               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+               "-swift-version",
+               "5",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
             );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
+            SWIFT_VERSION = "5.0";
+         };
+         name = "Debug";
+      };
+      "OBJ_211" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "5",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
             );
-            SWIFT_VERSION = "4.0";
-            TARGET_NAME = "danakeMongoTests";
+            SWIFT_VERSION = "5.0";
          };
          name = "Release";
       };
-      "OBJ_221" = {
+      "OBJ_212" = {
          isa = "PBXSourcesBuildPhase";
          files = (
-            "OBJ_222",
-            "OBJ_223"
+            "OBJ_213"
          );
       };
-      "OBJ_222" = {
+      "OBJ_213" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_12";
+         fileRef = "OBJ_81";
       };
-      "OBJ_223" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_13";
-      };
-      "OBJ_224" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_225",
-            "OBJ_226",
-            "OBJ_227",
-            "OBJ_228",
-            "OBJ_229"
+      "OBJ_215" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_216",
+            "OBJ_217"
          );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
       };
-      "OBJ_225" = {
-         isa = "PBXBuildFile";
-         fileRef = "danakeMongo::danakeMongo::Product";
+      "OBJ_216" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Debug";
       };
-      "OBJ_226" = {
-         isa = "PBXBuildFile";
-         fileRef = "ManagedPool::ManagedPool::Product";
+      "OBJ_217" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Release";
       };
-      "OBJ_227" = {
-         isa = "PBXBuildFile";
-         fileRef = "MongoSwift::MongoSwift::Product";
+      "OBJ_219" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_220",
+            "OBJ_221"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
       };
-      "OBJ_228" = {
-         isa = "PBXBuildFile";
-         fileRef = "danake::danake::Product";
-      };
-      "OBJ_229" = {
-         isa = "PBXBuildFile";
-         fileRef = "PromiseKit::PromiseKit::Product";
-      };
-      "OBJ_23" = {
+      "OBJ_22" = {
          isa = "PBXGroup";
          children = (
+            "OBJ_23",
             "OBJ_24",
             "OBJ_25",
             "OBJ_26",
@@ -1353,137 +1231,707 @@
             "OBJ_30",
             "OBJ_31",
             "OBJ_32",
-            "OBJ_33"
+            "OBJ_33",
+            "OBJ_34"
          );
          name = "BSON";
          path = "BSON";
          sourceTree = "<group>";
       };
-      "OBJ_230" = {
-         isa = "PBXTargetDependency";
-         target = "danakeMongo::danakeMongo";
-      };
-      "OBJ_231" = {
-         isa = "PBXTargetDependency";
-         target = "ManagedPool::ManagedPool";
-      };
-      "OBJ_232" = {
-         isa = "PBXTargetDependency";
-         target = "MongoSwift::MongoSwift";
-      };
-      "OBJ_233" = {
-         isa = "PBXTargetDependency";
-         target = "danake::danake";
-      };
-      "OBJ_234" = {
-         isa = "PBXTargetDependency";
-         target = "PromiseKit::PromiseKit";
-      };
-      "OBJ_236" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_237",
-            "OBJ_238"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_237" = {
+      "OBJ_220" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
-            LD = "/usr/bin/true";
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "danakeMongo.xcodeproj/danake_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
             OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "danake";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
             );
             SWIFT_VERSION = "4.0";
+            TARGET_NAME = "danake";
          };
          name = "Debug";
       };
-      "OBJ_238" = {
+      "OBJ_221" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
-            LD = "/usr/bin/true";
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "danakeMongo.xcodeproj/danake_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
             OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "danake";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
             );
             SWIFT_VERSION = "4.0";
+            TARGET_NAME = "danake";
          };
          name = "Release";
       };
-      "OBJ_239" = {
+      "OBJ_222" = {
          isa = "PBXSourcesBuildPhase";
          files = (
-            "OBJ_240"
+            "OBJ_223",
+            "OBJ_224",
+            "OBJ_225",
+            "OBJ_226",
+            "OBJ_227",
+            "OBJ_228",
+            "OBJ_229",
+            "OBJ_230",
+            "OBJ_231",
+            "OBJ_232"
          );
       };
-      "OBJ_24" = {
+      "OBJ_223" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_65";
+      };
+      "OBJ_224" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_66";
+      };
+      "OBJ_225" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_67";
+      };
+      "OBJ_226" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_68";
+      };
+      "OBJ_227" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_69";
+      };
+      "OBJ_228" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_70";
+      };
+      "OBJ_229" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_71";
+      };
+      "OBJ_23" = {
          isa = "PBXFileReference";
          path = "AnyBSONValue.swift";
          sourceTree = "<group>";
       };
-      "OBJ_240" = {
+      "OBJ_230" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_64";
+         fileRef = "OBJ_72";
       };
-      "OBJ_242" = {
+      "OBJ_231" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_73";
+      };
+      "OBJ_232" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_74";
+      };
+      "OBJ_233" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_234",
+            "OBJ_235"
+         );
+      };
+      "OBJ_234" = {
+         isa = "PBXBuildFile";
+         fileRef = "JSONEquality::JSONEquality::Product";
+      };
+      "OBJ_235" = {
+         isa = "PBXBuildFile";
+         fileRef = "PromiseKit::PromiseKit::Product";
+      };
+      "OBJ_236" = {
+         isa = "PBXTargetDependency";
+         target = "JSONEquality::JSONEquality";
+      };
+      "OBJ_237" = {
+         isa = "PBXTargetDependency";
+         target = "PromiseKit::PromiseKit";
+      };
+      "OBJ_239" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_243",
-            "OBJ_244"
+            "OBJ_240",
+            "OBJ_241"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
       };
+      "OBJ_24" = {
+         isa = "PBXFileReference";
+         path = "BSONDecoder.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_240" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-mongoc-1054752387249340169",
+               "$(SRCROOT)/.build/checkouts/swift-bson--2596592158871798043"
+            );
+            INFOPLIST_FILE = "danakeMongo.xcodeproj/danakeMongo_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lmongoc-1.0",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lbson-1.0",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lbson-1.0"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "danakeMongo";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.0";
+            TARGET_NAME = "danakeMongo";
+         };
+         name = "Debug";
+      };
+      "OBJ_241" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-mongoc-1054752387249340169",
+               "$(SRCROOT)/.build/checkouts/swift-bson--2596592158871798043"
+            );
+            INFOPLIST_FILE = "danakeMongo.xcodeproj/danakeMongo_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lmongoc-1.0",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lbson-1.0",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lbson-1.0"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "danakeMongo";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.0";
+            TARGET_NAME = "danakeMongo";
+         };
+         name = "Release";
+      };
+      "OBJ_242" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_243"
+         );
+      };
       "OBJ_243" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_9";
+      };
+      "OBJ_244" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_245",
+            "OBJ_246",
+            "OBJ_247",
+            "OBJ_248",
+            "OBJ_249"
+         );
+      };
+      "OBJ_245" = {
+         isa = "PBXBuildFile";
+         fileRef = "ManagedPool::ManagedPool::Product";
+      };
+      "OBJ_246" = {
+         isa = "PBXBuildFile";
+         fileRef = "MongoSwift::MongoSwift::Product";
+      };
+      "OBJ_247" = {
+         isa = "PBXBuildFile";
+         fileRef = "danake::danake::Product";
+      };
+      "OBJ_248" = {
+         isa = "PBXBuildFile";
+         fileRef = "JSONEquality::JSONEquality::Product";
+      };
+      "OBJ_249" = {
+         isa = "PBXBuildFile";
+         fileRef = "PromiseKit::PromiseKit::Product";
+      };
+      "OBJ_25" = {
+         isa = "PBXFileReference";
+         path = "BSONEncoder.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_250" = {
+         isa = "PBXTargetDependency";
+         target = "ManagedPool::ManagedPool";
+      };
+      "OBJ_251" = {
+         isa = "PBXTargetDependency";
+         target = "MongoSwift::MongoSwift";
+      };
+      "OBJ_252" = {
+         isa = "PBXTargetDependency";
+         target = "danake::danake";
+      };
+      "OBJ_253" = {
+         isa = "PBXTargetDependency";
+         target = "JSONEquality::JSONEquality";
+      };
+      "OBJ_254" = {
+         isa = "PBXTargetDependency";
+         target = "PromiseKit::PromiseKit";
+      };
+      "OBJ_256" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_257",
+            "OBJ_258"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_257" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "4.0";
+         };
+         name = "Debug";
+      };
+      "OBJ_258" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "4.0";
+         };
+         name = "Release";
+      };
+      "OBJ_259" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_260"
+         );
+      };
+      "OBJ_26" = {
+         isa = "PBXFileReference";
+         path = "BSONValue.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_260" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_6";
+      };
+      "OBJ_262" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_263",
+            "OBJ_264"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_263" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
          };
          name = "Debug";
       };
-      "OBJ_244" = {
+      "OBJ_264" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
          };
          name = "Release";
       };
-      "OBJ_25" = {
-         isa = "PBXFileReference";
-         path = "BSONDecoder.swift";
-         sourceTree = "<group>";
+      "OBJ_265" = {
+         isa = "PBXTargetDependency";
+         target = "danakeMongo::danakeMongoTests";
       };
-      "OBJ_26" = {
-         isa = "PBXFileReference";
-         path = "BSONEncoder.swift";
-         sourceTree = "<group>";
+      "OBJ_267" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_268",
+            "OBJ_269"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_268" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_MODULES = "YES";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-mongoc-1054752387249340169",
+               "$(SRCROOT)/.build/checkouts/swift-bson--2596592158871798043"
+            );
+            INFOPLIST_FILE = "danakeMongo.xcodeproj/danakeMongoTests_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lmongoc-1.0",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lbson-1.0",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lbson-1.0"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.0";
+            TARGET_NAME = "danakeMongoTests";
+         };
+         name = "Debug";
+      };
+      "OBJ_269" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_MODULES = "YES";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(SRCROOT)/.build/checkouts/swift-mongoc-1054752387249340169",
+               "$(SRCROOT)/.build/checkouts/swift-bson--2596592158871798043"
+            );
+            INFOPLIST_FILE = "danakeMongo.xcodeproj/danakeMongoTests_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lmongoc-1.0",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lbson-1.0",
+               "-L/usr/local/Cellar/mongo-c-driver/1.13.0/lib",
+               "-lbson-1.0"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libmongoc-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0",
+               "-I/usr/local/Cellar/mongo-c-driver/1.13.0/include/libbson-1.0"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.0";
+            TARGET_NAME = "danakeMongoTests";
+         };
+         name = "Release";
       };
       "OBJ_27" = {
          isa = "PBXFileReference";
-         path = "BSONValue.swift";
+         path = "CodableNumber.swift";
          sourceTree = "<group>";
+      };
+      "OBJ_270" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_271",
+            "OBJ_272"
+         );
+      };
+      "OBJ_271" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_12";
+      };
+      "OBJ_272" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_13";
+      };
+      "OBJ_273" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_274",
+            "OBJ_275",
+            "OBJ_276",
+            "OBJ_277",
+            "OBJ_278",
+            "OBJ_279"
+         );
+      };
+      "OBJ_274" = {
+         isa = "PBXBuildFile";
+         fileRef = "danakeMongo::danakeMongo::Product";
+      };
+      "OBJ_275" = {
+         isa = "PBXBuildFile";
+         fileRef = "ManagedPool::ManagedPool::Product";
+      };
+      "OBJ_276" = {
+         isa = "PBXBuildFile";
+         fileRef = "MongoSwift::MongoSwift::Product";
+      };
+      "OBJ_277" = {
+         isa = "PBXBuildFile";
+         fileRef = "danake::danake::Product";
+      };
+      "OBJ_278" = {
+         isa = "PBXBuildFile";
+         fileRef = "JSONEquality::JSONEquality::Product";
+      };
+      "OBJ_279" = {
+         isa = "PBXBuildFile";
+         fileRef = "PromiseKit::PromiseKit::Product";
       };
       "OBJ_28" = {
          isa = "PBXFileReference";
-         path = "CodableNumber.swift";
+         path = "CodingStrategies.swift";
          sourceTree = "<group>";
+      };
+      "OBJ_280" = {
+         isa = "PBXTargetDependency";
+         target = "danakeMongo::danakeMongo";
+      };
+      "OBJ_281" = {
+         isa = "PBXTargetDependency";
+         target = "ManagedPool::ManagedPool";
+      };
+      "OBJ_282" = {
+         isa = "PBXTargetDependency";
+         target = "MongoSwift::MongoSwift";
+      };
+      "OBJ_283" = {
+         isa = "PBXTargetDependency";
+         target = "danake::danake";
+      };
+      "OBJ_284" = {
+         isa = "PBXTargetDependency";
+         target = "JSONEquality::JSONEquality";
+      };
+      "OBJ_285" = {
+         isa = "PBXTargetDependency";
+         target = "PromiseKit::PromiseKit";
+      };
+      "OBJ_287" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_288",
+            "OBJ_289"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_288" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "4.0";
+         };
+         name = "Debug";
+      };
+      "OBJ_289" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "4.0";
+         };
+         name = "Release";
       };
       "OBJ_29" = {
          isa = "PBXFileReference";
          path = "Document+Codable.swift";
          sourceTree = "<group>";
+      };
+      "OBJ_290" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_291"
+         );
+      };
+      "OBJ_291" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_75";
+      };
+      "OBJ_293" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_294",
+            "OBJ_295"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_294" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Debug";
+      };
+      "OBJ_295" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Release";
       };
       "OBJ_3" = {
          isa = "XCBuildConfiguration";
@@ -1496,8 +1944,9 @@
             ENABLE_NS_ASSERTIONS = "YES";
             GCC_OPTIMIZATION_LEVEL = "0";
             GCC_PREPROCESSOR_DEFINITIONS = (
-               "DEBUG=1",
-               "$(inherited)"
+               "$(inherited)",
+               "SWIFT_PACKAGE=1",
+               "DEBUG=1"
             );
             MACOSX_DEPLOYMENT_TARGET = "10.10";
             ONLY_ACTIVE_ARCH = "YES";
@@ -1516,6 +1965,7 @@
                "watchsimulator"
             );
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)",
                "SWIFT_PACKAGE",
                "DEBUG"
             );
@@ -1541,37 +1991,37 @@
       };
       "OBJ_33" = {
          isa = "PBXFileReference";
-         path = "Overwritable.swift";
+         path = "DocumentIterator.swift";
          sourceTree = "<group>";
       };
       "OBJ_34" = {
          isa = "PBXFileReference";
-         path = "ClientSession.swift";
+         path = "Overwritable.swift";
          sourceTree = "<group>";
       };
       "OBJ_35" = {
          isa = "PBXFileReference";
-         path = "MongoClient.swift";
+         path = "ClientSession.swift";
          sourceTree = "<group>";
       };
       "OBJ_36" = {
          isa = "PBXFileReference";
-         path = "MongoCollection+BulkWrite.swift";
+         path = "MongoClient.swift";
          sourceTree = "<group>";
       };
       "OBJ_37" = {
          isa = "PBXFileReference";
-         path = "MongoCollection+FindAndModify.swift";
+         path = "MongoCollection+BulkWrite.swift";
          sourceTree = "<group>";
       };
       "OBJ_38" = {
          isa = "PBXFileReference";
-         path = "MongoCollection+Indexes.swift";
+         path = "MongoCollection+FindAndModify.swift";
          sourceTree = "<group>";
       };
       "OBJ_39" = {
          isa = "PBXFileReference";
-         path = "MongoCollection+Read.swift";
+         path = "MongoCollection+Indexes.swift";
          sourceTree = "<group>";
       };
       "OBJ_4" = {
@@ -1583,6 +2033,10 @@
             DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
             DYLIB_INSTALL_NAME_BASE = "@rpath";
             GCC_OPTIMIZATION_LEVEL = "s";
+            GCC_PREPROCESSOR_DEFINITIONS = (
+               "$(inherited)",
+               "SWIFT_PACKAGE=1"
+            );
             MACOSX_DEPLOYMENT_TARGET = "10.10";
             OTHER_SWIFT_FLAGS = (
                "-DXcode"
@@ -1599,6 +2053,7 @@
                "watchsimulator"
             );
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)",
                "SWIFT_PACKAGE"
             );
             SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1608,52 +2063,65 @@
       };
       "OBJ_40" = {
          isa = "PBXFileReference";
-         path = "MongoCollection+Write.swift";
+         path = "MongoCollection+Read.swift";
          sourceTree = "<group>";
       };
       "OBJ_41" = {
          isa = "PBXFileReference";
-         path = "MongoCollection.swift";
+         path = "MongoCollection+Write.swift";
          sourceTree = "<group>";
       };
       "OBJ_42" = {
          isa = "PBXFileReference";
-         path = "MongoCursor.swift";
+         path = "MongoCollection.swift";
          sourceTree = "<group>";
       };
       "OBJ_43" = {
          isa = "PBXFileReference";
-         path = "MongoDatabase.swift";
+         path = "MongoCursor.swift";
          sourceTree = "<group>";
       };
       "OBJ_44" = {
          isa = "PBXFileReference";
-         path = "MongoError.swift";
+         path = "MongoDatabase.swift";
          sourceTree = "<group>";
       };
       "OBJ_45" = {
          isa = "PBXFileReference";
-         path = "MongoSwift.swift";
+         path = "MongoError.swift";
          sourceTree = "<group>";
       };
       "OBJ_46" = {
          isa = "PBXFileReference";
-         path = "Polyfills.swift";
+         path = "MongoSwift.swift";
          sourceTree = "<group>";
       };
       "OBJ_47" = {
-         isa = "PBXFileReference";
-         path = "ReadConcern.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_48",
+            "OBJ_49",
+            "OBJ_50",
+            "OBJ_51",
+            "OBJ_52",
+            "OBJ_53",
+            "OBJ_54",
+            "OBJ_55",
+            "OBJ_56",
+            "OBJ_57"
+         );
+         name = "Operations";
+         path = "Operations";
          sourceTree = "<group>";
       };
       "OBJ_48" = {
          isa = "PBXFileReference";
-         path = "ReadPreference.swift";
+         path = "CountOperation.swift";
          sourceTree = "<group>";
       };
       "OBJ_49" = {
          isa = "PBXFileReference";
-         path = "SDAM.swift";
+         path = "CreateCollectionOperation.swift";
          sourceTree = "<group>";
       };
       "OBJ_5" = {
@@ -1663,80 +2131,64 @@
             "OBJ_7",
             "OBJ_10",
             "OBJ_14",
-            "OBJ_15",
-            "OBJ_82"
+            "OBJ_97",
+            "OBJ_105",
+            "OBJ_106",
+            "OBJ_107",
+            "OBJ_108",
+            "OBJ_109"
          );
          path = "";
          sourceTree = "<group>";
       };
       "OBJ_50" = {
          isa = "PBXFileReference";
-         path = "WriteConcern.swift";
+         path = "CreateIndexesOperation.swift";
          sourceTree = "<group>";
       };
       "OBJ_51" = {
          isa = "PBXFileReference";
-         explicitFileType = "sourcecode.swift";
-         name = "Package.swift";
-         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/mongo-swift-driver.git--818481785635827520/Package.swift";
+         path = "DistinctOperation.swift";
          sourceTree = "<group>";
       };
       "OBJ_52" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_53",
-            "OBJ_64"
-         );
-         name = "danake";
-         path = "";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "DropCollectionOperation.swift";
+         sourceTree = "<group>";
       };
       "OBJ_53" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_54",
-            "OBJ_55",
-            "OBJ_56",
-            "OBJ_57",
-            "OBJ_58",
-            "OBJ_59",
-            "OBJ_60",
-            "OBJ_61",
-            "OBJ_62",
-            "OBJ_63"
-         );
-         name = "danake";
-         path = ".build/checkouts/danake-sw.git--3525978148060801710/Sources/danake";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXFileReference";
+         path = "DropDatabaseOperation.swift";
+         sourceTree = "<group>";
       };
       "OBJ_54" = {
          isa = "PBXFileReference";
-         path = "EntityCache.swift";
+         path = "DropIndexesOperation.swift";
          sourceTree = "<group>";
       };
       "OBJ_55" = {
          isa = "PBXFileReference";
-         path = "InMemoryAccessor.swift";
+         path = "NextOperation.swift";
          sourceTree = "<group>";
       };
       "OBJ_56" = {
          isa = "PBXFileReference";
-         path = "ParallelTest.swift";
+         path = "Operation.swift";
          sourceTree = "<group>";
       };
       "OBJ_57" = {
          isa = "PBXFileReference";
-         path = "ReferenceManager.swift";
+         path = "RunCommandOperation.swift";
          sourceTree = "<group>";
       };
       "OBJ_58" = {
          isa = "PBXFileReference";
-         path = "SampleUsage.swift";
+         path = "ReadConcern.swift";
          sourceTree = "<group>";
       };
       "OBJ_59" = {
          isa = "PBXFileReference";
-         path = "batch.swift";
+         path = "ReadPreference.swift";
          sourceTree = "<group>";
       };
       "OBJ_6" = {
@@ -1747,34 +2199,35 @@
       };
       "OBJ_60" = {
          isa = "PBXFileReference";
-         path = "database.swift";
+         path = "SDAM.swift";
          sourceTree = "<group>";
       };
       "OBJ_61" = {
          isa = "PBXFileReference";
-         path = "entity.swift";
+         path = "WriteConcern.swift";
          sourceTree = "<group>";
       };
       "OBJ_62" = {
          isa = "PBXFileReference";
-         path = "logging.swift";
+         explicitFileType = "sourcecode.swift";
+         name = "Package.swift";
+         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/mongo-swift-driver.git-7304133144754734562/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_63" = {
-         isa = "PBXFileReference";
-         path = "promise.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_64" = {
-         isa = "PBXFileReference";
-         explicitFileType = "sourcecode.swift";
-         name = "Package.swift";
-         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/danake-sw.git--3525978148060801710/Package.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_65" = {
          isa = "PBXGroup";
          children = (
+            "OBJ_64",
+            "OBJ_75"
+         );
+         name = "danake";
+         path = "";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_64" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_65",
             "OBJ_66",
             "OBJ_67",
             "OBJ_68",
@@ -1783,39 +2236,35 @@
             "OBJ_71",
             "OBJ_72",
             "OBJ_73",
-            "OBJ_74",
-            "OBJ_75",
-            "OBJ_76",
-            "OBJ_77",
-            "OBJ_78",
-            "OBJ_79",
-            "OBJ_80",
-            "OBJ_81"
+            "OBJ_74"
          );
-         name = "PromiseKit 6.8.3";
-         path = ".build/checkouts/PromiseKit--8041544616781952515/Sources";
+         name = "danake";
+         path = ".build/checkouts/danake-sw.git--7553291058968854036/Sources/danake";
          sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_65" = {
+         isa = "PBXFileReference";
+         path = "EntityCache.swift";
+         sourceTree = "<group>";
       };
       "OBJ_66" = {
          isa = "PBXFileReference";
-         explicitFileType = "sourcecode.swift";
-         name = "Package.swift";
-         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/PromiseKit--8041544616781952515/Package.swift";
+         path = "InMemoryAccessor.swift";
          sourceTree = "<group>";
       };
       "OBJ_67" = {
          isa = "PBXFileReference";
-         path = "Box.swift";
+         path = "ParallelTest.swift";
          sourceTree = "<group>";
       };
       "OBJ_68" = {
          isa = "PBXFileReference";
-         path = "Catchable.swift";
+         path = "ReferenceManager.swift";
          sourceTree = "<group>";
       };
       "OBJ_69" = {
          isa = "PBXFileReference";
-         path = "Configuration.swift";
+         path = "SampleUsage.swift";
          sourceTree = "<group>";
       };
       "OBJ_7" = {
@@ -1829,52 +2278,65 @@
       };
       "OBJ_70" = {
          isa = "PBXFileReference";
-         path = "CustomStringConvertible.swift";
+         path = "batch.swift";
          sourceTree = "<group>";
       };
       "OBJ_71" = {
          isa = "PBXFileReference";
-         path = "Error.swift";
+         path = "database.swift";
          sourceTree = "<group>";
       };
       "OBJ_72" = {
          isa = "PBXFileReference";
-         path = "Guarantee.swift";
+         path = "entity.swift";
          sourceTree = "<group>";
       };
       "OBJ_73" = {
          isa = "PBXFileReference";
-         path = "LogEvent.swift";
+         path = "logging.swift";
          sourceTree = "<group>";
       };
       "OBJ_74" = {
          isa = "PBXFileReference";
-         path = "Promise.swift";
+         path = "promise.swift";
          sourceTree = "<group>";
       };
       "OBJ_75" = {
          isa = "PBXFileReference";
-         path = "Resolver.swift";
+         explicitFileType = "sourcecode.swift";
+         name = "Package.swift";
+         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/danake-sw.git--7553291058968854036/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_76" = {
-         isa = "PBXFileReference";
-         path = "Thenable.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_77",
+            "OBJ_79"
+         );
+         name = "JSONEquality";
+         path = "";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_77" = {
-         isa = "PBXFileReference";
-         path = "after.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_78"
+         );
+         name = "JSONEquality";
+         path = ".build/checkouts/JSONEquality.git--7389282414189743077/Sources/JSONEquality";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_78" = {
          isa = "PBXFileReference";
-         path = "firstly.swift";
+         path = "JSONEquality.swift";
          sourceTree = "<group>";
       };
       "OBJ_79" = {
          isa = "PBXFileReference";
-         path = "hang.swift";
+         explicitFileType = "sourcecode.swift";
+         name = "Package.swift";
+         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/JSONEquality.git--7389282414189743077/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_8" = {
@@ -1887,28 +2349,75 @@
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_80" = {
-         isa = "PBXFileReference";
-         path = "race.swift";
-         sourceTree = "<group>";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_81",
+            "OBJ_82",
+            "OBJ_83",
+            "OBJ_84",
+            "OBJ_85",
+            "OBJ_86",
+            "OBJ_87",
+            "OBJ_88",
+            "OBJ_89",
+            "OBJ_90",
+            "OBJ_91",
+            "OBJ_92",
+            "OBJ_93",
+            "OBJ_94",
+            "OBJ_95",
+            "OBJ_96"
+         );
+         name = "PromiseKit 6.8.4";
+         path = ".build/checkouts/PromiseKit-3174039486473102736/Sources";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_81" = {
          isa = "PBXFileReference";
-         path = "when.swift";
+         explicitFileType = "sourcecode.swift";
+         name = "Package.swift";
+         path = "/Users/neal/xcode/danake-mongo/.build/checkouts/PromiseKit-3174039486473102736/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_82" = {
-         isa = "PBXGroup";
-         children = (
-            "danakeMongo::danakeMongo::Product",
-            "PromiseKit::PromiseKit::Product",
-            "danakeMongo::danakeMongoTests::Product",
-            "MongoSwift::MongoSwift::Product",
-            "ManagedPool::ManagedPool::Product",
-            "danake::danake::Product"
-         );
-         name = "Products";
-         path = "";
-         sourceTree = "BUILT_PRODUCTS_DIR";
+         isa = "PBXFileReference";
+         path = "Box.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_83" = {
+         isa = "PBXFileReference";
+         path = "Catchable.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_84" = {
+         isa = "PBXFileReference";
+         path = "Configuration.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_85" = {
+         isa = "PBXFileReference";
+         path = "CustomStringConvertible.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_86" = {
+         isa = "PBXFileReference";
+         path = "Error.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_87" = {
+         isa = "PBXFileReference";
+         path = "Guarantee.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_88" = {
+         isa = "PBXFileReference";
+         path = "LogEvent.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_89" = {
+         isa = "PBXFileReference";
+         path = "Promise.swift";
+         sourceTree = "<group>";
       };
       "OBJ_9" = {
          isa = "PBXFileReference";
@@ -1916,154 +2425,61 @@
          sourceTree = "<group>";
       };
       "OBJ_90" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_91",
-            "OBJ_92"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
+         isa = "PBXFileReference";
+         path = "Resolver.swift";
+         sourceTree = "<group>";
       };
       "OBJ_91" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "danakeMongo.xcodeproj/ManagedPool_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "ManagedPool";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "4.0";
-            TARGET_NAME = "ManagedPool";
-         };
-         name = "Debug";
+         isa = "PBXFileReference";
+         path = "Thenable.swift";
+         sourceTree = "<group>";
       };
       "OBJ_92" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "danakeMongo.xcodeproj/ManagedPool_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "ManagedPool";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "4.0";
-            TARGET_NAME = "ManagedPool";
-         };
-         name = "Release";
+         isa = "PBXFileReference";
+         path = "after.swift";
+         sourceTree = "<group>";
       };
       "OBJ_93" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_94"
-         );
+         isa = "PBXFileReference";
+         path = "firstly.swift";
+         sourceTree = "<group>";
       };
       "OBJ_94" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_18";
+         isa = "PBXFileReference";
+         path = "hang.swift";
+         sourceTree = "<group>";
       };
       "OBJ_95" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-         );
+         isa = "PBXFileReference";
+         path = "race.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_96" = {
+         isa = "PBXFileReference";
+         path = "when.swift";
+         sourceTree = "<group>";
       };
       "OBJ_97" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_98",
-            "OBJ_99"
+         isa = "PBXGroup";
+         children = (
+            "ManagedPool::ManagedPool::Product",
+            "danakeMongo::danakeMongo::Product",
+            "JSONEquality::JSONEquality::Product",
+            "danakeMongo::danakeMongoTests::Product",
+            "danake::danake::Product",
+            "MongoSwift::MongoSwift::Product",
+            "PromiseKit::PromiseKit::Product"
          );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_98" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
-            );
-            SWIFT_VERSION = "4.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_99" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
-            );
-            SWIFT_VERSION = "4.0";
-         };
-         name = "Release";
+         name = "Products";
+         path = "";
+         sourceTree = "BUILT_PRODUCTS_DIR";
       };
       "PromiseKit::PromiseKit" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_143";
+         buildConfigurationList = "OBJ_188";
          buildPhases = (
-            "OBJ_146",
-            "OBJ_162"
+            "OBJ_191",
+            "OBJ_207"
          );
          dependencies = (
          );
@@ -2079,9 +2495,9 @@
       };
       "PromiseKit::SwiftPMPackageDescription" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_164";
+         buildConfigurationList = "OBJ_209";
          buildPhases = (
-            "OBJ_167"
+            "OBJ_212"
          );
          dependencies = (
          );
@@ -2091,7 +2507,7 @@
       };
       "bson::bson::ProductTarget" = {
          isa = "PBXAggregateTarget";
-         buildConfigurationList = "OBJ_170";
+         buildConfigurationList = "OBJ_215";
          buildPhases = (
          );
          dependencies = (
@@ -2101,9 +2517,9 @@
       };
       "danake::SwiftPMPackageDescription" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_236";
+         buildConfigurationList = "OBJ_287";
          buildPhases = (
-            "OBJ_239"
+            "OBJ_290"
          );
          dependencies = (
          );
@@ -2113,13 +2529,14 @@
       };
       "danake::danake" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_174";
+         buildConfigurationList = "OBJ_219";
          buildPhases = (
-            "OBJ_177",
-            "OBJ_188"
+            "OBJ_222",
+            "OBJ_233"
          );
          dependencies = (
-            "OBJ_190"
+            "OBJ_236",
+            "OBJ_237"
          );
          name = "danake";
          productName = "danake";
@@ -2133,9 +2550,9 @@
       };
       "danakeMongo::SwiftPMPackageDescription" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_207";
+         buildConfigurationList = "OBJ_256";
          buildPhases = (
-            "OBJ_210"
+            "OBJ_259"
          );
          dependencies = (
          );
@@ -2145,16 +2562,17 @@
       };
       "danakeMongo::danakeMongo" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_192";
+         buildConfigurationList = "OBJ_239";
          buildPhases = (
-            "OBJ_195",
-            "OBJ_197"
+            "OBJ_242",
+            "OBJ_244"
          );
          dependencies = (
-            "OBJ_202",
-            "OBJ_203",
-            "OBJ_204",
-            "OBJ_205"
+            "OBJ_250",
+            "OBJ_251",
+            "OBJ_252",
+            "OBJ_253",
+            "OBJ_254"
          );
          name = "danakeMongo";
          productName = "danakeMongo";
@@ -2168,28 +2586,29 @@
       };
       "danakeMongo::danakeMongoPackageTests::ProductTarget" = {
          isa = "PBXAggregateTarget";
-         buildConfigurationList = "OBJ_213";
+         buildConfigurationList = "OBJ_262";
          buildPhases = (
          );
          dependencies = (
-            "OBJ_216"
+            "OBJ_265"
          );
          name = "danakeMongoPackageTests";
          productName = "danakeMongoPackageTests";
       };
       "danakeMongo::danakeMongoTests" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_218";
+         buildConfigurationList = "OBJ_267";
          buildPhases = (
-            "OBJ_221",
-            "OBJ_224"
+            "OBJ_270",
+            "OBJ_273"
          );
          dependencies = (
-            "OBJ_230",
-            "OBJ_231",
-            "OBJ_232",
-            "OBJ_233",
-            "OBJ_234"
+            "OBJ_280",
+            "OBJ_281",
+            "OBJ_282",
+            "OBJ_283",
+            "OBJ_284",
+            "OBJ_285"
          );
          name = "danakeMongoTests";
          productName = "danakeMongoTests";
@@ -2203,7 +2622,7 @@
       };
       "mongoc::mongoc::ProductTarget" = {
          isa = "PBXAggregateTarget";
-         buildConfigurationList = "OBJ_242";
+         buildConfigurationList = "OBJ_293";
          buildPhases = (
          );
          dependencies = (

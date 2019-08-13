@@ -39,7 +39,6 @@ public struct ConnectionPoolOptions {
                           **Default = 60.0**
 */
     public init (maximumConnections: Int, minimumCached: Int = 0, reservedCacheCapacity: Int = 30, idleTimeout: TimeInterval = 300.0, timeout: TimeInterval = 60.0, statusReportInterval: TimeInterval = 300.0) {
-        MongoSwift.initialize()
         self.maximumConnections = maximumConnections
         self.minimumCached = minimumCached
         self.reservedCacheCapacity = reservedCacheCapacity
@@ -93,7 +92,7 @@ open class MongoAccessor : SynchronousAccessor {
         self.logger = logger
         
         let newConnectionClosure: () throws -> MongoDatabase = {
-            let client = try MongoClient (connectionString: dbConnectionString, options: clientOptions)
+            let client = try MongoClient (dbConnectionString, options: clientOptions)
             return client.db (databaseName, options: databaseOptions)
         }
         let database = try newConnectionClosure()
@@ -428,6 +427,7 @@ open class MongoAccessor : SynchronousAccessor {
         statusReportQueue.sync {
             isInvalidated = true
         }
+        cleanupMongoSwift()
     }
 
     internal func newCollectionsSync (closure: (Set<String>) -> ()) {

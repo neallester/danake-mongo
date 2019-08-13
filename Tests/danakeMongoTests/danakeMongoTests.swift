@@ -17,15 +17,10 @@ import ManagedPool
 
 final class DanakeMongoTests: XCTestCase {
     
-    override func setUp() {
-        MongoSwift.initialize()
-    }
-
-    
     func testConnection() throws {
         if let connectionString = connectionString() {
             do {
-                let client = try MongoClient (connectionString: connectionString)
+                let client = try MongoClient (connectionString)
                 let database = client.db (DanakeMongoTests.testDbName)
                 let _ = try database.listCollections()
                 XCTAssertTrue (true)
@@ -36,7 +31,6 @@ final class DanakeMongoTests: XCTestCase {
     }
 
     private func connectionString() -> String? {
-        MongoSwift.initialize()
         var connectionString: String? = nil
         #if os(Linux)
             sleep (1)
@@ -89,7 +83,7 @@ final class DanakeMongoTests: XCTestCase {
             do {
                 let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
                 XCTAssertTrue (logger === accessor.logger as! InMemoryLogger)
-                let client = try MongoClient (connectionString: connectionString)
+                let client = try MongoClient (connectionString)
                 let database = client.db (DanakeMongoTests.testDbName)
                 let metadataCollection = database.collection (MongoAccessor.metadataCollectionName)
                 try XCTAssertEqual (1, metadataCollection.count())
@@ -496,7 +490,7 @@ final class DanakeMongoTests: XCTestCase {
             #if os(Linux)
                 sleep (3)
             #endif
-            MongoSwift.cleanup()
+            cleanupMongoSwift()
         }
     }
     
@@ -504,7 +498,7 @@ final class DanakeMongoTests: XCTestCase {
     public func clearTestDatabase () {
         do {
             if let connectionString = connectionString() {
-                let client = try MongoClient (connectionString: connectionString)
+                let client = try MongoClient (connectionString)
                 let database = client.db (DanakeMongoTests.testDbName)
                 for collectionDocument in try database.listCollections() {
                     if let name: String = collectionDocument ["name"] as? String {
