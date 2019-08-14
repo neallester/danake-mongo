@@ -455,11 +455,15 @@ final class DanakeMongoTests: XCTestCase {
                 }
             }
         }
-        
+        let logger = InMemoryLogger()
         if let connectionString = connectionString() {
-            let accessor = try SampleMongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
+            let accessor = try SampleMongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
             XCTAssertTrue (SampleUsage.runSample (accessor: accessor))
-            XCTAssertEqual (0, accessor.connectionPool.status().checkedOut)
+            let checkedOut = accessor.connectionPool.status().checkedOut
+            if checkedOut > 0 {
+                logger.printAll()
+            }
+            XCTAssertEqual (0, checkedOut)
         } else {
             XCTFail("Expected connectionString")
         }
