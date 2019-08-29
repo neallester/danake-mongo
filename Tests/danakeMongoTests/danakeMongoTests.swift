@@ -459,9 +459,14 @@ final class DanakeMongoTests: XCTestCase {
         if let connectionString = connectionString() {
             let accessor = try SampleMongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
             XCTAssertTrue (SampleUsage.runSample (accessor: accessor))
-            let checkedOut = accessor.connectionPool.status().checkedOut
+            var checkedOut = accessor.connectionPool.status().checkedOut
             if checkedOut > 0 {
                 logger.printAll()
+                let endTime = Date().timeIntervalSince1970 + 2.0
+                while checkedOut > 0 && Date().timeIntervalSince1970 < endTime {
+                    usleep(100000)
+                    checkedOut = accessor.connectionPool.status().checkedOut
+                }
             }
             XCTAssertEqual (0, checkedOut)
         } else {
