@@ -187,7 +187,7 @@ final class DanakeMongoTests: XCTestCase {
                             XCTAssertEqual (0, newCollections.count)
                         }
                         let collectionName = "myCollection"
-                        let newCollection = try accessor.collectionFor (name: collectionName).collection
+                        let newCollection = try accessor.collectionFor (name: collectionName)
                         XCTAssertEqual (collectionName, newCollection.name)
                         stage = 3
                         accessor.newCollectionsSync() { newCollections in
@@ -206,7 +206,7 @@ final class DanakeMongoTests: XCTestCase {
                         XCTAssertTrue (accessor2.existingCollections.contains (collectionName))
                         XCTAssertTrue (accessor2.existingCollections.contains(MongoAccessor.metadataCollectionName))
                         stage = 5
-                        let newCollection2 = try accessor2.collectionFor (name: collectionName).collection
+                        let newCollection2 = try accessor2.collectionFor (name: collectionName)
                         stage = 6
                         accessor2.newCollectionsSync() { newCollections in
                             XCTAssertEqual (0, newCollections.count)
@@ -283,7 +283,6 @@ final class DanakeMongoTests: XCTestCase {
                 } catch {
                   XCTAssertEqual ("unknownUUID(\(id.uuidString))", "\(error)")
                 }
-                XCTAssertEqual (0, accessor.connectionPool.status().checkedOut)
             } catch {
                 XCTFail("Stage \(stage): No Error expected but got \(error)")
             }
@@ -346,129 +345,24 @@ final class DanakeMongoTests: XCTestCase {
         clearTestDatabase()
     }
     
-    public func testCheckIn() throws {
-        if let connectionString = connectionString() {
-            let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
-            let c1 = try accessor.connectionPool.checkOut()
-            var status = accessor.poolStatus()
-            XCTAssertEqual (1, status.checkedOut)
-            XCTAssertEqual (0, status.cached)
-            accessor.checkIn(c1)
-            status = accessor.poolStatus()
-            XCTAssertEqual (0, status.checkedOut)
-            XCTAssertEqual (1, status.cached)
-        } else {
-            XCTFail("Expected connectionString")
-        }
-    }
-    
-    public func testErrorLogging() throws {
-        if let connectionString = connectionString() {
-            let logger = InMemoryLogger(level: .warning)
-            let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, maximumConnections: 1, logger: logger)
-            let c1 = try accessor.connectionPool.checkOut()
-            logger.sync() { entries in
-                XCTAssertEqual (1, entries.count)
-                XCTAssertEqual ("EMERGENCY|MongoAccessor.Type.logPoolError|poolEmpty", entries[0].asTestString())
-            }
-            accessor.checkIn(c1)
-            
-        } else {
-            XCTFail("Expected connectionString")
-        }
-    }
-    
-    public func testStatusReport() throws {
-        if let connectionString = connectionString() {
-            let logger = InMemoryLogger(level: .info)
-            let options = ConnectionPoolOptions(maximumConnections: 5, statusReportInterval: 0.0000001)
-            let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, connectionPoolOptions: options, logger: logger)
-            var actualLogEntry: String? = nil
-            var foundEntry = logger.waitForEntry(intervalUseconds: 100, timeoutSeconds: 100) { entries in
-                actualLogEntry = entries.last!.asTestString()
-                return actualLogEntry == "INFO|MongoAccessor.logStatusReport|status|maximumConnections=5;checkedOut=0;cached=0;firstExpires=nil;lastExpires=nil"
-            }
-            if !foundEntry {
-                print ("Unexpected Entry 1: \(String(describing: actualLogEntry))")
-            }
-            XCTAssertTrue (foundEntry)
-            let c1 = try accessor.connectionPool.checkOut()
-            foundEntry = false
-            actualLogEntry = nil
-            foundEntry = logger.waitForEntry(intervalUseconds: 100, timeoutSeconds: 100) { entries in
-                actualLogEntry = entries.last!.asTestString()
-                return actualLogEntry == "INFO|MongoAccessor.logStatusReport|status|maximumConnections=5;checkedOut=1;cached=0;firstExpires=nil;lastExpires=nil"
-            }
-            if !foundEntry {
-                print ("Unexpected Entry 2: \(String(describing: actualLogEntry))")
-            }
-            XCTAssertTrue (foundEntry)
-            accessor.checkIn(c1)
-            foundEntry = false
-            actualLogEntry = nil
-            foundEntry = logger.waitForEntry(intervalUseconds: 100, timeoutSeconds: 100) { entries in
-                actualLogEntry = entries.last!.asTestString()
-                return entries.last!.asTestString().contains ("INFO|MongoAccessor.logStatusReport|status|maximumConnections=5;checkedOut=0;cached=1;firstExpires=") &&
-                       entries.last!.asTestString().contains (";lastExpires=") &&
-                       !entries.last!.asTestString().contains (";lastExpires=nil")
-            }
-            if !foundEntry {
-                print ("Unexpected Entry 3: \(String(describing: actualLogEntry))")
-            }
-            XCTAssertTrue (foundEntry)
-        } else {
-            XCTFail("Expected connectionString")
-        }
-        
-    }
-
     public func testSampleCompany() throws {
         
         class SampleMongoAccessor : MongoAccessor, SampleAccessor {
             func employeesForCompany(cache: EntityCache<SampleEmployee>, company: SampleCompany) throws -> [Entity<SampleEmployee>] {
-
-	    	enum TestErrors: Error {
-		     case testError
-		}
-
-                var connection: (collection: MongoCollection<Document>, poolObject: PoolObject<MongoDatabase>)? = nil
-                var isConnectionOk = true
-                defer {
-                    if let connection = connection {
-                        self.connectionPool.checkIn(connection.poolObject, isOK: isConnectionOk)
-                    }
-                }
                 do {
-                    connection = try collectionFor(name: cache.name)
-                    if let connection = connection {
-                        let query: Document = try [ "item.company.id" : Binary (from: company.id)]
-                        let documents = try connection.collection.find(query);
-                        let result: [Entity<SampleEmployee>] = try entityForDocuments(documents, cache: cache, type: Entity<SampleEmployee>.self)
-                        return result
-                    } else {
-                        isConnectionOk = false
-			throw TestErrors.testError
-                    }
+                    let query: Document = try [ "item.company.id" : Binary (from: company.id)]
+                    let documents = try collectionFor(name: cache.name).find(query);
+                    return try entityForDocuments(documents, cache: cache, type: Entity<SampleEmployee>.self)
                 } catch {
-                    isConnectionOk = false
                     throw error
                 }
             }
         }
         let logger = InMemoryLogger()
+
         if let connectionString = connectionString() {
             let accessor = try SampleMongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
             XCTAssertTrue (SampleUsage.runSample (accessor: accessor))
-            var checkedOut = accessor.connectionPool.status().checkedOut
-            if checkedOut > 0 {
-                logger.printAll()
-                let endTime = Date().timeIntervalSince1970 + 2.0
-                while checkedOut > 0 && Date().timeIntervalSince1970 < endTime {
-                    usleep(100000)
-                    checkedOut = accessor.connectionPool.status().checkedOut
-                }
-            }
-            XCTAssertEqual (0, checkedOut)
         } else {
             XCTFail("Expected connectionString")
         }
@@ -492,7 +386,6 @@ final class DanakeMongoTests: XCTestCase {
             if let connectionString = connectionString() {
                 let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: nil)
                 XCTAssertTrue (ParallelTest.performTest (accessor: accessor, repetitions: repetitions, logger: nil))
-                XCTAssertEqual (0, accessor.connectionPool.status().checkedOut)
             } else {
                 XCTFail("Expected connectionString")
             }
