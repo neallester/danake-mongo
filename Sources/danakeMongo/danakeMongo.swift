@@ -2,7 +2,6 @@
 import danake
 import Foundation
 import MongoSwift
-import ManagedPool
 
 class DanakeMetadata : Codable {
     
@@ -23,39 +22,6 @@ enum DanakeMongoError : Error {
 /**
     Options for tuning the behavior the connection pool used by the MongoAccessor.
 */
-//public struct ConnectionPoolOptions {
-//
-///**
-//     - parameter maximumConnections: The maximum number of database connections which may be open at one time.
-//     - parameter minimumCached: The minimum number of open connections to retain in the cache. Actual cache count may drop below this
-//                                under high demand. **Default = 0**
-//     - parameter reservedCacheCapacity: The initial capacity reserved for the cache beyond **minimumCached**.
-//                                        That is, initial cache reservedCapcity = (**minimumCached** + **reservedCacheCapcity**) or
-//                                        **capacity**, whichever is less. **Default = 30**.
-//     - parameter idleTimeout: Connections will be removed from the cache if they are not used within **idleTimeout** seconds
-//                              of their checkIn. 0.0 means connections live forever (not recommended). **Default = 300.0**
-//     - parameter statusReportInterval: Status reports will be logged (.info) every **statusReportInterval** seconds. 0.0 indicates no reports. Ignored if logger is nil. **Default = 300.0**
-//     - parameter timeout: The maximum number of seconds the MongoAccesor will wait for an object in the pool to become available.
-//                          **Default = 60.0**
-//*/
-//    public init (maximumConnections: Int, minimumCached: Int = 0, reservedCacheCapacity: Int = 30, idleTimeout: TimeInterval = 300.0, timeout: TimeInterval = 60.0, statusReportInterval: TimeInterval = 300.0) {
-//        self.maximumConnections = maximumConnections
-//        self.minimumCached = minimumCached
-//        self.reservedCacheCapacity = reservedCacheCapacity
-//        self.idleTimeout = idleTimeout
-//        self.statusReportInterval = statusReportInterval
-//        self.timeout = timeout
-//    }
-//
-//    internal let maximumConnections: Int
-//    internal let minimumCached: Int
-//    internal let reservedCacheCapacity: Int
-//    internal let idleTimeout: TimeInterval
-//    internal let timeout: TimeInterval
-//    internal let statusReportInterval: TimeInterval
-//
-//}
-    
 /**
     A Danake DatabaseAccessor for the Mongo Database; used as a database access delegate by a Database object.
  
@@ -64,17 +30,6 @@ enum DanakeMongoError : Error {
 */
 open class MongoAccessor : SynchronousAccessor {
 
-///**
-//     - parameter dbConnectionString: A string defining [connection parameters](https://docs.mongodb.com/manual/reference/connection-string/)
-//                                     to a Mongo database.
-//     - parameter databaseName: Name of the database to connect to.
-//     - parameter maximumConnections: The maximum number of database connections which may be open at one time. **Default = 30**
-//     - parameter logger: The logger to use for reporting database activity and errors.
-//*/
-//    convenience init (dbConnectionString: String, databaseName: String, maximumConnections: Int = 30, logger: danake.Logger?) throws {
-//        try self.init (dbConnectionString: dbConnectionString, databaseName: databaseName, connectionPoolOptions: ConnectionPoolOptions(maximumConnections: maximumConnections), clientOptions: nil, databaseOptions: nil, logger: logger)
-//    }
-//
 /**
      - parameter dbConnectionString: A string defining [connection parameters](https://docs.mongodb.com/manual/reference/connection-string/)
      to a Mongo database.

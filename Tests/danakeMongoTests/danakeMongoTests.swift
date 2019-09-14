@@ -2,7 +2,6 @@ import XCTest
 @testable import danakeMongo
 import danake
 import MongoSwift
-import ManagedPool
 
 /*
  
