@@ -195,7 +195,7 @@ final class DanakeMongoTests: XCTestCase {
                         }
                         var indexCount = 0;
                         for index in try newCollection.listIndexes() {
-                            XCTAssertEqual ("_id_", index["name"] as! String)
+                            XCTAssertEqual ("_id_", index.options!.name!)
                             indexCount = indexCount + 1
                         }
                         XCTAssertEqual (1, indexCount)
@@ -214,7 +214,7 @@ final class DanakeMongoTests: XCTestCase {
                         XCTAssertEqual (newCollection2.name, collectionName)
                         indexCount = 0;
                         for index in try newCollection2.listIndexes() {
-                            XCTAssertEqual ("_id_", index["name"] as! String)
+                            XCTAssertEqual ("_id_", index.options!.name!)
                             indexCount = indexCount + 1
                         }
                         XCTAssertEqual (1, indexCount)
@@ -369,7 +369,7 @@ final class DanakeMongoTests: XCTestCase {
     
     public func testParallelTests() throws {        
         let runTest = true;
-        var repetitions = 5
+        let repetitions = 5
         #if os(Linux)
             sleep (3)
         #endif
@@ -394,11 +394,8 @@ final class DanakeMongoTests: XCTestCase {
                 let client = try MongoClient (connectionString)
                 let database = client.db (DanakeMongoTests.testDbName)
                 for collectionDocument in try database.listCollections() {
-                    if let name: String = collectionDocument ["name"] as? String {
-                        let command: Document = [ "drop" : name]
-                        try database.runCommand(command)
-                        
-                    }
+                    let command: Document = [ "drop" : collectionDocument.name]
+                    try database.runCommand(command)
                 }
             } else {
                 XCTFail ("Expected connectionString")
