@@ -44,7 +44,7 @@ open class MongoAccessor : SynchronousAccessor {
         self.clientOptions = clientOptions
         self.databaseOptions = databaseOptions
         self.logger = logger
-        let client = try MongoClient (dbConnectionString, options: clientOptions)
+        let client = try SyncMongoClient (dbConnectionString, options: clientOptions)
         database = client.db (databaseName)
         do {
             let metadataCollection = try database.createCollection (MongoAccessor.metadataCollectionName)
@@ -176,7 +176,7 @@ open class MongoAccessor : SynchronousAccessor {
      - parameter type: The type of the Entities
      - returns: an Array of Entity<T> created from the provided documents.
 */
-    public func entityForDocuments<T: Codable> (_ documents: MongoCursor<Document>, cache: EntityCache<T>, type: Entity<T>.Type) throws -> [Entity<T>] {
+    public func entityForDocuments<T: Codable> (_ documents: SyncMongoCursor<Document>, cache: EntityCache<T>, type: Entity<T>.Type) throws -> [Entity<T>] {
         var result: [Entity<T>] = []
         for document in documents {
             let bsonDecoder = decoder(cache: cache)
@@ -207,8 +207,8 @@ open class MongoAccessor : SynchronousAccessor {
      connectionPool using checkIn() when finished using the MongoCollection
      - parameter name: The name of the collection.
 */
-    public func collectionFor (name: String) throws -> MongoCollection<Document> {
-        var newCollection: MongoCollection<Document>? = nil
+    public func collectionFor (name: String) throws -> SyncMongoCollection<Document> {
+        var newCollection: SyncMongoCollection<Document>? = nil
         var wasExisting = false
         var wasPreviouslyCreated = false
         var errorMessage: String? = nil
@@ -273,7 +273,7 @@ open class MongoAccessor : SynchronousAccessor {
 
     
     internal var hasStatusReportStarted = false
-    internal let database: MongoDatabase
+    internal let database: SyncMongoDatabase
     internal let existingCollections: Set<String>
     internal let clientOptions: ClientOptions?
     internal let databaseOptions: DatabaseOptions?
