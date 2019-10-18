@@ -245,7 +245,7 @@ open class MongoAccessor : SynchronousAccessor {
 */
     public func documentForWrapper (_ wrapper: EntityPersistenceWrapper) throws -> Document {
         var result = try encoder().encode(wrapper)
-        result [MongoAccessor.mongoIdFieldName] = wrapper.id.uuidString
+        result [MongoAccessor.mongoIdFieldName] = BSON.string (wrapper.id.uuidString)
         return result
     }
 
@@ -254,7 +254,7 @@ open class MongoAccessor : SynchronousAccessor {
      - returns: A Document query which selects an Entity by id
 */
     public func selectId (_ id: UUID) -> Document {
-        return [MongoAccessor.mongoIdFieldName : id.uuidString]
+        return [MongoAccessor.mongoIdFieldName : BSON.string (id.uuidString)]
     }
     
     deinit {
