@@ -349,7 +349,7 @@ final class DanakeMongoTests: XCTestCase {
         class SampleMongoAccessor : MongoAccessor, SampleAccessor {
             func employeesForCompany(cache: EntityCache<SampleEmployee>, company: SampleCompany) throws -> [Entity<SampleEmployee>] {
                 do {
-                    let query: Document = try [ "item.company.id" : Binary (from: company.id)]
+                    let query: Document = try [ "item.company.id" : BSON.binary (Binary (from: company.id))]
                     let documents = try collectionFor(name: cache.name).find(query);
                     return try entityForDocuments(documents, cache: cache, type: Entity<SampleEmployee>.self)
                 } catch {
@@ -394,7 +394,7 @@ final class DanakeMongoTests: XCTestCase {
                 let client = try SyncMongoClient (connectionString)
                 let database = client.db (DanakeMongoTests.testDbName)
                 for collectionDocument in try database.listCollections() {
-                    let command: Document = [ "drop" : collectionDocument.name]
+                    let command: Document = [ "drop" : BSON.string (collectionDocument.name)]
                     try database.runCommand(command)
                 }
             } else {
