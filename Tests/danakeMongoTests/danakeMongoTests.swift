@@ -85,7 +85,7 @@ final class DanakeMongoTests: XCTestCase {
                 let client = try SyncMongoClient (connectionString)
                 let database = client.db (DanakeMongoTests.testDbName)
                 let metadataCollection = database.collection (MongoAccessor.metadataCollectionName)
-                try XCTAssertEqual (1, metadataCollection.count())
+                try XCTAssertEqual (1, metadataCollection.countDocuments())
                 let hashCode = accessor.hashValue
                 let decoder = BSONDecoder()
                 for document in try metadataCollection.find() {
@@ -97,7 +97,7 @@ final class DanakeMongoTests: XCTestCase {
                 let accessor2 = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
                 XCTAssertTrue (logger === accessor2.logger as! InMemoryLogger)
                 let metadataCollection2 = database.collection (MongoAccessor.metadataCollectionName)
-                try XCTAssertEqual (1, metadataCollection2.count())
+                try XCTAssertEqual (1, metadataCollection2.countDocuments())
                 let hashCode2 = accessor2.hashValue
                 for document in try metadataCollection2.find() {
                     let metadata = try decoder.decode(DanakeMetadata.self, from: document)
@@ -109,7 +109,7 @@ final class DanakeMongoTests: XCTestCase {
                 let accessor3 = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
                 XCTAssertTrue (logger === accessor3.logger as! InMemoryLogger)
                 let metadataCollection3 = database.collection (MongoAccessor.metadataCollectionName)
-                try XCTAssertEqual (1, metadataCollection3.count())
+                try XCTAssertEqual (1, metadataCollection3.countDocuments())
                 let hashCode3 = accessor3.hashValue
                 for document in try metadataCollection3.find() {
                     let metadata = try decoder.decode(DanakeMetadata.self, from: document)
