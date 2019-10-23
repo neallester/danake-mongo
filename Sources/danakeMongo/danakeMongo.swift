@@ -55,7 +55,7 @@ open class MongoAccessor : SynchronousAccessor {
             hashValue = newMetadata.id.uuidString
         } catch {
             let metadataCollection = database.collection (MongoAccessor.metadataCollectionName)
-            let metadataCount = try metadataCollection.count()
+            let metadataCount = try metadataCollection.countDocuments()
             switch metadataCount {
             case 1:
                 let cursor = try metadataCollection.find()
