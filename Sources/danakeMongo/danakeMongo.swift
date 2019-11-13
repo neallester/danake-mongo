@@ -44,7 +44,7 @@ open class MongoAccessor : SynchronousAccessor {
         self.clientOptions = clientOptions
         self.databaseOptions = databaseOptions
         self.logger = logger
-        let client = try SyncMongoClient (dbConnectionString, options: clientOptions)
+        let client = try MongoClient (dbConnectionString, options: clientOptions)
         database = client.db (databaseName)
         do {
             let metadataCollection = try database.createCollection (MongoAccessor.metadataCollectionName)
@@ -55,7 +55,7 @@ open class MongoAccessor : SynchronousAccessor {
             hashValue = newMetadata.id.uuidString
         } catch {
             let metadataCollection = database.collection (MongoAccessor.metadataCollectionName)
-            let metadataCount = try metadataCollection.count()
+            let metadataCount = try metadataCollection.countDocuments()
             switch metadataCount {
             case 1:
                 let cursor = try metadataCollection.find()
@@ -176,7 +176,7 @@ open class MongoAccessor : SynchronousAccessor {
      - parameter type: The type of the Entities
      - returns: an Array of Entity<T> created from the provided documents.
 */
-    public func entityForDocuments<T: Codable> (_ documents: SyncMongoCursor<Document>, cache: EntityCache<T>, type: Entity<T>.Type) throws -> [Entity<T>] {
+    public func entityForDocuments<T: Codable> (_ documents: MongoCursor<Document>, cache: EntityCache<T>, type: Entity<T>.Type) throws -> [Entity<T>] {
         var result: [Entity<T>] = []
         for document in documents {
             let bsonDecoder = decoder(cache: cache)
@@ -207,8 +207,8 @@ open class MongoAccessor : SynchronousAccessor {
      connectionPool using checkIn() when finished using the MongoCollection
      - parameter name: The name of the collection.
 */
-    public func collectionFor (name: String) throws -> SyncMongoCollection<Document> {
-        var newCollection: SyncMongoCollection<Document>? = nil
+    public func collectionFor (name: String) throws -> MongoCollection<Document> {
+        var newCollection: MongoCollection<Document>? = nil
         var wasExisting = false
         var wasPreviouslyCreated = false
         var errorMessage: String? = nil
@@ -245,7 +245,7 @@ open class MongoAccessor : SynchronousAccessor {
 */
     public func documentForWrapper (_ wrapper: EntityPersistenceWrapper) throws -> Document {
         var result = try encoder().encode(wrapper)
-        result [MongoAccessor.mongoIdFieldName] = wrapper.id.uuidString
+        result [MongoAccessor.mongoIdFieldName] = BSON.string (wrapper.id.uuidString)
         return result
     }
 
@@ -254,7 +254,7 @@ open class MongoAccessor : SynchronousAccessor {
      - returns: A Document query which selects an Entity by id
 */
     public func selectId (_ id: UUID) -> Document {
-        return [MongoAccessor.mongoIdFieldName : id.uuidString]
+        return [MongoAccessor.mongoIdFieldName : BSON.string (id.uuidString)]
     }
     
     deinit {
@@ -273,7 +273,7 @@ open class MongoAccessor : SynchronousAccessor {
 
     
     internal var hasStatusReportStarted = false
-    internal let database: SyncMongoDatabase
+    internal let database: MongoDatabase
     internal let existingCollections: Set<String>
     internal let clientOptions: ClientOptions?
     internal let databaseOptions: DatabaseOptions?

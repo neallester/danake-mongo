@@ -19,7 +19,7 @@ final class DanakeMongoTests: XCTestCase {
     func testConnection() throws {
         if let connectionString = connectionString() {
             do {
-                let client = try SyncMongoClient (connectionString)
+                let client = try MongoClient (connectionString)
                 let database = client.db (DanakeMongoTests.testDbName)
                 let _ = try database.listCollections()
                 XCTAssertTrue (true)
@@ -82,10 +82,10 @@ final class DanakeMongoTests: XCTestCase {
             do {
                 let accessor = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
                 XCTAssertTrue (logger === accessor.logger as! InMemoryLogger)
-                let client = try SyncMongoClient (connectionString)
+                let client = try MongoClient (connectionString)
                 let database = client.db (DanakeMongoTests.testDbName)
                 let metadataCollection = database.collection (MongoAccessor.metadataCollectionName)
-                try XCTAssertEqual (1, metadataCollection.count())
+                try XCTAssertEqual (1, metadataCollection.countDocuments())
                 let hashCode = accessor.hashValue
                 let decoder = BSONDecoder()
                 for document in try metadataCollection.find() {
@@ -97,7 +97,7 @@ final class DanakeMongoTests: XCTestCase {
                 let accessor2 = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
                 XCTAssertTrue (logger === accessor2.logger as! InMemoryLogger)
                 let metadataCollection2 = database.collection (MongoAccessor.metadataCollectionName)
-                try XCTAssertEqual (1, metadataCollection2.count())
+                try XCTAssertEqual (1, metadataCollection2.countDocuments())
                 let hashCode2 = accessor2.hashValue
                 for document in try metadataCollection2.find() {
                     let metadata = try decoder.decode(DanakeMetadata.self, from: document)
@@ -109,7 +109,7 @@ final class DanakeMongoTests: XCTestCase {
                 let accessor3 = try MongoAccessor (dbConnectionString: connectionString, databaseName: DanakeMongoTests.testDbName, logger: logger)
                 XCTAssertTrue (logger === accessor3.logger as! InMemoryLogger)
                 let metadataCollection3 = database.collection (MongoAccessor.metadataCollectionName)
-                try XCTAssertEqual (1, metadataCollection3.count())
+                try XCTAssertEqual (1, metadataCollection3.countDocuments())
                 let hashCode3 = accessor3.hashValue
                 for document in try metadataCollection3.find() {
                     let metadata = try decoder.decode(DanakeMetadata.self, from: document)
@@ -349,7 +349,7 @@ final class DanakeMongoTests: XCTestCase {
         class SampleMongoAccessor : MongoAccessor, SampleAccessor {
             func employeesForCompany(cache: EntityCache<SampleEmployee>, company: SampleCompany) throws -> [Entity<SampleEmployee>] {
                 do {
-                    let query: Document = try [ "item.company.id" : Binary (from: company.id)]
+                    let query: Document = try [ "item.company.id" : BSON.binary (Binary (from: company.id))]
                     let documents = try collectionFor(name: cache.name).find(query);
                     return try entityForDocuments(documents, cache: cache, type: Entity<SampleEmployee>.self)
                 } catch {
@@ -391,10 +391,10 @@ final class DanakeMongoTests: XCTestCase {
     public func clearTestDatabase () {
         do {
             if let connectionString = connectionString() {
-                let client = try SyncMongoClient (connectionString)
+                let client = try MongoClient (connectionString)
                 let database = client.db (DanakeMongoTests.testDbName)
                 for collectionDocument in try database.listCollections() {
-                    let command: Document = [ "drop" : collectionDocument.name]
+                    let command: Document = [ "drop" : BSON.string (collectionDocument.name)]
                     try database.runCommand(command)
                 }
             } else {
