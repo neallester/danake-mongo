@@ -72,7 +72,7 @@ final class DanakeMongoTests: XCTestCase {
             let _ = try MongoAccessor (dbConnectionString: "xhbpaiewerjjlsizppskne320982734qpeijfz1209873.com", databaseName: DanakeMongoTests.testDbName, logger: logger)
             XCTFail("Expected Error")
         } catch {
-            XCTAssertEqual ("invalidArgumentError(message: \"Invalid URI Schema, expecting \\'mongodb://\\' or \\'mongodb+srv://\\'\")", "\(error)")
+            XCTAssertEqual ("InvalidArgumentError(message: \"Invalid URI Schema, expecting \\'mongodb://\\' or \\'mongodb+srv://\\'\")", "\(error)")
         }
         do {
             let _ = try MongoAccessor (dbConnectionString: "mongodb://www.mysafetyprogram.com:27017", databaseName: DanakeMongoTests.testDbName, logger: logger)
